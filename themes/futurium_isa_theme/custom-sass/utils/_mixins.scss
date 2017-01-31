@@ -1,0 +1,543 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// Responsive manager
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+/// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
+@mixin respond-to($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+  
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+/// Flexbox
+/// Used for eq height of boxes.
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+
+/// mixin for transition
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+
+/// Responsive breakpoints
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "medium" {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "large" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+/// Font-size in pixels & rem
+/// list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+@function rem-separator($list) {
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+  $result: ();
+  $separator: rem-separator($values);
+
+  @each $value in $values {
+    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+      $result: append($result, $value / 1rem * $rem-baseline, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+      $result: append($result, $value / ($rem-baseline / 1rem), $separator);
+    } @else if type-of($value) == "list" {
+      $result: append($result, rem-convert($to, $value...), $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+  @if $rem-px-only {
+    @return rem-convert(px, $values...);
+  } @else {
+    @return rem-convert(rem, $values...);
+  }
+}
+
+@mixin rem($properties, $values...) {
+  @if type-of($properties) == "map" {
+    @each $property in map-keys($properties) {
+      @include rem($property, map-get($properties, $property));
+    }
+  } @else {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+    }
+  }
+}
+
+/// Vertically Centered
+
+@mixin vertically-centered
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/// PROJECT SPECEFIC MIXINS ////
+/// PROJECT SPECEFIC MIXINS ////
+/// PROJECT SPECEFIC MIXINS ////
+
+/// Base for a button 
+
+
+
+@mixin btn-default($color) {
+  @include rem(padding, 10px 10px 10px 10px);
+  @include rem(font-size, 14px);
+  background: $color;
+  display: inline-block;
+  border-radius: 0px;
+  border: 1px solid darken($color, 10%);
+  color: #fff;
+  @include transition(background .4s ease);
+  @include on-event {
+    background-color: darken($color, 15%); 
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid darken($color, 20%);
+  } 
+}
+
+@mixin btn-special($color) {
+  @include rem(padding, 15px 15px 15px 15px);
+  /*font-family: $header-font-stack; */  
+  @include rem(font-size, 18px);
+  background: darken($color, 20%);
+  color: #fff;
+  text-align: center;
+  /* text-transform: uppercase; */   
+  cursor: pointer;
+  border: 1px solid darken($color, 25%);
+  font-weight: bold;
+  @include transition(background .4s ease);
+  @include on-event {
+    background-color: darken($color, 25%); 
+    border: 1px solid darken($color, 30%);
+    color: #fff;
+    text-decoration: none;
+  } 
+}
+
+@mixin panel {
+  @include rem(margin, 0 0 30px 0);
+  background: $light-grey;
+  border: 1px solid darken($light-grey, 10%);
+}
+
+
+/* mixin for the font awesome icons */
+
+@mixin fa($icon) {
+    @extend .fa;
+    @extend .fa-#{$icon};
+    padding-right: 8px;
+   /* display: inline-block; */
+}
+
+/* mixin user */
+
+@mixin round-userpicture {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 35px;
+  height: 35px;
+}
+
+
+
+/* mixin for layout content types (does markup of row1) */
+
+@mixin contenttype($color, $icon) {
+    
+  a:not(.container-top a) {
+    color: $color;
+    @include on-event {
+      color: $color;
+    }
+  }
+
+  .sidebar-right a {
+    color: inherit;
+  }
+
+  /* add relation */
+
+  .sidebar-right .form-item .autocomplete-new a{
+    @include rem(padding, 10px 10px 10px 10px);
+    @include rem(margin, 5px 15px 10px 15px);
+    background: $light-grey;
+    @include rem(font-size, 13px);
+    font-weight: bold;
+
+    border: 1px solid $dark-grey;
+    color: $dark-grey;
+  }
+
+  .sidebar-right .form-item .autocomplete-new.ideas a {
+    @include on-event {
+      border: 1px solid darken($idea-color, 10%);
+      color: darken($idea-color, 10%);
+    }
+  }  
+
+  .sidebar-right .form-item .autocomplete-new.future a {
+    @include on-event {
+      border: 1px solid darken($future-color, 10%);
+      color: darken($future-color, 10%);
+    }
+  }
+
+  .sidebar-right .form-item .autocomplete-new.evidence a {
+    @include on-event {
+      border: 1px solid darken($library-color, 10%);
+      color: darken($library-color, 10%);
+    }
+  }
+
+  .sidebar-right .form-item .autocomplete-new.event_d4eu a {
+    @include on-event {
+      border: 1px solid darken($event-color, 10%);
+      color: darken($event-color, 10%);
+    }
+  }
+
+  .sidebar-right a.flag{
+    color: #fff;
+  }
+
+  .more-link a, a.more-link, .btn-info, .btn {
+    @include btn-default($color);
+  }
+
+  /* row1 theming */
+  .container-fullwidth.row1 {
+    background: $color; 
+    border-top: 3px solid darken($color, 15%);
+    border-bottom: 1px solid darken($color, 15%);
+    .field-name-author {
+      @include rem(border-bottom, 1px solid lighten($color, 20%));
+    }
+  }
+
+  .row1{
+    a {
+      color: #ffffff;
+      on-event {
+        color: #ffffff;
+      }
+    }
+    .intro {
+      @include rem(font-size, 20px);
+      @include rem(line-height, 26px);
+      @include respond-to(small) {
+        @include rem(font-size, 18px);
+        @include rem(line-height, 24px);
+      }
+    }
+    .share-links a, .flag-link-toggle, a.btn-more, .more-link a, .btn {
+      @include btn-default($color);
+      background-color: darken($color, 10%); 
+      @include on-event {
+        background-color: darken($color, 15%);
+      }
+    }
+    .btn.btn-special {
+      @include btn-special($color);
+    }  
+    h1 {
+      @include rem(padding, 0 0 0 0);
+      @include rem(margin, 0 0 20px 0);
+    }
+    h1:before {
+      @include fa($icon);
+      @include rem(padding, 18px);
+      @include rem(margin, 0 0.5em 0 0);
+      @include rem(font-size, 36px); 
+      color: $color;
+      text-align: center;
+      border-radius: 50%;
+      @include rem(width, 70px); 
+      @include rem(height, 70px); 
+      @include rem(line-height, 35px); 
+      background: #fff;
+      @include respond-to(small) {
+        @include rem(width, 40px);
+        @include rem(height, 40px); 
+        @include rem(line-height, 20px);
+        @include rem(padding, 10px);
+        @include rem(font-size, 20px); 
+      }
+    }
+    .group-shortcut-buttons a{
+      @include rem(margin, 0 10px 0 0);
+    } 
+  }
+
+  .row2{
+    a {
+      color: $color;
+    }
+    .field-type-taxonomy-term-reference {
+      .field-label {
+        width: 100%;
+        @include rem(margin-bottom, 15px);
+      }
+      a {
+       font-weight: bold;
+      }
+  }
+  }
+
+  .row2 .sidebar-right {
+    a {
+      color: $text-color;
+    }
+    .form-item a{
+      @include on-event {
+        background: $light-grey;
+      }
+    }
+  } 
+
+  /* pagination */
+
+  .pagination>li>a {
+    border: 1px solid $color;
+  }
+
+  .pagination>li>a:hover,
+  .pagination>li>a:focus,
+   {
+    background-color: darken($color, 15%);
+    border: 1px solid darken($color, 15%);
+    color: #fff;
+  }
+
+  .pagination>.active>a {
+    background-color: $color;
+    color: #fff;
+  }
+
+  .pagination>li>a:hover, 
+  .pagination>li>a:focus {
+    border-color: darken($color, 15%);
+  }
+
+  /* links to edit / manage display / ... */
+  .container-top {
+    background-color: darken($color, 20%);
+    @include rem(border-top, 3px solid darken($color, 40%));
+    @include rem(padding, 20px 0 0 0);
+    /* temp fix? should header1 be removed from page.tpl.php */
+    .alert{
+      @include rem(margin, 20px 0 20px 0);  
+    }
+    h1.page-header {
+      display: none;
+    }
+    .nav li a {
+      color: #fff;
+      @include on-event {
+        color: $text-color;
+      }
+    }
+    .nav li.active a {
+      color: $text-color;
+    }
+
+  }
+
+}
+
+
+
+@mixin teaser($color, $icon) {
+  @include rem(padding, 30px 0 30px 0); 
+  a {
+    color: $color;
+    @include on-event {
+      color: $color;
+    }
+  }
+
+  h2 a, h3 a {
+    color: darken($text-color, 2%);
+    @include on-event {
+      color: $color;
+    }
+  }
+
+  /* todo */
+
+  h3:before {
+    /* @include icon-node-teaser($idea-color, lightbulb-o); */
+
+    background: $color;
+    color:#fff;
+    border-radius: 50%;
+    @include rem(width, 35px);
+    @include rem(height, 35px);
+    @include rem(margin-right, 10px);
+    @include fa($icon);    
+    @include rem(padding, 6px 0 0 6px);
+    @include rem(font-size, 24px);
+  }
+
+  .btn-primary, .flag-action, .unflag-action, .flag-like a, .more-link a, 
+  .share-links a, a.btn-more, .form-submit{
+    @include btn-default($color);
+  }
+}
+
+@mixin menu($color, $icon) {
+  a:before {
+    @include fa($icon);
+    @include rem(font-size, 20px);
+  }
+  a.active-trail {
+    background: $color;
+    border: 3px solid darken($color, 15%);
+    border-bottom: none;
+    color: #fff;
+    @include rem(margin-top, -3px);
+    @include respond-to(small) {
+      background: none;
+      border: none;
+      color: $text-color;
+    }
+  }
+}
+
+@mixin blockhp($color) {
+  h2 {
+    @include rem(padding, 10px 15px 10px 15px);
+    @include rem(margin, 0);
+    @include rem(font-size, 20px);
+    color: #fff;
+    background: $color;
+
+  }
+  .pane-content {
+    @include rem(padding, 15px);
+    background: $light-grey;
+    @include rem (border, 1px solid $lightmid-grey);
+    border-top: none;
+  }
+}
+
+/* temp stuff */
+
+.navbar-nav .last {
+  display: none;
+}
+

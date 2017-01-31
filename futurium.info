@@ -1,0 +1,6 @@
+name = Futurium
+description = Futurium ISA profile.
+core = 7.x
+
+; Optional: Mark your installation profile as exclusive, so that the installer
+; will auto-select it.

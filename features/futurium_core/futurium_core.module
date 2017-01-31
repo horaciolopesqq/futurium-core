@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Code for the Futurium data model feature.
+ */
+
+include_once 'futurium_core.features.inc';
+
+/**
+ * Sets feature api version.
+ *
+ * @return array
+ *   version
+ */
+function futurium_core_feature_set_api() {
+  return array('version' => '1.0');
+}
+
+/**
+ * Implements hook_node_form_alter().
+ */
+function futurium_core_form_node_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'ideas_node_form' && !user_access('access custom futurium fields')) {
+    field_group_hide_field_groups($form, array('group_related_content'));
+  }
+}
+
+/**
+ * Implements hook_date_formats().
+ */
+function futurium_core_date_formats() {
+  $formats[] = array(
+    'type'    => 'day_fullmonth_year',
+    'format'  => 'j F Y',
+    'locales' => array(),
+  );
+  foreach ($formats as $format) {
+    if (isset($format['type']) && isset($format['format'])) {
+      variable_set('date_format_' . $format['type'], $format['format']);
+    }
+  }
+  return $formats;
+}
+
+/**
+ * Implements hook_date_format_types().
+ */
+function futurium_core_date_format_types() {
+  return array(
+    'day_fullmonth_year' => t('Short: j F Y'),
+  );
+}

@@ -1,0 +1,1346 @@
+/**
+ * Set up a decent box model on the root element
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/********************** **/
+/* Basic styles content */
+/***********************/
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+  @include on-event {
+    text-decoration: underline;
+  }
+}
+
+
+p {
+  margin: 0;
+  & + & {
+    @include rem(margin-top, 15px);
+  }
+  &:last-child {
+    @include rem(margin-bottom, 15px);
+  }
+}
+
+ul {
+  @include rem(margin, 15px 0 15px 0);
+}
+
+/* Makes the images responsive */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Basic styles for headers
+ * @include on-event does: &:hover, &:active, &:focus
+ */
+
+h1 {
+  color: $dark-grey;
+  font-family: $text-font-stack;
+  @include respond-to(small) {
+    font-size: 24px;
+  }
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: $header-font-stack;
+  text-transform: uppercase;
+  @include rem(margin-bottom, 20px);
+  a {
+    color: darken($text-color, 2%);
+    font-weight: bold;
+    font-family: $text-font-stack;
+    text-transform: none;
+    @include transition(color .3s ease);
+    @include on-event {
+      text-decoration: none;
+    }
+  }
+}
+
+h4 {
+  @include rem(padding, 0 0 0 0);
+  @include rem(margin, 0 0 0 0);
+}
+
+h2, h3{
+  margin-top: 0;
+}
+
+h2 {
+  @include respond-to(small) {
+    @include rem(font-size, 20px);
+  }
+}
+
+h2.pane-title {
+  font-weight: normal;
+  @include rem(font-size, 20px);
+  @include rem(padding, 0 0 15px 0);
+  @include rem(margin, 0 0 20px 0);
+  @include rem(border-bottom, 1px solid $text-color);
+  @include respond-to(small) {
+     @include rem(font-size, 18px);
+  }
+}
+
+h4 a {
+  font-weight: normal;
+}
+
+.btn {
+  @include btn-default($mid-grey);
+}
+
+/*********************** */
+/* No padding for lists */
+/********************* */
+
+.nopadding {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    @include rem(padding, 15px 0 15px 0);
+    @include rem(border-bottom, 1px solid $lighter-grey);
+    a {
+      color: $text-color;
+    }
+  }
+  li.views-row-first {
+    padding-top: 0;
+  }
+  li.views-row-last, .last {
+    border-bottom: none;
+  }
+}
+
+/*************** */
+/* Inline lists */
+/************* */
+
+.list-inline {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  li {
+    @include rem(padding, 0 5px 5px 0);
+  }
+}
+
+/***********************************/
+/* MARKUP FOR CONTENTTYPE (ROW1) */
+/**********************************/
+
+/* all text elements white for row1 */
+
+.container-fullwidth.row1{
+  color: #fff;
+
+  h1, h2, h3, p, div {
+    color: #fff;
+  }
+
+  h2.pane-title {
+    border: none;
+    margin: 0;
+  }
+}
+
+/**
+ * default settings for (new) contenttype
+ * grey header / wrench icon, ...
+ * mixin contenttype does the coloring and icon setting
+ */
+
+.not-front{
+  @include contenttype($mid-grey, wrench);
+  /* @include teaser($mid-grey, wrench); */
+  @include rem(padding, 0);
+}
+
+.wrapper-date-vote-comment{
+  .date{
+    font-family: $text-font-stack;
+    text-transform: inherit;
+  }
+  @include respond-to(small) {
+    .label-wrapper {
+      display: none;
+    }
+  }
+}
+
+.intro{
+  @include rem(margin, 0 0 25px 0);
+}
+
+/************************************************/
+ /* settings for (existing) defined content types 
+ ************************************************/
+
+/* content type idea */
+body.page-ideas, 
+body.node-type-ideas {
+  @include contenttype($idea-color, lightbulb-o);
+}
+
+.node-teaser.node-ideas,
+.view-messages .node-ideas {
+  @include teaser($idea-color, lightbulb-o);
+  h3:before {
+    /* positioning icon */
+    @include rem(padding, 6px 0 0 11px);
+    @include rem(font-size, 24px);
+  }
+}
+
+/* future */
+body.page-futures, 
+body.node-type-future {
+  @include contenttype($future-color, rocket);
+}
+
+.node-teaser.node-future,
+.view-messages .node-future {
+  @include teaser($future-color, rocket);
+  /* positioning icon */
+  h3:before {
+    @include rem(padding, 8px 0 0 8px);
+    @include rem(font-size, 18px);
+  }
+}
+
+/* group */
+body.node-type-futurium-group {
+  @include contenttype($group-color, group);
+}
+
+.node.node-futurium-group {
+  @include teaser($group-color, group);
+  h3:before {
+    @include rem(padding, 8px 0 0 8px);
+    @include rem(font-size, 18px);
+  }
+}
+
+/* events */
+body.page-events, 
+body.node-type-event-d4eu {
+  @include contenttype($event-color, calendar);
+}
+
+.node-teaser.node-event-d4eu,
+.view-messages .node-event_d4eu
+{
+  @include teaser($event-color, calendar);
+  h3:before {
+    @include rem(padding, 8px 0 0 9px);
+    @include rem(font-size, 18px);
+  }
+}
+
+/* evidence */
+.html.page-library, 
+.node-type-evidence {
+  @include contenttype($library-color, file-text-o);
+}
+
+.node-teaser.node-evidence,
+.view-messages .node-evidence {
+  @include teaser($library-color, file-text-o);
+  h3:before {
+    @include rem(padding, 8px 0 0 10px);
+    @include rem(font-size, 18px);
+  }
+}
+
+/* overrides for profile page */
+
+.view-messages .node-ideas,
+.view-messages .node-future,
+.view-messages .node-event_d4eu,
+.view-messages .node-evidence {
+  @include rem(padding, 0);
+}
+
+
+/* user */
+.page-user{
+  @include contenttype($greenblue, user);
+  .row1 h1:before {
+    content: none; /* remove icon on page-user */
+  }
+}
+
+.row1 {
+  .field-name-ds-user-picture {
+    text-align: center;
+    @include rem(margin, 0 0 20px 0);
+    img {
+      border-radius: 50%;
+      /* border: 5px solid darken($user-color, 10%); */
+      border: 5px solid $light-grey;
+      box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
+    }
+  }
+}
+
+@include respond-to(small) {
+  .field-name-name {
+    text-align: center;
+  }
+}
+
+/* settings for row1 */
+
+.row1 {
+  .pane-rate-widget, 
+  .group-user-fields {
+    @include rem(padding, 20px);
+    @include rem(margin, 0 0 20px 0);
+    h2.pane-title {
+      padding: 0;
+    }
+  }
+}
+
+.pane-node-field-time-horizon {
+  @extend .pane-rate-widget;
+}
+
+.field-name-field-time-horizon {
+  @include rem(margin-top, 10px); 
+}
+
+.node-type-ideas .pane-rate-widget {
+  background: darken($idea-color, 10%);
+}
+
+.node-type-future .pane-node-field-time-horizon, 
+.node-type-future .pane-rate-widget {
+  background: darken($future-color, 10%);
+}
+
+.group-user-fields {
+  background: darken($user-color, 10%);
+}
+
+/***********************
+ ACTIVITY STUFF BOX
+ ... liked ...
+ ... commented on ...
+ **********************/
+
+.activity-message.attending:before, {
+  @include fa(user-plus);
+}
+
+.activity-message.liked:before {
+  @include fa(thumbs-up);
+}
+
+.activity-message.new-content:before {
+  @include fa(plus-square);
+}
+
+.activity-message.new-comment:before {
+  @include fa(comment);
+}
+
+/******************/
+/* BUTTONS & ICONS 
+ *****************/
+
+/* social media buttons */
+
+a.facebook:before {
+  @include fa(facebook);
+}
+
+a.twitter:before {
+  @include fa(twitter);
+}
+
+a.google-plus:before {
+  @include fa(google-plus);
+}
+
+a.btn-more:before {
+  @include fa(plus);
+}
+
+.like-count:before {
+  @include fa(thumbs-up);
+}
+
+.date:before {
+  @include fa(clock-o);
+}
+
+.comment-count:before {
+  @include fa(comment);
+}
+
+.attending-count:before {
+  @include fa(male);
+}
+
+.member-count:before,
+.view-statistics-users .views-field-name:before {
+  @include fa(user);
+}
+
+.location-city:before {
+  @include fa(map-marker);
+}
+
+.flag-outer-attending a:before {
+  @include fa(user-plus);
+}
+
+.more-link a:before {
+  @include fa(plus);
+}
+
+.btn-add-content:before {
+  @include fa(plus-circle);
+  font-size: 24px;
+}
+
+.flag-like a:before {
+  @include fa(thumbs-up);
+}
+
+.btn:not(.diff-revisions .btn){
+  @include btn-default($mid-grey);
+}
+
+/***************************/
+/* menu (on user profile) */
+/*************************/
+
+.add-group a:before {
+  @include fa(group);
+  min-width: 10%;
+}
+
+.add-future a:before {
+  @include fa(rocket);
+  min-width: 10%;
+}
+
+.add-idea a:before {
+  @include fa(lightbulb-o);
+  min-width: 10%;
+}
+
+.add-evidence a:before {
+  @include fa(file-text-o);
+  min-width: 10%;
+}
+
+.add-event a:before {
+  @include fa(calendar);
+  min-width: 10%;
+}
+
+.pane-futurium-isa-extras-contextualized-links {
+  a {
+    display: block;
+  }
+}
+
+/***********/
+/* RATING */
+/*********/
+
+.rate-user .rate-fivestar-btn-filled {
+  background: none;
+}
+
+ul.rate-fivestar-processed{
+  @include rem(padding, 0 0 0 0);
+  a {
+    color: #ffffff;
+    @include on-event {
+      color: #ffffff;
+    }
+  }
+}
+
+.futurium-rate-desirability:before {
+   @include fa(smile-o);  
+}
+
+.futurium-rate-impact {
+  @include fa(stop); 
+  vertical-align: botttom;
+}
+
+.rate-widget-3 ul li:first-child i{
+ font-size:12px;
+}
+
+.rate-widget-3 ul li:nth-child(2) i{
+ font-size:16px;
+}
+
+.rate-widget-3 ul li:nth-child(3) i{
+ font-size:20px;
+}
+
+.rate-widget-3 ul li:nth-child(4) i{
+ font-size:24px;
+}
+
+.rate-widget-3 ul li:nth-child(5) i{
+ font-size:28px;
+}
+
+.futurium-rate-feasibility {
+  @include fa(balance-scale);
+  @include rem(font-size, 20px);
+}
+
+/********************************/
+/* VIEWS-ROW BORDER MANAGEMENT */
+/******************************/
+
+div.panel-pane div.node-teaser { 
+  /* USE div.panel-pane to override panel.css */
+  @include rem(padding, 30px 0 30px 0); 
+  border-bottom: 5px solid $lightmid-grey;
+}
+
+div.panel-pane div.views-row:first-child {
+  div.node-teaser {
+    @include rem(padding, 0 0 30px 0);
+  }
+}
+
+div.panel-pane div.row:last-child,
+div.panel-pane div.views-row:last-child,
+div.panel-pane li.views-row:last-child
+ {
+  div.node-teaser {
+    border-bottom: none;
+  }
+}
+
+/************************************************/
+/* WRAPPER WITH DATE / VOTE / COMMENT & AUTHOR */
+/**********************************************/
+
+.wrapper-date-vote-comment {
+  @include rem(margin, 15px 0 20px 0);
+  @include respond-to(small) {
+    @include rem(margin, 10px 0 20px 0);
+  }
+  .field {
+    display: inline-block;
+    @include rem(margin, 0 30px 10px 0);
+    @include respond-to(small) {
+      @include rem(margin, 0 20px 10px 0);
+    }
+  }
+}
+
+.field-name-author {
+  @include rem(margin, 20px 0 0 0);
+  @include rem(padding, 0 0 15px 0);
+  @include rem(border-bottom, 1px solid $lightmid-grey);
+  @include respond-to(small) {
+    @include rem(padding, 0 0 10px 0);
+
+  }
+}
+
+.node-event-d4eu .date{
+  @extend .field-name-author;
+}
+
+/*************************/
+/* /USER PAGE (PROFILE) */
+/***********************/
+ 
+.authors-name, .authors-picture, 
+.share-links li {
+  float: left;
+}
+
+.pane-futurium-isa-extras-node-social-share {
+  .pane-content {
+    float: left;
+  }
+}
+
+/**************************/
+/* List of people, users */
+/* ex. /people page     */
+/* views people        */
+/***********************/
+
+.view-people, 
+.view-group-people, 
+.view-revisions, 
+.view-events {
+  div.views-row {
+    @include rem(margin, 0 0 20px 0);
+  }
+  
+  .views-row, 
+  .views-row-container {
+    @include make-row(0);
+  }  
+
+  .left {
+    @extend .col-xs-2;
+    padding: 0;
+  }
+  .middle {
+    @extend .col-xs-6;
+    padding: 0;
+  }
+  .right {
+    @extend .col-xs-4;
+    text-align: right;
+    padding: 0;
+  }
+}
+
+.front{
+  .view-people{
+    .right {
+       @extend .col-xs-10;
+       text-align: left;
+    }
+  }
+}
+
+.page-people {
+  .views-row-container {
+    background: $light-grey;
+    border: 1px solid darken($light-grey, 10%);
+    @include rem(padding, 15px);
+    @include rem(margin, 0 0 30px 0);
+    position: relative;
+  }
+}
+
+.view-group-people .col {
+  background: $light-grey;
+  border: 1px solid darken($light-grey, 10%);
+  @include rem(padding, 15px);
+  @include rem(margin, 0 0 30px 0);
+}
+
+/*****************
+/* view-user-groups
+/******************/
+
+.view-user-groups {
+  .views-row {
+    @include rem(margin, 0 0 20px 0);
+  }
+}
+
+/*************/
+/* COMMENTS */
+/*************/
+
+.comment, .indented {
+  @include rem(margin, 0 0 40px 0);
+}
+
+.indented {
+  @include rem(margin, 20px 0 0 20px);
+}
+
+.wrapper-author-date {
+  @include rem(margin, 0 0 20px 0);
+  vertical-align: baseline;
+  .field {
+    display: inline-block;
+    @include rem(margin, 0 25px 0 0);
+    @include rem(padding, 0 0 0 0);
+  }
+  .field-name-author{
+    border-bottom: none;
+  } 
+}
+
+.comment {
+  .links {
+    float: right;
+    clear: both;
+  }
+  .field-name-ds-user-picture img, 
+  .views-field-picture img {
+    @include round-userpicture;
+  }
+}
+
+.field-name-comment-body {
+  border: 1px solid $lightmid-grey;
+  @include rem(padding, 20px);
+  @include rem(margin, 0 0 20px 0);
+}
+
+.pane-node-comment-form {
+  @include rem(margin, 0 0 40px 0);
+}
+
+/***************************/
+/* USER PICTURE SETTINGS  */
+/*************************/
+
+.sidebar-right {
+  .views-field-picture img {
+    @include round-userpicture;
+  }
+}
+
+.views-field-picture img{
+  width:50px;
+  border-radius:50px;
+}
+
+.authors-picture img {
+  border-radius: 50%;
+  shape-outside: border-box;
+  float: left;
+  border: 5px solid #fff;
+  width: 60px;
+  height: 60px;
+}
+
+/*****************/
+/* USER PROFILE */
+/***************/
+
+/* create background for menu tabs on page-user and page-group */
+
+.logged-in.page-user:not(.page-user-edit), 
+.node-type-futurium-group {
+  .container-fullwidth.row2 {
+    background: url(../assets/img/bg-user-menu.gif) left top;
+    background-repeat: repeat-x;
+    /* @include rem(min-height, 50px); */
+    @include rem(padding, 0);
+    @include respond-to(small) {
+      background: none;
+    }
+  }
+}
+
+.view-user-group-members {
+  .views-row {
+    display: inline-block;
+    clear: right;
+    @include rem(margin, 10px 10px 0 0);
+  }
+}
+
+.page-user .container-fullwidth.row2:only-child {
+  background: none;
+}
+
+.group-user-fields {
+  .field-label {
+    min-width: 40%;
+  }
+  .field-items {
+    width: 55%;
+  }
+}
+
+/******************/
+/* VIEW MESSAGES */
+/****************/
+
+#views-exposed-form-messages-block-2 {
+  display: none;
+}
+
+body .view-messages {
+  h3 {
+    margin-bottom: 0;
+  }
+  .nopadding li {
+    border: none;
+  }
+  .nopadding li.views-row-first {
+    @include rem(padding-top, 15px);
+  }
+  div.view-mode-teaser {
+    padding-top: 0;
+  }
+}
+
+/****************/
+/* EVENTS PAGE */
+/**************/
+
+/* Event details block (address, ...) */
+
+.pane-event-date-location {
+  @include panel /* gives the panel markup, bg, border, padding */
+}
+
+.street-block > div {
+  display: inline-block;
+  @include rem(margin, 0 5px 0 0);
+}
+
+.events-pane {
+  .pane-content {
+    @include rem(margin, 15px 0 10px 0);
+  }
+  .field-name-field-coordinates {
+    .field-label {
+      @include rem(margin, 0 0 10px 0);
+    }
+  }
+}
+
+/****************/
+/* EVENTS PAGE */
+/**************/
+
+.field-type-file, .field-type-link-field {
+  .field-item {
+    @include rem(padding, 10px 0 10px 0);
+    @include rem(border-bottom, 1px solid darken($light-grey, 5%));
+  }
+}
+
+/**********/
+/* FORMS */
+/********/
+
+.form-control {
+  width: auto;
+  @include rem(height, 35px);
+  border-radius: 0;
+}
+
+ /* form links */
+
+ul.form-links {
+  list-style: none;
+  padding-left: 0;
+  a {
+    color: $text-color;
+  }
+}
+
+.views-exposed-form {
+
+  .form-select {
+    padding: 0;
+    margin: 0;
+    border: none;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .views-exposed-widget {
+    float: none;
+    max-width: 580px;
+    @include rem(margin, 0 0 20px 0);
+    @include respond-to(small) {
+      max-width: 250px;
+    }
+  }
+
+  .form-control.form-text {
+    @include rem(height, 40px);
+    border-radius: 0;
+    @include rem(font-size, 14px);
+    background: $light-grey;
+    border: 1px solid darken($light-grey, 10%);
+  }
+
+  .form-control.form-text:focus {
+    border: 1px solid darken($light-grey, 20%);
+  }
+
+  .chosen-container-single .chosen-single {
+    border-radius: 0;
+    padding: 7px;
+    height: auto;
+    background: $light-grey;
+    box-shadow: none;
+    color: $text-color;
+    border: 1px solid darken($light-grey, 10%);
+    @include rem(font-size, 14px);
+  }
+
+  /* search box in input type select */
+
+  .chosen-search {
+    background: $light-grey;
+  }
+
+  .chosen-container-single .chosen-search input[type="text"] {
+    @include rem(font-size, 14px);
+  }
+
+  /* border when item is selected */
+
+  .chosen-container-active .chosen-single {
+    border: 1px solid darken($light-grey, 20);
+  }
+
+  .chosen-container-single .chosen-drop {
+    border: 1px solid darken($light-grey, 20);
+    border-top: none;
+  }
+
+  .chosen-container-single .chosen-single div {
+    top: 7px;
+    width: 35px;
+  }
+
+  .chosen-container .chosen-results {
+    margin: 0;
+    padding: 0;
+    background: $light-grey;
+    color: $text-color;
+  }
+
+  .chosen-container .chosen-results li {
+    @include rem(padding, 10px 6px);
+    @include rem(font-size, 14px);
+  }
+
+  /* position arrow down */
+
+  .chosen-container-single .chosen-single div b {
+    background-position: 2px 2px;
+    background-image: none !important; 
+    background: darken($light-grey, 15%) !important;
+    color: #fff;
+    top: -7px;
+    position: absolute;
+    &:before {
+      @include fa(arrow-down);
+      margin-left: 12px;
+      margin-top: 14px;
+    }
+  }
+
+  /* position arrow up */
+
+  .chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -16px 2px;
+    &:before {
+      @include fa(arrow-up);
+      margin-left: 12px;
+      margin-top: 14px;
+    } 
+  }
+
+  /* background color highlighted item */
+
+  .chosen-container .chosen-results li.highlighted {
+    background: darken($light-grey, 15%);
+  }
+
+  .form-control:focus {
+    border-color: initial;
+    box-shadow: none;
+  }
+
+  /* margin in between two input select of type dependent-options */
+
+  .dependent-options {
+    .views-operator {
+      @include rem(margin-bottom, 15px);
+    }
+  }
+
+  /* radio buttons */
+
+  .form-type-radio {
+    @include rem(margin, 7px 0 7px 0);
+    @include rem(font-size, 14px);
+  }
+
+  /* remove margin from button */
+
+  .views-exposed-widget .form-submit {
+    @include rem(margin-top, 0);
+  }
+}
+
+/* hide yellow background on /user page */
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/**************/
+/* REVISIONS */
+/************/
+
+body.html table .diff-revision {
+  a {
+    color: $link-color;
+  }
+}
+
+table tr.error {
+    color: $text-color;
+}
+
+.page-node-revisions {
+  section [class="container"]{
+   @include rem(padding-bottom, 20px);
+  }
+}
+
+/********************/
+/* RELATION MODULE */
+/******************/
+
+/* hide button from preview */
+.preview {
+  .flag-outer-attending .flag-link-toggle,
+  .more-link {
+    display: none;
+  }
+  .intro {
+    margin: 0 0 0 0;
+  }
+}
+
+/* settings for previewing content before linking */
+div.panel-pane .preview .node {
+  @include rem(margin, 0 0 20px 0);
+  @include rem(padding, 20px);
+  background: #000;
+  opacity: 0.5;
+  z-index: 10;
+  border: 5px solid $mid-grey;
+}
+
+.autocomplete-suggestion.node-type-future:before, 
+.view-node-relations .future:before,
+.futures-count:before,
+.stats-most-commented-futures .views-field-title:before,
+.stats-most-voted-futures .views-field-title:before
+{
+  @include fa(rocket);
+}
+
+.autocomplete-suggestion.node-type-ideas:before, 
+.view-node-relations .ideas:before,
+.ideas-count:before,
+.stats-most-commented-ideas .views-field-title:before,
+.stats-most-voted-ideas .views-field-title:before
+{
+  @include fa(lightbulb-o);
+}
+
+.autocomplete-suggestion.node-type-event_d4eu:before, 
+.view-node-relations .event_d4eu:before {
+  @include fa(calendar);
+}
+
+.autocomplete-suggestion.node-type-evidence:before, 
+.view-node-relations .evidence:before {
+  @include fa(file-text-o);
+}
+
+.btn-add-relation:before {
+  @include fa(link);
+}
+
+span.futures-count,
+span.ideas-count,
+span.comment-count {
+  margin-right: 15px;
+}
+
+#node-preview {
+  .node-teaser {
+    @include rem(padding, 15px);
+    background: $light-grey;
+    border: 1px dashed $midmid-grey;
+    @include rem(margin, 0 0 15px 0);
+  }
+}
+
+.related-item,
+.relation-delete-link {
+  display: inline;
+}
+
+.relation-delete-link span:before {
+  @include fa(remove);
+}
+
+/* END STUFF FOR THE LINKER MODULE */
+
+/*************/
+/* CAROUSEL */
+/*************/
+
+.carousel-control {
+  width: 5%;
+  height: 100%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  width: 70px;
+}
+
+.carousel-control.left {
+  background-image: linear-gradient(to left, rgba(0,0,0,0.0001) 0%, rgba(0,0,0,0.05) 100%);
+}
+
+.carousel-control.right {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.0001) 0%, rgba(0,0,0,0.05) 100%);
+}
+
+/* show icon when hover */
+
+.glyphicon-chevron-right:hover:before {
+  content: "\e080";
+}
+
+.glyphicon-chevron-left:hover:before {
+  content: "\e079";
+}
+
+/* position carousel indicators */
+
+.view-carousel {
+  border-top: 3px solid $text-color;
+}
+
+.carousel-indicators {
+  bottom: 5px;
+  margin-bottom: 0;
+}
+
+.carousel-caption {
+  top: 37%;
+  h3 {
+    font-weight: bold;
+    color: #fff;
+    @include rem(font-size, 36px);
+    font-family: $header-font-stack;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 100;
+    @include respond-to(small) {
+      @include rem(font-size, 16px);
+    }
+  }
+  @include respond-to(small) {
+    top:25%;
+  }
+}
+
+.item.active a{
+  background:red;
+}
+
+.front .carousel {
+  a {
+    color: #ffffff;
+    @include on-event {
+      text-decoration: none;
+    }
+  }
+}
+
+/************************* */
+/* PROFILE COMPLETE % BAR */
+/*********************** */
+
+.pane-pcp-pcp-profile-percent-complete {
+  em {
+    font-style: normal;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+
+.pcp-percent-bar-wrapper {
+  @include rem(margin, 15px 0 15px 0);
+  @include rem(padding, 0);
+  background: darken($light-grey, 15%);
+  @include rem(border, 1px solid $mid-grey);
+  .pcp-percent-bar {
+    @include rem(height, 30px);
+    @include rem(padding, 0);
+    background: $user-color;
+  }
+}
+
+/******* */
+/* TABS */
+/***** */
+
+.nav-tabs{
+  border-bottom: none;
+}
+
+.bootstrap-panels-horizontal-tabs {
+  @extend .col-lg-12;
+  .container {
+    padding: 0;
+  }
+}
+
+/*************/
+/* TAXONOMY */
+/***********/
+
+.page-taxonomy {
+  .node-teaser {
+    @include rem(margin, 30px 0 0 0);
+  }  
+}
+
+/**********/
+/* STATS */
+/********/
+
+.stats-block {
+  @extend .col-xs-6;
+  @include rem(padding, 30px 0 0 0);
+  @include respond-to(small) {
+   width: 100%;
+  }
+}
+
+/***********/
+/* ALERTS */
+/*********/
+
+.alert>ul {
+  @include rem(margin, 15px 0 15px 0);
+}
+
+/********************** */
+/* STREAM ON USER PAGE */
+/******************** */
+
+.field-type-taxonomy-term-reference {
+  .field-item {
+    display: inline-block;
+    @include rem(padding, 0 10px 0 0);
+  }
+}
+
+.field-type-entityreference {
+  .field-item {
+    @include rem(border-bottom, 1px dashed $mid-grey);
+    @include rem(padding, 10px 0 10px 0);
+  }
+}
+
+/**********/
+/* HACKS */
+/********/
+
+/* hack to make long content in dropdownbox work */
+
+.dropdown-menu>li>a {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 18px;
+}
+
+.views-row.nowrap {
+  white-space: normal;
+}
+
+/*******************/
+/* media element container for adding media (images, ...) via wysiwyg */
+/* appears on library page */
+/*******************/
+
+.media-element-container {
+  @include rem(margin, 0 0 20px 0);
+  background: #fff;
+  /* caption under images */
+  .field-name-field-caption {
+    color: $mid-grey;  
+    @include rem(font-size, 14px);
+    @include rem(padding, 5px 10px 5px 10px);
+    font-style: italic;
+  }
+}
+
+/* TEASER */
+
+.summary {
+  @include rem(font-size, 16px);
+  @include rem(line-height, 24px);
+  font-weight: 600;
+  @include rem(margin, 0 0 20px 0);
+}
+
+/* TEMP STUFF --- TEMP STUFF */
+
+#path a, 
+#path a:visited {
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+}
+
+.date a {
+  @include rem(font-size, 15px);
+  text-transform: uppercase;
+  font-family: $header-font-stack;
+}
+
+
+
+
+

@@ -1,0 +1,155 @@
+
+
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?80955042');
+  src: url('../font/fontello.eot?80955042#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?80955042') format('woff'),
+       url('../font/fontello.ttf?80955042') format('truetype'),
+       url('../font/fontello.svg?80955042#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-facebook-rect:before { content: '\e800'; } /* '' */
+.icon-googleplus-rect:before { content: '\e802'; } /* '' */
+.icon-linkedin-rect:before { content: '\e803'; } /* '' */
+.icon-youtube:before { content: '\e804'; } /* '' */
+.icon-twitter-bird:before { content: '\e805'; } /* '' */
+
+.icon-facebook:before { content: '\e800'; } /* '' */
+.icon-gplus:before { content: '\e802'; } /* '' */
+.icon-linkedin:before { content: '\e803'; } /* '' */
+.icon-youtube:before { content: '\e804'; } /* '' */
+.icon-twitter:before { content: '\e805'; } /* '' */
+
+
+/* thumbs on -  */
+
+
+
+.rate-fivestar-btn-filled {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-indent: 0;
+  background-image:none;
+}
+
+
+
+/* thumbs off */
+
+
+
+.rate-fivestar-btn-empty {
+  opacity: 0.5;
+  background-image:none;
+  text-indent: 0;
+}
+.rate-widget-fivestar ul li a {
+  display: block;
+  float: left;
+  padding: 1px;
+  margin: 1px;
+  line-height: initial;
+  font-size: 28px;
+  width: auto;
+  height: auto;
+}
+
+
+.social-links ul li {
+  margin: 10px 0px !important;
+}
+
+/* Demo */
+
+
+.view-footer .more-link {
+  margin: 10px 0;
+  padding: 10px 0;
+  display: block;
+}
+
+/*
+
+.node-type-futurium-group .bootstrap-twocol-tower > .container-fullwidth.row2,
+.node-type-futurium-group .bootstrap-threecol-tower > .container-fullwidth.row2,
+.page-user .container-fullwidth.row2 {
+  padding-top: 0;
+  padding-top: 0;
+}
+.node-type-futurium-group .bootstrap-twocol-tower > .container-fullwidth.row2,
+.node-type-futurium-group .bootstrap-threecol-tower > .container-fullwidth.row2,
+.page-user .container-fullwidth.row2 {
+  background: url(http://futurium_isa.dev.europa.eu/sites/all/themes/futurium_isa_theme/assets/img/bg-user-menu.gif) left top;
+  background-repeat: repeat-x;
+}
+
+*/
+
+.view-messages.view-display-id-block_2 .node h3 {
+  display: none;
+}
+
+/*
+
+.node-type-futurium-group .container-fullwidth.row2,
+.node-type-futurium-group:not(.page-node-edit) .container-fullwidth.row2,
+.page-user:not(.page-user-edit) .container-fullwidth.row2 {
+
+.page-user:not(.page-user-edit) .container-fullwidth.row2,
+.node-type-futurium-group:not(.page-node-edit):not(.page-node-add) .container-fullwidth.row2 {
+  height: 50px;
+}
+
+*/
+
+.page-user:not(.page-user-edit) .row3l .panel-pane {
+  margin: 0 0 30px 0;
+  margin: 0 0 3rem 0;
+}
+
+.node-type-futurium-group.page-node-add .bootstrap-threecol-tower > .container-fullwidth.row2,
+.node-type-futurium-group.page-node-edit .bootstrap-threecol-tower > .container-fullwidth.row2,
+.page-user.page-user-edit .container-fullwidth.row2 {
+  background: none;
+  background-repeat: repeat-x;
+  margin-top: 20px;
+}

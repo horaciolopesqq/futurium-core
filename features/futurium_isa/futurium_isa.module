@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * Code for the Futurium_ISA feature.
+ */
+
+include_once 'futurium_isa.features.inc';
+
+/**
+* Implements hook_entity_info_alter().
+*/
+function futurium_isa_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['node_header'] = array(
+    'label' => t('Node Header'),
+    'custom settings' => FALSE,
+  );
+}

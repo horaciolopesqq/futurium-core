@@ -1,0 +1,27 @@
+<?php
+
+function futurium_groups_install() {
+  db_update('system')
+    ->fields(array('weight' => -1))
+    ->condition('name', 'og_context', '=')
+    ->execute();
+
+  db_update('system')
+    ->fields(array('weight' => 1))
+    ->condition('name', 'futurium_groups', '=')
+    ->execute();
+}
+
+function futurium_groups_post_features_enable_feature($component) {
+  // Rebuild permissions
+  // Should go into futurium groups
+  if ($component == 'views_view') {
+
+    $og_roles = og_roles('node', 'futurium_group');
+    $admin_rid = array_search('administrator member', $og_roles);
+    variable_set('og_group_manager_default_rids_node_futurium_group', $admin_rid);
+
+    node_access_rebuild();
+    drupal_set_message("Node permissions rebuilt.");
+  }
+}
