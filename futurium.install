@@ -13,6 +13,18 @@ function futurium_install() {
   );
   theme_enable($enable);
 
+  $enable = array(
+    'futurium_core',
+    'futurium_evidence',
+    'futurium_futures',
+    'futurium_groups',
+    'futurium_messages',
+    'futurium_relations',
+    'tests',
+    'futurium_isa_extras'
+  );
+  module_enable($enable);
+
   variable_set('theme_default', 'futurium_isa_theme');
   variable_set('admin_theme', 'adminimal');
 

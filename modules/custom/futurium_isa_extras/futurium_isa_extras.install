@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Install Futurium_ISA Extras feature.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function futurium_isa_extras_enable() {
+  // Site default settings.
+  variable_set('site_frontpage', 'home');
+  variable_set('node_admin_theme', 0);
+  variable_set('user_pictures', 1);
+
+  // Set node color vars
+  variable_set('color_future', '65C250');
+  variable_set('color_ideas', 'FF9137');
+  variable_set('color_event', 'E477C8');
+  variable_set('color_evidence', '799BBE');
+
+  // Set chosen selectors
+  variable_set('chosen_jquery_selector', 'select');
+
+  // Unlock body field.
+  if ($field = field_info_field('body')) {
+    $field['locked'] = 0;
+    field_update_field($field);
+  }
+
+  drupal_flush_all_caches();
+
+}
