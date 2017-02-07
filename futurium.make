@@ -783,6 +783,7 @@ projects[chart][subdir] = "contrib"
 projects[fivestar][subdir] = "contrib"
 projects[invite][subdir] = "contrib"
 projects[graphapi][subdir] = "contrib"
+projects[i18n][subdir] = "contrib"
 projects[imagefield_crop][subdir] = "contrib"
 projects[message_subscribe][subdir] = "contrib"
 projects[message_subscribe_email_frequency][subdir] = "contrib"
@@ -802,6 +803,23 @@ projects[voting_rules][subdir] = "contrib"
 projects[wysiwyg][subdir] = "contrib"
 projects[wysiwyg][version] = "2.2"
 projects[opengraph_filter][subdir] = "contrib"
+projects[views_field_view][subdir] = "contrib"
+
+;Patch to make panels and workbench moderation play nicely with each other.
+;;More info: https://www.drupal.org/node/1285090
+projects[workbench_moderation][patch][] = "https://www.drupal.org/files/issues/workbench_moderation-playnicewithpanels-40.patch"
+
+;Patch to allow views_field_view to get a count from another view.
+;;More info: https://www.drupal.org/node/1107034
+projects[views_field_view][patch][] = "https://www.drupal.org/files/issues/views_field_view-1107034-9-Count-field.patch"
+
+;Patch to fix issue with date grouped filters.
+;;More info: https://www.drupal.org/node/1876168
+projects[date][patch][] = "https://www.drupal.org/files/issues/exposed_grouped_filter-1876168-71.patch"
+
+;Removing initial URL option
+;;https://www.drupal.org/node/2272645
+projects[opengraph_filter][patch][] = "https://www.drupal.org/files/issues/code_sniff_and_strip_link_option_2.patch"
 
 
 ; =========

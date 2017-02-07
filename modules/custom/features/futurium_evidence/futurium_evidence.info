@@ -9,6 +9,7 @@ dependencies[] = field_group
 dependencies[] = file
 dependencies[] = futurium_groups
 dependencies[] = futurium_isa
+dependencies[] = i18n_taxonomy
 dependencies[] = media_wysiwyg
 dependencies[] = page_manager
 dependencies[] = smart_trim
