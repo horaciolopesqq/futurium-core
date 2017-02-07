@@ -72,7 +72,6 @@ stylesheets[all][] = css/custom.css
 ; Global
 ; --------------
 settings['toggle_logo'] = 0
-settings['futurium_isa_theme']['toggle_logo'] = 0
 settings['toggle_name'] = 1
 settings['toggle_search'] = 0
 settings['toggle_slogan'] = 1
@@ -163,3 +162,5 @@ settings['bootstrap_bootswatch'] = ''
 settings['bootstrap_rebuild_registry'] = 0
 settings['bootstrap_toggle_jquery_error'] = 0
 settings['jquery_update_jquery_version'] = ''
+
+
