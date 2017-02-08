@@ -805,6 +805,17 @@ projects[wysiwyg][version] = "2.2"
 projects[opengraph_filter][subdir] = "contrib"
 projects[views_field_view][subdir] = "contrib"
 
+projects[views_fieldsets][subdir] = "contrib"
+projects[user_picture_field][subdir] = "contrib"
+projects[user_pages][subdir] = "contrib"
+projects[addressfield][subdir] = "contrib"
+projects[ctools_view_access][subdir] = "contrib"
+projects[computed_field][subdir] = "contrib"
+projects[geocoder][subdir] = "contrib"
+projects[pcp][subdir] = "contrib"
+projects[socialfield][subdir] = "contrib"
+
+
 ;Patch to make panels and workbench moderation play nicely with each other.
 ;;More info: https://www.drupal.org/node/1285090
 projects[workbench_moderation][patch][] = "https://www.drupal.org/files/issues/workbench_moderation-playnicewithpanels-40.patch"

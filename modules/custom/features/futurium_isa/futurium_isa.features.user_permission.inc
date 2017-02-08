@@ -10,6 +10,16 @@
 function futurium_isa_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access content'.
+  $permissions['access content'] = array(
+    'name' => 'access content',
+    'roles' => array(
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create event_d4eu content'.
   $permissions['create event_d4eu content'] = array(
     'name' => 'create event_d4eu content',

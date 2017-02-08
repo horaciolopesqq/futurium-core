@@ -57,6 +57,10 @@ function futurium_isa_filter_default_formats() {
         'weight' => 1,
         'status' => 1,
       ),
+      'filter_tokens' => array(
+        'status' => 1,
+        'weight' => 0,
+      ),
       'filter_url' => array(
         'weight' => 2,
         'status' => 1,
