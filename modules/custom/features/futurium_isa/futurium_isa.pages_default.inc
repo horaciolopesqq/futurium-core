@@ -169,7 +169,7 @@ function futurium_isa_default_page_manager_handlers() {
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
-              'event_d4eu' => 'event_d4eu',
+              'event' => 'event',
             ),
           ),
           'context' => 'argument_entity_id:node_1',
@@ -4125,7 +4125,7 @@ function futurium_isa_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Add Event CTA',
       'title' => '',
-      'body' => '<a class="btn btn-special btn-add-content" href="node/add/event-d4eu">Add an Event</a>',
+      'body' => '<a class="btn btn-special btn-add-content" href="node/add/event">Add an Event</a>',
       'format' => 'full',
       'substitute' => TRUE,
     );

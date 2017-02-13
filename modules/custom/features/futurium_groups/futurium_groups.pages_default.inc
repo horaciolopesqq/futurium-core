@@ -286,7 +286,7 @@ function futurium_groups_default_page_manager_handlers() {
     $pane->pid = 'new-95a2891b-cf89-4838-9050-11407f7db047';
     $pane->panel = 'row1r';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_leading_picture_d4eu';
+    $pane->subtype = 'node:field_leading_picture';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

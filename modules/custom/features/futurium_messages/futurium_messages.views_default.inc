@@ -200,7 +200,7 @@ function futurium_messages_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['relationship'] = 'field_node_ref_target_id';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
     'evidence' => 'evidence',
     'future' => 'future',
     'ideas' => 'ideas',

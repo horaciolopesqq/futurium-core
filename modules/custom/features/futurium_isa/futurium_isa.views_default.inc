@@ -135,7 +135,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
   );
   /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
@@ -267,7 +267,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
@@ -451,7 +451,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
   );
   /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
@@ -706,7 +706,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
   );
   /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
@@ -852,7 +852,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'event_d4eu' => 'event_d4eu',
+    'event' => 'event',
     'evidence' => 'evidence',
     'future' => 'future',
     'ideas' => 'ideas',

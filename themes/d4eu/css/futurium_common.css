@@ -1031,7 +1031,7 @@ fieldset[disabled] .btn-default.active {
   margin-top: 15px;
 }
 
-.item-list > ul > li .views-field-field-leading-picture-d4eu {
+.item-list > ul > li .views-field-field-leading-picture- {
   width: 20%;
   float: right;
   margin-left: 3%;
@@ -1039,14 +1039,14 @@ fieldset[disabled] .btn-default.active {
   border-bottom: solid 5px #fff;
 }
 
-.item-list > ul > li .views-field-field-leading-picture-d4eu .field-content {
+.item-list > ul > li .views-field-field-leading-picture- .field-content {
   max-height: 200px;
   overflow: hidden;
   border: solid 1px #eee;
   background: #fff;
 }
 
-.item-list > ul > li .views-field-field-leading-picture-d4eu .field-content img {
+.item-list > ul > li .views-field-field-leading-picture- .field-content img {
   width: 100%;
   height: auto;
 }
@@ -1097,8 +1097,8 @@ fieldset[disabled] .btn-default.active {
 }
 
 .item-list > ul > li .views-field-active,
-.item-list > ul > li .views-field-field-authors-d4eu,
-.item-list > ul > li .views-field-field-year-of-publication-d4eu,
+.item-list > ul > li .views-field-field-authors-,
+.item-list > ul > li .views-field-field-year-of-publication-,
 .item-list > ul > li .views-field-name,
 .item-list > ul > li .views-field-changed {
   font-size: 85%;
@@ -1108,8 +1108,8 @@ fieldset[disabled] .btn-default.active {
 }
 
 .item-list > ul > li .views-field-active .views-label,
-.item-list > ul > li .views-field-field-authors-d4eu .views-label,
-.item-list > ul > li .views-field-field-year-of-publication-d4eu .views-label,
+.item-list > ul > li .views-field-field-authors- .views-label,
+.item-list > ul > li .views-field-field-year-of-publication- .views-label,
 .item-list > ul > li .views-field-name .views-label,
 .item-list > ul > li .views-field-changed .views-label {
   color: #777;
@@ -1120,8 +1120,8 @@ fieldset[disabled] .btn-default.active {
 }
 
 .item-list > ul > li .views-field-active .field-content,
-.item-list > ul > li .views-field-field-authors-d4eu .field-content,
-.item-list > ul > li .views-field-field-year-of-publication-d4eu .field-content,
+.item-list > ul > li .views-field-field-authors- .field-content,
+.item-list > ul > li .views-field-field-year-of-publication- .field-content,
 .item-list > ul > li .views-field-name .field-content,
 .item-list > ul > li .views-field-changed .field-content {
   color: #555;
@@ -1156,12 +1156,12 @@ fieldset[disabled] .btn-default.active {
   vertical-align: top;
 }
 
-.view-videos-d4eu .item-list > ul > li > div {
+.view-videos- .item-list > ul > li > div {
   padding-left: 2%;
   margin-left: 33%;
 }
 
-.view-videos-d4eu .item-list > ul > li .views-field-field-leading-picture-d4eu {
+.view-videos- .item-list > ul > li .views-field-field-leading-picture- {
   width: 32%;
   float: left;
   border: 0;
@@ -1172,7 +1172,7 @@ fieldset[disabled] .btn-default.active {
   background: #fff;
 }
 
-.view-videos-d4eu .item-list > ul > li .views-field-field-leading-picture-d4eu .field-content {
+.view-videos- .item-list > ul > li .views-field-field-leading-picture- .field-content {
   max-height: 150px;
   min-height: 80px;
 }
@@ -1335,7 +1335,7 @@ a:hover.CTAButton,
 /* /social links */
 
 /*regular content*/
-.mainContentSection .content .field-name-field-leading-picture-d4eu {
+.mainContentSection .content .field-name-field-leading-picture- {
   float: right;
   width: 25%;
   margin-left: 3%;
@@ -1343,26 +1343,26 @@ a:hover.CTAButton,
   background: #ededed;
 }
 
-.mainContentSection .content .field-name-field-leading-picture-d4eu img {
+.mainContentSection .content .field-name-field-leading-picture- img {
   width: 100%;
 }
 
-.mainContentSection .content .field-name-field-leading-picture-d4eu > .field-label {
+.mainContentSection .content .field-name-field-leading-picture- > .field-label {
   display: none;
 }
 
-.mainContentSection .content .field-name-field-leading-picture-d4eu .field-items {
+.mainContentSection .content .field-name-field-leading-picture- .field-items {
   border: solid 1px #dcdcdc;
   padding: 1px;
 }
 
-.mainContentSection .content .field-name-field-leading-picture-d4eu .field-items .field-image-caption {
+.mainContentSection .content .field-name-field-leading-picture- .field-items .field-image-caption {
   padding: 5px 1em 7px;
   text-align: center;
   font-size: 85%;
 }
 
-.mainContentSection .content .field-name-field-leading-picture-d4eu .field-items .field-image-caption:empty {
+.mainContentSection .content .field-name-field-leading-picture- .field-items .field-image-caption:empty {
   display: none;
 }
 
@@ -1387,9 +1387,9 @@ a:hover.CTAButton,
   vertical-align: top;
 }
 
-.mainContentSection .content .field-name-field-year-of-publication-d4eu,
-.mainContentSection .content .field-name-field-authors-d4eu,
-.mainContentSection .content .field-name-field-link-d4eu,
+.mainContentSection .content .field-name-field-year-of-publication-,
+.mainContentSection .content .field-name-field-authors-,
+.mainContentSection .content .field-name-field-link-,
 .mainContentSection .content .field-name-field-media-tags {
   font-size: 85%;
   margin-left: 1%;
@@ -1397,9 +1397,9 @@ a:hover.CTAButton,
   line-height: 1.2em;
 }
 
-.mainContentSection .content .field-name-field-year-of-publication-d4eu > *:nth-child(1),
-.mainContentSection .content .field-name-field-authors-d4eu > *:nth-child(1),
-.mainContentSection .content .field-name-field-link-d4eu > *:nth-child(1),
+.mainContentSection .content .field-name-field-year-of-publication- > *:nth-child(1),
+.mainContentSection .content .field-name-field-authors- > *:nth-child(1),
+.mainContentSection .content .field-name-field-link- > *:nth-child(1),
 .mainContentSection .content .field-name-field-media-tags > *:nth-child(1) {
   color: #777;
   display: inline-block;
@@ -1408,9 +1408,9 @@ a:hover.CTAButton,
   vertical-align: top;
 }
 
-.mainContentSection .content .field-name-field-year-of-publication-d4eu > *:nth-child(2),
-.mainContentSection .content .field-name-field-authors-d4eu > *:nth-child(2),
-.mainContentSection .content .field-name-field-link-d4eu > *:nth-child(2),
+.mainContentSection .content .field-name-field-year-of-publication- > *:nth-child(2),
+.mainContentSection .content .field-name-field-authors- > *:nth-child(2),
+.mainContentSection .content .field-name-field-link- > *:nth-child(2),
 .mainContentSection .content .field-name-field-media-tags > *:nth-child(2) {
   color: #555;
   margin-left: 5%;

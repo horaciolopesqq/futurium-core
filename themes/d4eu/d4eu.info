@@ -1,4 +1,4 @@
-name = d4eu
+name = 
 description = Futurium DSM sub theme of default theme, ec_resp
 package = CNECT
 version = "7.x-1.7"
@@ -6,8 +6,8 @@ core = "7.x"
 multisite_version = 2.1
 base theme = ec_resp
 php = 5.2.4
-stylesheets[all][] = "css/d4eu.css"
-scripts[] = scripts/d4eu.js
+stylesheets[all][] = "css/.css"
+scripts[] = scripts/.js
 regions[header_top] = "Header Top"
 regions[breadcrumbs] = "Breadcrumbs"
 regions[main_navigation] = "Main navigation"

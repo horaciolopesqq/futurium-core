@@ -223,7 +223,7 @@ function futurium_groups_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_leading_picture_d4eu' => array(
+    'field_leading_picture' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_minimal',
@@ -353,12 +353,12 @@ function futurium_groups_ds_layout_settings_info() {
         9 => 'group_buttons',
       ),
       'left' => array(
-        2 => 'field_leading_picture_d4eu',
+        2 => 'field_leading_picture',
       ),
     ),
     'fields' => array(
       'node_link' => 'right',
-      'field_leading_picture_d4eu' => 'left',
+      'field_leading_picture' => 'left',
       'member_count' => 'right',
       'futures_count' => 'right',
       'title' => 'right',

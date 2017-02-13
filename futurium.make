@@ -294,6 +294,7 @@ projects[flexslider_views_slideshow][download][revision] = "0b1f8e7e24c168d1820c
 projects[flexslider_views_slideshow][download][type] = "git"
 projects[flexslider_views_slideshow][download][url] = "http://git.drupal.org/project/flexslider_views_slideshow.git"
 projects[flexslider_views_slideshow][subdir] = "contrib"
+
 projects[fpa][subdir] = "contrib"
 projects[fpa][version] = "2.6"
 
@@ -316,6 +317,11 @@ projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/uncaught_t
 ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7373
 ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7237
 projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/2325549-jquery19_ajax.patch
+
+projects[futurium_links][download][revision] = "7.x-1.x"
+projects[futurium_links][download][type] = "git"
+projects[futurium_links][download][url] = "https://HoracioLopes@bitbucket.org/HoracioLopes/futurium-links.git"
+projects[futurium_links][subdir] = "futurium/modules"
 
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "2.3"

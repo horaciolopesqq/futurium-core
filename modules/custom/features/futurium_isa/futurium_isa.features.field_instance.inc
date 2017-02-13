@@ -10,8 +10,8 @@
 function futurium_isa_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-document-field_authors_d4eu'
-  $field_instances['node-document-field_authors_d4eu'] = array(
+  // Exported field_instance: 'node-document-field_authors'
+  $field_instances['node-document-field_authors'] = array(
     'bundle' => 'document',
     'default_value' => NULL,
     'deleted' => 0,
@@ -38,7 +38,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_authors_d4eu',
+    'field_name' => 'field_authors',
     'label' => 'Author(s)',
     'required' => 0,
     'settings' => array(
@@ -84,8 +84,8 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-document-field_leading_picture_d4eu'
-  $field_instances['node-document-field_leading_picture_d4eu'] = array(
+  // Exported field_instance: 'node-document-field_leading_picture'
+  $field_instances['node-document-field_leading_picture'] = array(
     'bundle' => 'document',
     'deleted' => 0,
     'description' => '',
@@ -118,7 +118,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'label' => 'Leading picture',
     'required' => 0,
     'settings' => array(
@@ -169,8 +169,8 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-document-field_link_d4eu'
-  $field_instances['node-document-field_link_d4eu'] = array(
+  // Exported field_instance: 'node-document-field_link'
+  $field_instances['node-document-field_link'] = array(
     'bundle' => 'document',
     'default_value' => NULL,
     'deleted' => 0,
@@ -197,7 +197,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_link_d4eu',
+    'field_name' => 'field_link',
     'label' => 'External link',
     'required' => 0,
     'settings' => array(
@@ -232,8 +232,8 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-document-field_year_of_publication_d4eu'
-  $field_instances['node-document-field_year_of_publication_d4eu'] = array(
+  // Exported field_instance: 'node-document-field_year_of_publication'
+  $field_instances['node-document-field_year_of_publication'] = array(
     'bundle' => 'document',
     'default_value' => array(),
     'deleted' => 0,
@@ -266,7 +266,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_year_of_publication_d4eu',
+    'field_name' => 'field_year_of_publication',
     'label' => 'Year of publication',
     'required' => 0,
     'settings' => array(
@@ -294,9 +294,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_leading_picture_d4eu'
-  $field_instances['node-event_d4eu-field_leading_picture_d4eu'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_leading_picture'
+  $field_instances['node-eventfield_leading_picture'] = array(
+    'bundle' => 'event',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -324,7 +324,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'label' => 'Leading picture',
     'required' => 0,
     'settings' => array(
@@ -375,9 +375,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_tags'
-  $field_instances['node-event_d4eu-field_tags'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_tags'
+  $field_instances['node-eventfield_tags'] = array(
+    'bundle' => 'event',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Please separate tags with commas. For example <i>broadband, geoblocking, quantum mechanics, italy</i>.',
@@ -471,8 +471,8 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-poll-field_leading_picture_d4eu'
-  $field_instances['node-poll-field_leading_picture_d4eu'] = array(
+  // Exported field_instance: 'node-poll-field_leading_picture'
+  $field_instances['node-poll-field_leading_picture'] = array(
     'bundle' => 'poll',
     'deleted' => 0,
     'description' => '',
@@ -501,7 +501,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'label' => 'Leading picture',
     'required' => 0,
     'settings' => array(
@@ -600,9 +600,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video_d4eu-field_leading_picture_d4eu'
-  $field_instances['node-video_d4eu-field_leading_picture_d4eu'] = array(
-    'bundle' => 'video_d4eu',
+  // Exported field_instance: 'node-video-field_leading_picture'
+  $field_instances['node-video-field_leading_picture'] = array(
+    'bundle' => 'video',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -630,7 +630,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'label' => 'Leading picture',
     'required' => 0,
     'settings' => array(
@@ -681,9 +681,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video_d4eu-field_tags'
-  $field_instances['node-video_d4eu-field_tags'] = array(
-    'bundle' => 'video_d4eu',
+  // Exported field_instance: 'node-video-field_tags'
+  $field_instances['node-video-field_tags'] = array(
+    'bundle' => 'video',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Please separate tags with commas. For example <i>broadband, geoblocking, quantum mechanics, italy</i>.',
@@ -729,9 +729,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-video_d4eu-field_videosd4eu'
-  $field_instances['node-video_d4eu-field_videosd4eu'] = array(
-    'bundle' => 'video_d4eu',
+  // Exported field_instance: 'node-video-field_videos'
+  $field_instances['node-video-field_videos'] = array(
+    'bundle' => 'video',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -758,7 +758,7 @@ function futurium_isa_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_videosd4eu',
+    'field_name' => 'field_videos',
     'label' => 'Video',
     'required' => 1,
     'settings' => array(
@@ -802,9 +802,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_event_description'.
-  $field_instances['node-event_d4eu-field_event_description'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_event_description'.
+  $field_instances['node-eventfield_event_description'] = array(
+    'bundle' => 'event',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -875,9 +875,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_coordinates'.
-  $field_instances['node-event_d4eu-field_coordinates'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_coordinates'.
+  $field_instances['node-eventfield_coordinates'] = array(
+    'bundle' => 'event',
     'default_value' => array(),
     'deleted' => 0,
     'description' => '',
@@ -937,9 +937,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_date_time'.
-  $field_instances['node-event_d4eu-field_date_time'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_date_time'.
+  $field_instances['node-eventfield_date_time'] = array(
+    'bundle' => 'event',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1015,9 +1015,9 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event_d4eu-field_location'.
-  $field_instances['node-event_d4eu-field_location'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_location'.
+  $field_instances['node-eventfield_location'] = array(
+    'bundle' => 'event',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -1743,339 +1743,7 @@ function futurium_isa_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'comment-comment_node_future-field_comment_body'.
-  $field_instances['comment-comment_node_future-field_body_comment'] = array(
-    'bundle' => 'comment_node_future',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'comment',
-    'field_name' => 'field_body_comment',
-    'label' => 'Comment',
-    'required' => 0,
-    'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'basic_html' => 0,
-          'ds_code' => 0,
-          'filtered_html' => 0,
-          'full' => 0,
-          'full_html' => 0,
-          'plain_text' => 0,
-          'simple_text' => 'simple_text',
-          'simple_wysiwig' => 0,
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'basic_html' => array(
-              'weight' => 5,
-            ),
-            'ds_code' => array(
-              'weight' => 12,
-            ),
-            'filtered_html' => array(
-              'weight' => -9,
-            ),
-            'full' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => -10,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'simple_text' => array(
-              'weight' => 0,
-            ),
-            'simple_wysiwig' => array(
-              'weight' => 0,
-            ),
-          ),
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'comment-comment_node_ideas-field_comment_body'.
-  $field_instances['comment-comment_node_ideas-field_body_comment'] = array(
-    'bundle' => 'comment_node_ideas',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'comment',
-    'field_name' => 'field_body_comment',
-    'label' => 'Comment',
-    'required' => 0,
-    'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'basic_html' => 0,
-          'ds_code' => 0,
-          'filtered_html' => 0,
-          'full' => 0,
-          'full_html' => 0,
-          'plain_text' => 0,
-          'simple_text' => 'simple_text',
-          'simple_wysiwig' => 0,
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'basic_html' => array(
-              'weight' => 5,
-            ),
-            'ds_code' => array(
-              'weight' => 12,
-            ),
-            'filtered_html' => array(
-              'weight' => -9,
-            ),
-            'full' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => -10,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'simple_text' => array(
-              'weight' => 0,
-            ),
-            'simple_wysiwig' => array(
-              'weight' => 0,
-            ),
-          ),
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'comment-comment_node_evidence-field_comment_body'.
-  $field_instances['comment-comment_node_evidence-field_body_comment'] = array(
-    'bundle' => 'comment_node_evidence',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'comment',
-    'field_name' => 'field_body_comment',
-    'label' => 'Comment',
-    'required' => 0,
-    'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'basic_html' => 0,
-          'ds_code' => 0,
-          'filtered_html' => 0,
-          'full' => 0,
-          'full_html' => 0,
-          'plain_text' => 0,
-          'simple_text' => 'simple_text',
-          'simple_wysiwig' => 0,
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'basic_html' => array(
-              'weight' => 5,
-            ),
-            'ds_code' => array(
-              'weight' => 12,
-            ),
-            'filtered_html' => array(
-              'weight' => -9,
-            ),
-            'full' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => -10,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'simple_text' => array(
-              'weight' => 0,
-            ),
-            'simple_wysiwig' => array(
-              'weight' => 0,
-            ),
-          ),
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'comment-comment_node_future-field_comment_body'.
-  $field_instances['comment-comment_node_event_d4eu-field_body_comment'] = array(
-    'bundle' => 'comment_node_event_d4eu',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'comment',
-    'field_name' => 'field_body_comment',
-    'label' => 'Comment',
-    'required' => 0,
-    'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'basic_html' => 0,
-          'ds_code' => 0,
-          'filtered_html' => 0,
-          'full' => 0,
-          'full_html' => 0,
-          'plain_text' => 0,
-          'simple_text' => 'simple_text',
-          'simple_wysiwig' => 0,
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'basic_html' => array(
-              'weight' => 5,
-            ),
-            'ds_code' => array(
-              'weight' => 12,
-            ),
-            'filtered_html' => array(
-              'weight' => -9,
-            ),
-            'full' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => -10,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'simple_text' => array(
-              'weight' => 0,
-            ),
-            'simple_wysiwig' => array(
-              'weight' => 0,
-            ),
-          ),
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 1,
-    ),
-  );
-
-// Exported field_instance: 'user-user-field_picture'.
+  // Exported field_instance: 'user-user-field_picture'.
   $field_instances['user-user-field_picture'] = array(
     'bundle' => 'user',
     'deleted' => 0,

@@ -306,8 +306,8 @@
 
   .sidebar-right .form-item .autocomplete-new.event a {
     @include on-event {
-      border: 1px solid darken($event-color, 10%);
-      color: darken($event-color, 10%);
+      border: 1px solid darken($eventcolor, 10%);
+      color: darken($eventcolor, 10%);
     }
   }
 

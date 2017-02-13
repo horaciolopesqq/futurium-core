@@ -7,7 +7,7 @@
 /**
  * Implements theme_menu_link().
  */
-function d4eu_menu_link(&$variables) {
+function _menu_link(&$variables) {
   // Catch the case of a home image.
   if ($variables['element']['#title'] == '<span class="glyphicon glyphicon-home menu-no-title"></span>') {
     // Classes on link <a>.
@@ -23,7 +23,7 @@ function d4eu_menu_link(&$variables) {
 /**
  * Implements hook_preprocess_block().
  */
-function d4eu_preprocess_block(&$variables) {
+function _preprocess_block(&$variables) {
 
   // Constructs a block ID based on region, module and delta.
   $block_id = $variables['elements']['#block']->region . '-' . $variables['elements']['#block']->module . '-' . $variables['elements']['#block']->delta;
@@ -181,7 +181,7 @@ function d4eu_preprocess_block(&$variables) {
 /**
  * Implements hook_menu_block_view_alter().
  */
-function d4eu_block_view_alter(&$data, $block) {
+function _block_view_alter(&$data, $block) {
   // Remove from the list items.
   if (isset($data['content'])) {
     if (!is_array($data['content'])) {
@@ -204,7 +204,7 @@ function d4eu_block_view_alter(&$data, $block) {
  *
  * Overrides ec_resp title tag.
  */
-function d4eu_preprocess_html(&$variables) {
+function _preprocess_html(&$variables) {
   if (drupal_get_title()) {
     $head_title = array(
       'title' => strip_tags(drupal_get_title()),
@@ -227,7 +227,7 @@ function d4eu_preprocess_html(&$variables) {
  *
  * Removes the obsolete content-type.
  */
-function d4eu_html_head_alter(&$head_elements) {
+function _html_head_alter(&$head_elements) {
   foreach ($head_elements as $key => $element) {
     if (isset($element['#attributes']['http-equiv']) == 'Content-Language') {
       unset($head_elements[$key]);
@@ -240,7 +240,7 @@ function d4eu_html_head_alter(&$head_elements) {
  *
  * Changes on submitted label.
  */
-function d4eu_preprocess_node(&$vars) {
+function _preprocess_node(&$vars) {
   $account = user_load($vars['node']->uid);
   if (isset($account->field_organisation[LANGUAGE_NONE][0]['safe_value'])) {
     $organisation = $account->field_organisation[LANGUAGE_NONE][0]['safe_value'];
@@ -285,12 +285,12 @@ function d4eu_preprocess_node(&$vars) {
   }
   $vars['hide'] = array();
   $vars['show'] = array(
-    'field_leading_picture_d4eu',
+    'field_leading_picture',
     'body',
     'field_ideas',
     'poll_view_voting',
     'poll_view_results',
-    'field_videosd4eu',
+    'field_videos',
     'field_document',
     'field_date_time',
     'field_issue',
@@ -303,7 +303,7 @@ function d4eu_preprocess_node(&$vars) {
  *
  * Adding missing alternative text for WAI compliance.
  */
-function d4eu_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+function _form_search_block_form_alter(&$form, &$form_state, $form_id) {
   $form['actions']['submit']['#attributes']['alt'] = 'Search';
 }
 
@@ -312,7 +312,7 @@ function d4eu_form_search_block_form_alter(&$form, &$form_state, $form_id) {
  *
  * Changes search forms placeholder text.
  */
-function d4eu_form_alter(&$form, &$form_state, $form_id) {
+function _form_alter(&$form, &$form_state, $form_id) {
   if (module_exists('supertags')) {
     $flavor = _supertags_flavor_context();
     if ($form_id == 'search_block_form') {
@@ -326,7 +326,7 @@ function d4eu_form_alter(&$form, &$form_state, $form_id) {
  *
  * Change the markup of links login/register to comment a comment.
  */
-function d4eu_preprocess_comment(&$vars) {
+function _preprocess_comment(&$vars) {
   global $user;
 
   // Hide Important or conclusion in comment view.
@@ -378,7 +378,7 @@ function d4eu_preprocess_comment(&$vars) {
  *
  * Add link on main title of the website to root.
  */
-function d4eu_preprocess_page(&$vars) {
+function _preprocess_page(&$vars) {
   $old_site_name = $vars['site_name'];
   $vars['site_name'] = '<a href="' . $vars['front_page'] . '">' . $old_site_name . '</a>';
 }
@@ -386,7 +386,7 @@ function d4eu_preprocess_page(&$vars) {
 /**
  * Implements template_preprocess_user_profile().
  */
-function d4eu_preprocess_user_profile(&$variables) {
+function _preprocess_user_profile(&$variables) {
   // Format profile page.
   $identity = '';
   if (isset($variables['field_firstname'][0]['safe_value'])) {
@@ -433,7 +433,7 @@ function d4eu_preprocess_user_profile(&$variables) {
  *
  * Show votes results by default in poll lists.
  */
-function d4eu_preprocess_views_view_fields(&$vars) {
+function _preprocess_views_view_fields(&$vars) {
   if ($vars['view']->name == 'flavors' && $vars['view']->current_display == 'page_poll') {
     $poll_node = node_load($vars['row']->nid);
     $vars['fields']['active']->label_html = FALSE;

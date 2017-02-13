@@ -10,13 +10,13 @@
 function futurium_isa_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_authors_d4eu'
-  $field_bases['field_authors_d4eu'] = array(
+  // Exported field_base: 'field_authors'
+  $field_bases['field_authors'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_authors_d4eu',
+    'field_name' => 'field_authors',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -83,13 +83,13 @@ function futurium_isa_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_leading_picture_d4eu'
-  $field_bases['field_leading_picture_d4eu'] = array(
+  // Exported field_base: 'field_leading_picture'
+  $field_bases['field_leading_picture'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -108,13 +108,13 @@ function futurium_isa_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_link_d4eu'
-  $field_bases['field_link_d4eu'] = array(
+  // Exported field_base: 'field_link'
+  $field_bases['field_link'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_link_d4eu',
+    'field_name' => 'field_link',
     'indexes' => array(),
     'locked' => 1,
     'module' => 'link',
@@ -201,7 +201,7 @@ function futurium_isa_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'event_d4eu' => 'event_d4eu',
+          'event' => 'event',
         ),
       ),
       'target_type' => 'node',
@@ -273,7 +273,7 @@ function futurium_isa_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'video_d4eu' => 'video_d4eu',
+          'video' => 'video',
         ),
       ),
       'target_type' => 'node',
@@ -282,13 +282,13 @@ function futurium_isa_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_videosd4eu'
-  $field_bases['field_videosd4eu'] = array(
+  // Exported field_base: 'field_videos'
+  $field_bases['field_videos'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_videosd4eu',
+    'field_name' => 'field_videos',
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -303,13 +303,13 @@ function futurium_isa_field_default_field_bases() {
     'type' => 'media',
   );
 
-  // Exported field_base: 'field_year_of_publication_d4eu'
-  $field_bases['field_year_of_publication_d4eu'] = array(
+  // Exported field_base: 'field_year_of_publication'
+  $field_bases['field_year_of_publication'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_year_of_publication_d4eu',
+    'field_name' => 'field_year_of_publication',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 1,
@@ -684,27 +684,6 @@ function futurium_isa_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_comment_body'.
-  $field_bases['field_body_comment'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_body_comment',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'text_long',
   );
 
   return $field_bases;

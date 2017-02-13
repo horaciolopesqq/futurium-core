@@ -12,9 +12,9 @@ function futurium_isa_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'node|event_d4eu|node_header';
+  $ds_fieldsetting->id = 'node|event|node_header';
   $ds_fieldsetting->entity_type = 'node';
-  $ds_fieldsetting->bundle = 'event_d4eu';
+  $ds_fieldsetting->bundle = 'event';
   $ds_fieldsetting->view_mode = 'node_header';
   $ds_fieldsetting->settings = array(
     'title' => array(
@@ -39,13 +39,13 @@ function futurium_isa_ds_field_settings_info() {
       ),
     ),
   );
-  $export['node|event_d4eu|node_header'] = $ds_fieldsetting;
+  $export['node|event|node_header'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'node|event_d4eu|teaser';
+  $ds_fieldsetting->id = 'node|event|teaser';
   $ds_fieldsetting->entity_type = 'node';
-  $ds_fieldsetting->bundle = 'event_d4eu';
+  $ds_fieldsetting->bundle = 'event';
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'title' => array(
@@ -90,7 +90,7 @@ function futurium_isa_ds_field_settings_info() {
       ),
     ),
   );
-  $export['node|event_d4eu|teaser'] = $ds_fieldsetting;
+  $export['node|event|teaser'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
@@ -251,9 +251,9 @@ function futurium_isa_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|event_d4eu|node_header';
+  $ds_layout->id = 'node|event|node_header';
   $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'event_d4eu';
+  $ds_layout->bundle = 'event';
   $ds_layout->view_mode = 'node_header';
   $ds_layout->layout = 'ds_1col_wrapper';
   $ds_layout->settings = array(
@@ -287,13 +287,13 @@ function futurium_isa_ds_layout_settings_info() {
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
   );
-  $export['node|event_d4eu|node_header'] = $ds_layout;
+  $export['node|event|node_header'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|event_d4eu|teaser';
+  $ds_layout->id = 'node|event|teaser';
   $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'event_d4eu';
+  $ds_layout->bundle = 'event';
   $ds_layout->view_mode = 'teaser';
   $ds_layout->layout = 'ds_1col_wrapper';
   $ds_layout->settings = array(
@@ -329,7 +329,7 @@ function futurium_isa_ds_layout_settings_info() {
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
   );
-  $export['node|event_d4eu|teaser'] = $ds_layout;
+  $export['node|event|teaser'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;

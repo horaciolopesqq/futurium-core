@@ -106,7 +106,7 @@
 }
 
 .flavour-simp4benef .flavor-tree *,
-.flavour-simp4benef .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child,
+.flavour-simp4benef .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child,
 .flavour-simp4benef .mainContentSection h1#page-title,
 .flavour-simp4benef section h2,
 .flavour-simp4benef section h5,
@@ -121,14 +121,14 @@
 
 .flavour-simp4benef #comments,
 .flavour-simp4benef #comment-form-container,
-.flavour-simp4benef .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-simp4benef .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   border-color: #619f2c;
 }
 .flavour-simp4benef .mainContentSection h1#page-title {
   border-color: #dcdcdc;
 }
 
-.flavour-simp4benef .views-blog_d4eu-block_1 .panel-heading {
+.flavour-simp4benef .views-blog-block_1 .panel-heading {
   border-color: #dcdcdc;
 }
 
@@ -179,7 +179,7 @@
   color: #fff;
 }
 
-.flavour-simp4benef .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-simp4benef .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   background: #fff;
   background: -moz-linear-gradient(top, #fff 0%, #f0fbe9 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f0fbe9));

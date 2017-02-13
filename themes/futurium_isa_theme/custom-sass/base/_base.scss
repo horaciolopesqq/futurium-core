@@ -257,13 +257,13 @@ body.node-type-futurium-group {
 /* events */
 body.page-events,
 body.node-type-event {
-  @include contenttype($event-color, calendar);
+  @include contenttype($eventcolor, calendar);
 }
 
 .node-teaser.node-event,
 .view-messages .node-event
 {
-  @include teaser($event-color, calendar);
+  @include teaser($eventcolor, calendar);
   h3:before {
     @include rem(padding, 8px 0 0 9px);
     @include rem(font-size, 18px);
@@ -814,7 +814,7 @@ body .view-messages {
 
 /* Event details block (address, ...) */
 
-.pane-event-date-location {
+.pane-eventdate-location {
   @include panel /* gives the panel markup, bg, border, padding */
 }
 

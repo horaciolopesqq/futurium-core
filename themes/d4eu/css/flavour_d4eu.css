@@ -27,14 +27,14 @@
 
 .flavour-digital4eu .identityBlock {
   margin-bottom: 15px;
-  background: #00444c url(../images/theme/d4eu/baseline_theme.png) 50% 0 no-repeat;
+  background: #00444c url(../images/theme//baseline_theme.png) 50% 0 no-repeat;
   padding: 60px 10px 0px;
 }
 
 .flavour-digital4eu .identityBlock:before,
 .flavour-digital4eu .identityBlock:after {
   content: " ";
-  background: url(../images/theme/d4eu/yellow_corners.png) no-repeat;
+  background: url(../images/theme//yellow_corners.png) no-repeat;
   width: 5px;
   height: 5px;
   position: absolute;
@@ -99,7 +99,7 @@
 
 .flavour-digital4eu .flavor-tree *,
 .flavour-digital4eu .identityBlock .CTAButton span:nth-child(1),
-.flavour-digital4eu .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child,
+.flavour-digital4eu .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child,
 .flavour-digital4eu .homepageContainer .CTAButton,
 .flavour-digital4eu .mainContentSection h1#page-title,
 .flavour-digital4eu section h2,
@@ -109,10 +109,10 @@
 }
 
 .flavour-digital4eu .identityContainer,
-.flavour-digital4eu .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child,
+.flavour-digital4eu .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child,
 .flavour-digital4eu .homepageContainer .CTAButton,
 .flavour-digital4eu .mainContentSection h1#page-title,
-.flavour-digital4eu .views-blog_d4eu-block_1 .panel-heading,
+.flavour-digital4eu .views-blog-block_1 .panel-heading,
 .flavour-digital4eu #comment-form-container,
 .flavour-digital4eu #comments,
 .flavour-digital4eu .homepage-sidebar {
@@ -131,7 +131,7 @@
 }
 
 .flavour-digital4eu .flavor-tree .flavor-name:before {
-  background-image: url(../images/theme/d4eu/stamp50x50.png);
+  background-image: url(../images/theme//stamp50x50.png);
 }
 
 .flavour-digital4eu .flavor-tree .supertag-tree a {
@@ -195,7 +195,7 @@
     left: 0px;
     width: 100vw;
     height: 50px;
-    background: url(../images/theme/d4eu/baseline_theme.png) 50% 0 repeat-x;
+    background: url(../images/theme//baseline_theme.png) 50% 0 repeat-x;
     content: " ";
   }
 }

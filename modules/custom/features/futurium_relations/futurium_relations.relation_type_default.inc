@@ -22,7 +22,7 @@ function futurium_relations_relation_default_relation_types() {
   $relation_type->min_arity = 2;
   $relation_type->max_arity = 2;
   $relation_type->source_bundles = array(
-    0 => 'node:event_d4eu',
+    0 => 'node:event',
     1 => 'node:evidence',
     2 => 'node:ideas',
   );
@@ -80,7 +80,7 @@ function futurium_relations_relation_default_relation_types() {
   $relation_type->min_arity = 2;
   $relation_type->max_arity = 2;
   $relation_type->source_bundles = array(
-    0 => 'node:event_d4eu',
+    0 => 'node:event',
   );
   $relation_type->target_bundles = array(
     0 => 'node:future',

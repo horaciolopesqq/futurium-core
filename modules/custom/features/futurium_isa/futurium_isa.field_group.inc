@@ -13,10 +13,10 @@ function futurium_isa_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_buttons|node|event_d4eu|node_header';
+  $field_group->identifier = 'group_buttons|node|event|node_header';
   $field_group->group_name = 'group_buttons';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event_d4eu';
+  $field_group->bundle = 'event';
   $field_group->mode = 'node_header';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -40,15 +40,15 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|event_d4eu|node_header'] = $field_group;
+  $export['group_buttons|node|event|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_buttons|node|event_d4eu|teaser';
+  $field_group->identifier = 'group_buttons|node|event|teaser';
   $field_group->group_name = 'group_buttons';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event_d4eu';
+  $field_group->bundle = 'event';
   $field_group->mode = 'teaser';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -72,7 +72,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|event_d4eu|teaser'] = $field_group;
+  $export['group_buttons|node|event|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -141,10 +141,10 @@ function futurium_isa_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_date_vote_comment|node|event_d4eu|node_header';
+  $field_group->identifier = 'group_date_vote_comment|node|event|node_header';
   $field_group->group_name = 'group_date_vote_comment';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event_d4eu';
+  $field_group->bundle = 'event';
   $field_group->mode = 'node_header';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -169,15 +169,15 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|event_d4eu|node_header'] = $field_group;
+  $export['group_date_vote_comment|node|event|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_date_vote_comment|node|event_d4eu|teaser';
+  $field_group->identifier = 'group_date_vote_comment|node|event|teaser';
   $field_group->group_name = 'group_date_vote_comment';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'event_d4eu';
+  $field_group->bundle = 'event';
   $field_group->mode = 'teaser';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -202,7 +202,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|event_d4eu|teaser'] = $field_group;
+  $export['group_date_vote_comment|node|event|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -403,10 +403,10 @@ function futurium_isa_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_wrapper_author_date|comment|comment_node_event_d4eu|default';
+  $field_group->identifier = 'group_wrapper_author_date|comment|comment_node_event|default';
   $field_group->group_name = 'group_wrapper_author_date';
   $field_group->entity_type = 'comment';
-  $field_group->bundle = 'comment_node_event_d4eu';
+  $field_group->bundle = 'comment_node_event';
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -432,7 +432,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_wrapper_author_date|comment|comment_node_event_d4eu|default'] = $field_group;
+  $export['group_wrapper_author_date|comment|comment_node_event|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

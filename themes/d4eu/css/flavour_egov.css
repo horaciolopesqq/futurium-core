@@ -105,7 +105,7 @@
 }
 
 .flavour-egov .flavor-tree *,
-.flavour-egov .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child,
+.flavour-egov .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child,
 .flavour-egov .homepageContainer .CTAButton,
 .flavour-egov .mainContentSection h1#page-title,
 .flavour-egov section h2,
@@ -122,11 +122,11 @@
 .flavour-egov #comments,
 .flavour-egov #comment-form-container,
 .flavour-egov .mainContentSection h1#page-title,
-.flavour-egov .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-egov .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   border-color: #ffb281;
 }
 
-.flavour-egov .views-blog_d4eu-block_1 .panel-heading {
+.flavour-egov .views-blog-block_1 .panel-heading {
   border-color: #dcdcdc;
 }
 
@@ -176,7 +176,7 @@
   color: #fff;
 }
 
-.flavour-egov .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-egov .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   background: #e0f5fa;
   background: -moz-linear-gradient(top, #f5fbff 0%, #e0f5fa 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5fbff), color-stop(100%, #e0f5fa));

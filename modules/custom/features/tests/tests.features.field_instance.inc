@@ -10,9 +10,9 @@
 function tests_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event_d4eu-field_relation_graph'.
-  $field_instances['node-event_d4eu-field_relation_graph'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventfield_relation_graph'.
+  $field_instances['node-eventfield_relation_graph'] = array(
+    'bundle' => 'event',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

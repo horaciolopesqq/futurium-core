@@ -20,9 +20,9 @@ function futurium_isa_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create event_d4eu content'.
-  $permissions['create event_d4eu content'] = array(
-    'name' => 'create event_d4eu content',
+  // Exported permission: 'create event content'.
+  $permissions['create event content'] = array(
+    'name' => 'create event content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),
@@ -65,9 +65,9 @@ function futurium_isa_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any event_d4eu content'.
-  $permissions['edit any event_d4eu content'] = array(
-    'name' => 'edit any event_d4eu content',
+  // Exported permission: 'edit any event content'.
+  $permissions['edit any event content'] = array(
+    'name' => 'edit any event content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),
@@ -101,9 +101,9 @@ function futurium_isa_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own event_d4eu content'.
-  $permissions['edit own event_d4eu content'] = array(
-    'name' => 'edit own event_d4eu content',
+  // Exported permission: 'edit own event content'.
+  $permissions['edit own event content'] = array(
+    'name' => 'edit own event content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),

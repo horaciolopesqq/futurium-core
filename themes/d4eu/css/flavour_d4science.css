@@ -105,7 +105,7 @@
 }
 
 .flavour-digital4science .flavor-tree *,
-.flavour-digital4science .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child,
+.flavour-digital4science .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child,
 .flavour-digital4science .homepageContainer .CTAButton,
 .flavour-digital4science .mainContentSection h1#page-title,
 .flavour-digital4science section h2,
@@ -122,11 +122,11 @@
 .flavour-digital4science #comments,
 .flavour-digital4science #comment-form-container,
 .flavour-digital4science .mainContentSection h1#page-title,
-.flavour-digital4science .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-digital4science .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   border-color: #93caed;
 }
 
-.flavour-digital4science .views-blog_d4eu-block_1 .panel-heading {
+.flavour-digital4science .views-blog-block_1 .panel-heading {
   border-color: #dcdcdc;
 }
 
@@ -175,7 +175,7 @@
   color: #fff;
 }
 
-.flavour-digital4science .view-recent-activity .item-list li .node-event-d4eu .field-name-field-date-time a:first-child {
+.flavour-digital4science .view-recent-activity .item-list li .node-event .field-name-field-date-time a:first-child {
   background: #e0f5fa;
   background: -moz-linear-gradient(top, #f5fbff 0%, #e0f5fa 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5fbff), color-stop(100%, #e0f5fa));

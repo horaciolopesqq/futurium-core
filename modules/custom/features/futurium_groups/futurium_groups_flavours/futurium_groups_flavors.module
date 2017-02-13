@@ -25,7 +25,7 @@ function futurium_groups_flavors_process_page(&$variables) {
   $item = menu_get_item();
   if ($item['path'] == 'node/%') {
     global $theme;
-    if ($theme == 'd4eu') {
+    if ($theme == '') {
       $variables['theme_hook_suggestions'][] = 'page__normal_page';
       $context = context_get("futurium_groups");
       if (isset($context['active_group'])) {

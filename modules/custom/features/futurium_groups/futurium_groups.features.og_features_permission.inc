@@ -10,8 +10,8 @@
 function futurium_groups_og_features_default_permissions() {
   $permissions = array();
 
-  // Exported og permission: 'node:futurium_group:create event_d4eu content'
-  $permissions['node:futurium_group:create event_d4eu content'] = array(
+  // Exported og permission: 'node:futurium_group:create event content'
+  $permissions['node:futurium_group:create event content'] = array(
     'roles' => array(
       'member' => 'member',
     ),
@@ -38,8 +38,8 @@ function futurium_groups_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:delete any event_d4eu content'
-  $permissions['node:futurium_group:delete any event_d4eu content'] = array(
+  // Exported og permission: 'node:futurium_group:delete any event content'
+  $permissions['node:futurium_group:delete any event content'] = array(
     'roles' => array(),
   );
 
@@ -58,8 +58,8 @@ function futurium_groups_og_features_default_permissions() {
     'roles' => array(),
   );
 
-  // Exported og permission: 'node:futurium_group:delete own event_d4eu content'
-  $permissions['node:futurium_group:delete own event_d4eu content'] = array(
+  // Exported og permission: 'node:futurium_group:delete own event content'
+  $permissions['node:futurium_group:delete own event content'] = array(
     'roles' => array(
       'member' => 'member',
     ),
@@ -86,8 +86,8 @@ function futurium_groups_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:update any event_d4eu content'
-  $permissions['node:futurium_group:update any event_d4eu content'] = array(
+  // Exported og permission: 'node:futurium_group:update any event content'
+  $permissions['node:futurium_group:update any event content'] = array(
     'roles' => array(
       'member' => 'member',
     ),
@@ -114,8 +114,8 @@ function futurium_groups_og_features_default_permissions() {
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:update own event_d4eu content'
-  $permissions['node:futurium_group:update own event_d4eu content'] = array(
+  // Exported og permission: 'node:futurium_group:update own event content'
+  $permissions['node:futurium_group:update own event content'] = array(
     'roles' => array(
       'member' => 'member',
     ),

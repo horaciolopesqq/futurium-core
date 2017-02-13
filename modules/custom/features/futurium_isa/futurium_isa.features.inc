@@ -9,7 +9,7 @@
  */
 function futurium_isa_node_info() {
   $items = array(
-    'event_d4eu' => array(
+    'event' => array(
       'base'        => 'node_content',
       'description' => 'Create an event here',
       'has_title'   => 1,
@@ -25,7 +25,7 @@ function futurium_isa_node_info() {
       'title_label' => 'Title',
       'help'        => '',
     ),
-    'video_d4eu' => array(
+    'video' => array(
       'base'        => 'node_content',
       'description' => 'Post a video here',
       'has_title'   => 1,
@@ -139,7 +139,7 @@ function futurium_isa_flag_default_flags() {
     'title' => 'Attending',
     'global' => 0,
     'types' => array(
-      0 => 'event_d4eu',
+      0 => 'event',
     ),
     'flag_short' => 'Register',
     'flag_long' => '',

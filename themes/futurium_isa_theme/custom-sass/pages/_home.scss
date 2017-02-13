@@ -72,7 +72,7 @@
   }
 
   .pane-events {
-    @include blockhp($event-color);
+    @include blockhp($eventcolor);
     h2:before {
       @include fa(calendar);
     }

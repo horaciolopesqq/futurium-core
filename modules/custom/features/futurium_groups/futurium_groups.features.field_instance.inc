@@ -167,9 +167,9 @@ function futurium_groups_field_default_field_instances() {
     'widget_type' => 'options_select',
   );
 
-  // Exported field_instance: 'node-event_d4eu-og_group_ref'.
-  $field_instances['node-event_d4eu-og_group_ref'] = array(
-    'bundle' => 'event_d4eu',
+  // Exported field_instance: 'node-eventog_group_ref'.
+  $field_instances['node-eventog_group_ref'] = array(
+    'bundle' => 'event',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
@@ -265,8 +265,8 @@ function futurium_groups_field_default_field_instances() {
   );
 
   // Exported field_instance: 'node-ideas-group_content_access'.
-  $field_instances['node-event_d4eu-group_content_access'] = array(
-    'bundle' => 'event_d4eu',
+  $field_instances['node-eventgroup_content_access'] = array(
+    'bundle' => 'event',
     'default_value' => array(
       0 => array(
         'value' => 2,
@@ -722,7 +722,7 @@ function futurium_groups_field_default_field_instances() {
   );
 
   // Exported field_instance: 'node-futurium_group-group_picture
-  $field_instances['node-futurium_group-field_leading_picture_d4eu'] = array(
+  $field_instances['node-futurium_group-field_leading_picture'] = array(
     'bundle' => 'futurium_group',
     'deleted' => 0,
     'description' => '',
@@ -762,7 +762,7 @@ function futurium_groups_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_leading_picture_d4eu',
+    'field_name' => 'field_leading_picture',
     'label' => 'Leading picture',
     'required' => 0,
     'settings' => array(
