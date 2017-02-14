@@ -30,7 +30,7 @@ function futurium_evidence_node_info() {
     'evidence' => array(
       'name' => t('Evidence'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Upload evidence to link to your future or idea: reports, studies, articles.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

@@ -203,11 +203,7 @@ function futurium_isa_extras_preprocess_collapsible_user_block(&$vars) {
 }
 
 function futurium_isa_extras_process_collapsible_user_block(&$vars) {
-  if (user_is_anonymous()) {
-
-  }
-  else {
-
+  if (user_is_logged_in()) {
     $user_pic = theme(
       'image_style', array(
         'style_name' => $vars['account']['picture']['image_style'],

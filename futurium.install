@@ -6,6 +6,7 @@
  * Perform actions to set up the site for this profile.
  */
 function futurium_install() {
+  // Change the themes.
   theme_disable(array('bartik'));
   $enable = array(
     'futurium_isa_theme',
@@ -13,6 +14,10 @@ function futurium_install() {
   );
   theme_enable($enable);
 
+  variable_set('theme_default', 'futurium_isa_theme');
+  variable_set('admin_theme', 'adminimal');
+
+  // Enable features.
   $enable = array(
     'futurium_core',
     'futurium_evidence',
@@ -24,9 +29,6 @@ function futurium_install() {
     'futurium_isa_extras'
   );
   module_enable($enable);
-
-  variable_set('theme_default', 'futurium_isa_theme');
-  variable_set('admin_theme', 'adminimal');
 
   // Rebuild content permissions.
   node_access_rebuild();
@@ -130,9 +132,18 @@ function futurium_install_tasks($install_state){
   return $tasks;
 }
 
+function futurium_modules_installed($modules) {
+  drupal_set_message("Woot!");
+  //if (in_array('futurium_isa', $modules) && module_exists('futurium_core')) {
+    _futurium_core_revert_features(array('futurium_isa'));
+  //}
+}
+
 /**
  * Cleanup install task.
  */
 function futurium_setup_cleanup() {
   features_revert();
+  drupal_set_message('Reverted all features.');
 }
+

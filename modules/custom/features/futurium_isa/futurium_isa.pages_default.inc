@@ -7375,7 +7375,9 @@ function futurium_isa_default_page_manager_pages() {
   $page->admin_title = 'About';
   $page->admin_description = '';
   $page->path = 'about';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(

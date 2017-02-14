@@ -10,9 +10,69 @@
 function futurium_groups_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-ideas-og_group_ref'.
-  $field_instances['node-ideas-og_group_ref'] = array(
-    'bundle' => 'ideas',
+  // Exported field_instance: 'node-document-group_content_access'.
+  $field_instances['node-document-group_content_access'] = array(
+    'bundle' => 'document',
+    'default_value' => array(
+      0 => array(
+        'value' => 2,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 11,
+      ),
+      'node_header' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_content_access',
+    'label' => 'Group content visibility',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+    'widget_type' => 'options_select',
+  );
+
+  // Exported field_instance: 'node-document-og_group_ref'.
+  $field_instances['node-document-og_group_ref'] = array(
+    'bundle' => 'document',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
@@ -25,12 +85,6 @@ function futurium_groups_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-      'mini_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
         'weight' => 0,
       ),
       'node_header' => array(
@@ -83,9 +137,90 @@ function futurium_groups_field_default_field_instances() {
         'label' => 'Full',
         'type' => 'og_list_default',
       ),
-      'mini_teaser' => array(
+      'node_header' => array(
         'custom settings' => FALSE,
-        'label' => 'Mini Teaser',
+        'label' => 'Node Header',
+        'type' => 'og_list_default',
+      ),
+      'teaser' => array(
+        'custom settings' => FALSE,
+        'label' => 'Teaser',
+        'type' => 'og_list_default',
+      ),
+    ),
+    'widget' => array(
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-ideas-og_group_ref'.
+  $field_instances['node-ideas-og_group_ref'] = array(
+    'bundle' => 'ideas',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+      'node_header' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'og_group_ref',
+    'label' => 'Groups audience',
+    'required' => FALSE,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'action' => 'hide',
+          'action_on_edit' => 1,
+          'fallback' => 'hide',
+          'providers' => array(
+            'og_context' => 0,
+            'url' => 1,
+          ),
+          'skip_perm' => 'administer site configuration',
+          'status' => 1,
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'custom settings' => FALSE,
+        'label' => 'Full',
         'type' => 'og_list_default',
       ),
       'node_header' => array(
@@ -167,8 +302,8 @@ function futurium_groups_field_default_field_instances() {
     'widget_type' => 'options_select',
   );
 
-  // Exported field_instance: 'node-eventog_group_ref'.
-  $field_instances['node-eventog_group_ref'] = array(
+  // Exported field_instance: 'node-event-og_group_ref'.
+  $field_instances['node-event-og_group_ref'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
     'default_value_function' => 'entityreference_prepopulate_field_default_value',
@@ -182,12 +317,6 @@ function futurium_groups_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-      'mini_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
         'weight' => 0,
       ),
       'node_header' => array(
@@ -240,11 +369,6 @@ function futurium_groups_field_default_field_instances() {
         'label' => 'Full',
         'type' => 'og_list_default',
       ),
-      'mini_teaser' => array(
-        'custom settings' => FALSE,
-        'label' => 'Mini Teaser',
-        'type' => 'og_list_default',
-      ),
       'node_header' => array(
         'custom settings' => FALSE,
         'label' => 'Node Header',
@@ -265,7 +389,7 @@ function futurium_groups_field_default_field_instances() {
   );
 
   // Exported field_instance: 'node-ideas-group_content_access'.
-  $field_instances['node-eventgroup_content_access'] = array(
+  $field_instances['node-event-group_content_access'] = array(
     'bundle' => 'event',
     'default_value' => array(
       0 => array(
@@ -341,12 +465,6 @@ function futurium_groups_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 0,
       ),
-      'mini_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
       'node_header' => array(
         'label' => 'above',
         'settings' => array(),
@@ -395,11 +513,6 @@ function futurium_groups_field_default_field_instances() {
       'full' => array(
         'custom settings' => FALSE,
         'label' => 'Full',
-        'type' => 'og_list_default',
-      ),
-      'mini_teaser' => array(
-        'custom settings' => FALSE,
-        'label' => 'Mini Teaser',
         'type' => 'og_list_default',
       ),
       'node_header' => array(

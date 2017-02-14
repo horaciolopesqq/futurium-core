@@ -116,7 +116,7 @@ function futurium_isa_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_link',
     'indexes' => array(),
-    'locked' => 1,
+    'locked' => 0,
     'module' => 'link',
     'settings' => array(
       'attributes' => array(

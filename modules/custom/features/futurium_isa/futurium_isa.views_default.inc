@@ -60,7 +60,7 @@ function futurium_isa_views_default_views() {
     0 => 'title',
     1 => 'field_location',
     2 => 'field_date_time',
-    3 => 'body',
+    3 => 'field_event_description',
     4 => 'view_node',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
@@ -102,14 +102,14 @@ function futurium_isa_views_default_views() {
     'show_remaining_days' => 0,
   );
   /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['label'] = '';
+  $handler->display->display_options['fields']['field_event_description']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_event_description']['settings'] = array(
     'trim_length' => '300',
   );
   /* Field: Content: Link */
@@ -232,14 +232,14 @@ function futurium_isa_views_default_views() {
     'show_remaining_days' => 0,
   );
   /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['label'] = '';
+  $handler->display->display_options['fields']['field_event_description']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_event_description']['settings'] = array(
     'trim_length' => '300',
   );
   /* Field: Content: Link */
@@ -418,15 +418,15 @@ function futurium_isa_views_default_views() {
     'format_handlers' => array(),
   );
   /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['label'] = '';
+  $handler->display->display_options['fields']['field_event_description']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_description']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_event_description']['settings'] = array(
     'trim_length' => '300',
   );
   /* Field: Content: Link */
@@ -1464,13 +1464,13 @@ Votes Desc|Most voted',
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
+  $handler->display->display_options['fields']['field_event_description']['label'] = '';
+  $handler->display->display_options['fields']['field_event_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_event_description']['settings'] = array(
     'trim_length' => '300',
   );
   /* Field: Content: Post date */

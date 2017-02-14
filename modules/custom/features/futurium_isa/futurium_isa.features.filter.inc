@@ -45,7 +45,7 @@ function futurium_isa_filter_default_formats() {
   $formats['full_html'] = (object) array(
     'format' => 'full_html',
     'name' => 'Full HTML',
-    'cache' => 1,
+    'cache' => 0,
     'status' => 1,
     'weight' => 0,
     'filters' => array(

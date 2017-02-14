@@ -15,3 +15,31 @@ function futurium_isa_entity_info_alter(&$entity_info) {
     'custom settings' => FALSE,
   );
 }
+
+/**
+ * Implements hook_field_default_field_bases_alter().
+ */
+function futurium_isa_field_default_field_bases_alter(&$fields) {
+  foreach ($fields as $field_name => &$field_config) {
+    $db_field_config = field_info_field($field_name);
+    if (isset($field_config['settings']['default_image'])) {
+      // Field default picture may not be set from the feature itself, due to
+      // possible conflict with pre-existing fid's, so we need to make sure it
+      // if it is set, it shouldn't be marked as overriden.
+      if ($field_config['settings']['default_image'] != $db_field_config['settings']['default_image']) {
+        $field_config['settings']['default_image'] = $db_field_config['settings']['default_image'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_user_default_permissions_alter().
+ *
+ * Add all permissions to administrator role.
+ */
+function futurium_isa_user_default_permissions_alter(&$permissions) {
+  foreach ($permissions as &$permission) {
+    $permission['roles']['administrator'] = 'administrator';
+  }
+}

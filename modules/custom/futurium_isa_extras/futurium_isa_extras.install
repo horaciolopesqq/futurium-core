@@ -23,12 +23,6 @@ function futurium_isa_extras_enable() {
   // Set chosen selectors
   variable_set('chosen_jquery_selector', 'select');
 
-  // Unlock body field.
-  if ($field = field_info_field('body')) {
-    $field['locked'] = 0;
-    field_update_field($field);
-  }
-
   drupal_flush_all_caches();
 
 }

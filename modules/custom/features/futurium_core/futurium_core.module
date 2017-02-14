@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Code for the Futurium data model feature.
@@ -17,11 +18,61 @@ function futurium_core_feature_set_api() {
 }
 
 /**
- * Implements hook_node_form_alter().
+ * Implements hook_permission().
  */
-function futurium_core_form_node_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'ideas_node_form' && !user_access('access custom futurium fields')) {
-    field_group_hide_field_groups($form, array('group_related_content'));
+function futurium_core_permission() {
+  return array(
+    'access administration fieldset' => array(
+      'title' => t('Access administrative fieldset'),
+      'description' => t('Users with this permission will be able to see the administrative fieldset (group_admin).'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function futurium_core_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#groups']['group_admin'])) {
+    if (!user_access('access administration fieldset')) {
+      field_group_hide_field_groups($form, array('group_admin'));
+    }
+  }
+}
+
+/**
+ * Helper function to revert features.
+ */
+function _futurium_core_revert_features($modules, $component = NULL) {
+  module_load_include('inc', 'features', 'features.export');
+  features_include();
+  foreach ($modules as $module) {
+    if (($feature = feature_load($module, TRUE)) && module_exists($module)) {
+      $components = array();
+      if (is_null($component)) {
+        // Forcefully revert all components of a feature.
+        foreach (array_keys($feature->info['features']) as $component_) {
+          if (features_hook($component_, 'features_revert')) {
+            $components[] = $component_;
+          }
+        }
+      }
+      else {
+        // Use the $component argument of this function.
+        $components[] = $component;
+      }
+      foreach ($components as $component_to_revert) {
+        features_revert(array($module => array($component_to_revert)));
+      }
+
+      drupal_set_message(format_string('Reverted "!module" feature components !components.', array(
+        '!module' => $module,
+        '!components' => implode(', ', $components),
+      )));
+    }
+    else {
+      drupal_set_message(format_string('Unable to revert "!module" feature.', array('!module' => $module)));
+    }
   }
 }
 

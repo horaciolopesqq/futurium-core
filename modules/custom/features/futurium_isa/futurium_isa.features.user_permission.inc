@@ -253,8 +253,8 @@ function futurium_isa_user_default_permissions() {
   );
 
   // Exported permission: 'access administration theme'.
-  $permissions['access administration theme'] = array(
-    'name' => 'access administration theme',
+  $permissions['view the administration theme'] = array(
+    'name' => 'view the administration theme',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),

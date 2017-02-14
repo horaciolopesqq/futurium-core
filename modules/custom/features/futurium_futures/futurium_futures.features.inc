@@ -37,7 +37,7 @@ function futurium_futures_node_info() {
     'future' => array(
       'name' => t('Futures'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A future is a policy outcome, with a practical or aspirational nature, like a new school bus route, or 0% unemployment in your town.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
