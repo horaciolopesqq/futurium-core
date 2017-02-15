@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Installs the Futurium D4EU feature.
@@ -9,7 +10,7 @@
  */
 function futurium_core_enable() {
   $t = get_t();
-  drupal_set_message($t('Futurium data feature is now active on your site.'));
+  drupal_set_message($t('Futurium core feature is now active on your site.'));
 }
 
 /**
@@ -17,21 +18,5 @@ function futurium_core_enable() {
  */
 function futurium_core_disable() {
   $t = get_t();
-  drupal_set_message($t('Futurium data feature is now disabled on your site.'));
-}
-
-/**
- * Implements hook_install().
- */
-function futurium_core_install() {
-  $t = get_t();
-  drupal_set_message($t('Futurium data feature is now installed on your site.'));
-}
-
-/**
- * Implements hook_uninstall().
- */
-function futurium_core_uninstall() {
-  $t = get_t();
-  drupal_set_message($t('Futurium data feature is now uninstalled from your site.'));
+  drupal_set_message($t('Futurium core feature is now disabled on your site.'));
 }

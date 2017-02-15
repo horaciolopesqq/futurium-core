@@ -165,20 +165,23 @@ function futurium_linker_futurium_linker_query_alter(&$query) {
 
     $base_field = "n.nid";
     $field = "og_membership_node.gid";
-
     $public_nids = db_select('field_data_group_content_access')
       ->fields('field_data_group_content_access', array('entity_id'))
       ->condition('entity_type', 'node', '=')
-      ->condition('group_content_access_value', 1, '=');
+      ->condition('group_content_access_value', 1, '=')
+      ->execute()
+      ->fetchCol();
 
-    $query->condition(
-      db_and()
-        ->condition(db_or()
-          ->condition($base_field, $public_nids, 'IN')
-          ->isNull('og_membership_node.gid')
-          ->condition('og_membership_node.gid', $gids['node'], 'IN')
-      )
-    );
+    $or = db_or();
+    $or->isNull('og_membership_node.gid');
+    if (!empty($public_nids)) {
+      $or->condition($base_field, $public_nids, 'IN');
+    }
+    if (isset($gids['node']) && !empty($gids['node'])) {
+      $or->condition('og_membership_node.gid', $gids['node'], 'IN');
+    }
+
+    $query->condition(db_and()->condition($or));
   }
 }
 
@@ -494,33 +497,6 @@ function _futurium_linker_create_links($nid) {
 
   return $links;
 
-}
-
-/**
- * Implements relation_label_autocomplete_alter().
- */
-function futurium_linker_relation_label_autocomplete_alter(&$label) {
-  switch ($label) {
-    case 'supports':
-      $label = 'that supports';
-      break;
-
-  }
-}
-
-/**
- * Implements relation_content_type_autocomplete_alter().
- */
-function futurium_linker_relation_content_type_autocomplete_alter(&$content_type) {
-  switch ($content_type) {
-    case 'Ideas':
-      $content_type = 'Idea';
-      break;
-
-    case 'Futures':
-      $content_type = 'Future';
-      break;
-  }
 }
 
 /**

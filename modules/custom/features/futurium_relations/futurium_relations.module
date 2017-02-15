@@ -5,3 +5,30 @@
  */
 
 include_once 'futurium_relations.features.inc';
+
+/**
+ * Implements hook_js_alter().
+ *
+ * Remove the springyui.js file.
+ */
+function futurium_relations_libraries_info_alter(&$libraries) {
+  if (isset($libraries['springy'])) {
+    if ($idx = array_search('springyui.js', $libraries['springy']['files']['js'])) {
+      unset($libraries['springy']['files']['js'][$idx]);
+    }
+  }
+}
+
+/**
+ * Implements hook_js_alter().
+ *
+ * Include a modified version of the springyui.js.
+ */
+function futurium_relations_preprocess_page(&$vars) {
+  $item = menu_get_item();
+  if ($item['path'] == 'node/%/graph') {
+    $path = drupal_get_path('module', 'futurium_relations') . '/js/springyui.js';
+    drupal_add_js($path);
+  }
+}
+

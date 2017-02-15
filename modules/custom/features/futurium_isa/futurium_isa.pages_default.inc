@@ -2842,7 +2842,7 @@ function futurium_isa_default_page_manager_handlers() {
       'admin_title' => 'Title',
       'title' => '',
       'body' => '<h1>Login</h1>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -3052,7 +3052,7 @@ function futurium_isa_default_page_manager_handlers() {
       'admin_title' => 'Title',
       'title' => '',
       'body' => '<h1>Request new password</h1>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -3297,7 +3297,7 @@ function futurium_isa_default_page_manager_handlers() {
       'admin_title' => 'Title',
       'title' => '',
       'body' => '<h1>Create new account</h1>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -4126,7 +4126,7 @@ function futurium_isa_default_page_manager_pages() {
       'admin_title' => 'Add Event CTA',
       'title' => '',
       'body' => '<a class="btn btn-special btn-add-content" href="node/add/event">Add an Event</a>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -5421,7 +5421,7 @@ function futurium_isa_default_page_manager_pages() {
       'admin_title' => 'Add Idea CTA',
       'title' => '',
       'body' => '<a class="btn btn-special btn-add-content" href="node/add/ideas">Add an Idea</a>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -5706,7 +5706,7 @@ function futurium_isa_default_page_manager_pages() {
       'admin_title' => 'Add Library Item CTA',
       'title' => '',
       'body' => '<a class="btn btn-special btn-add-content" href="node/add/evidence">Add Evidence</a>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -7472,7 +7472,7 @@ function futurium_isa_default_page_manager_pages() {
       'body' => '<h1>About Futurium</h1>
 
   Futurium is the online platform developed by the European Commission to facilitate citizen engagement in policy conversations. It combines the informal character of social networks with the support of evidence data to engage stakeholders in shaping the futures and the policy ideas that matter to them. ',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();

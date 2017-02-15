@@ -34,6 +34,33 @@ function futurium_isa_field_default_field_bases_alter(&$fields) {
 }
 
 /**
+ * Implements relation_label_autocomplete_alter().
+ */
+function futurium_isa_relation_label_autocomplete_alter(&$label) {
+  switch ($label) {
+    case 'supports':
+      $label = 'that supports';
+      break;
+
+  }
+}
+
+/**
+ * Implements relation_content_type_autocomplete_alter().
+ */
+function futurium_isa_relation_content_type_autocomplete_alter(&$content_type) {
+  switch ($content_type) {
+    case 'Ideas':
+      $content_type = 'Idea';
+      break;
+
+    case 'Futures':
+      $content_type = 'Future';
+      break;
+  }
+}
+
+/**
  * Implements hook_user_default_permissions_alter().
  *
  * Add all permissions to administrator role.
@@ -41,5 +68,31 @@ function futurium_isa_field_default_field_bases_alter(&$fields) {
 function futurium_isa_user_default_permissions_alter(&$permissions) {
   foreach ($permissions as &$permission) {
     $permission['roles']['administrator'] = 'administrator';
+  }
+}
+
+/**
+ * Take actions before saving rate widget to the database.
+ *
+ * @param object $widget Widget object
+ * @param array $values Values from $form_state['values']
+ */
+function futurium_isa_rate_widget_insert(&$widget, $values) {
+  if ($widget->theme == 'rate_template_fivestar') {
+    $widget->css = drupal_get_path('module', 'rate') . '/templates/fivestar/fivestar.css';
+    $widget->js = drupal_get_path('module', 'rate') . '/templates/fivestar/fivestar.js';
+  }
+}
+
+/**
+ * Take actions before updating rate widget.
+ *
+ * @param object $widget Widget object
+ * @param array $values Values from $form_state['values']
+ */
+function futurium_isa_rate_widget_update(&$widget, $values) {
+  if ($widget->theme == 'rate_template_fivestar') {
+    $widget->css = drupal_get_path('module', 'rate') . '/templates/fivestar/fivestar.css';
+    $widget->js = drupal_get_path('module', 'rate') . '/templates/fivestar/fivestar.js';
   }
 }

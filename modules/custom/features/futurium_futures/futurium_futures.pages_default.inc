@@ -831,7 +831,7 @@ function futurium_futures_default_page_manager_pages() {
       'admin_title' => 'Intro Text',
       'title' => '',
       'body' => '<h1>Share your vision of what the world might look like</h1><div class="intro">Click on the button to create a future that you desire. A future is a policy outcome, with a practical or aspirational nature, like a new school bus route, or 0% unemployment in your town.</div>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
@@ -858,7 +858,7 @@ function futurium_futures_default_page_manager_pages() {
       'admin_title' => 'Add Future CTA',
       'title' => '',
       'body' => '<a class="btn btn-special btn-add-content" href="node/add/future">Add a Future</a>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();

@@ -561,9 +561,6 @@ projects[plupload][download][branch] = 7.x-1.x
 projects[plupload][download][revision] = bba974c6f3224346a1acae4181a700b55129e6e1
 projects[plupload][download][type] = git
 
-projects[print][subdir] = "contrib"
-projects[print][version] = "2.0"
-
 projects[quicktabs][subdir] = "contrib"
 projects[quicktabs][version] = "3.6"
 	projects[quicktabs][patch][] = patches/quicktabs-ajax-default-tab-none_1741488-10.patch
@@ -916,28 +913,28 @@ libraries[fancybox][download][type]= "file"
 libraries[fancybox][download][request_type]= "get"
 libraries[fancybox][download][file_type] = "zip"
 libraries[fancybox][download][url] = https://github.com/fancyapps/fancyBox/zipball/v2.1.5
-libraries[fancybox][destination] = "../common/libraries"
+libraries[fancybox][destination] = "libraries"
 
 ; flexslider 2.5.0
 libraries[flexslider][download][type]= "file"
 libraries[flexslider][download][url] = https://github.com/woothemes/FlexSlider/archive/version/2.5.0.zip
 libraries[flexslider][download][request_type]= "get"
 libraries[flexslider][download][file_type] = "zip"
-libraries[flexslider][destination] = "../common/libraries"
+libraries[flexslider][destination] = "libraries"
 
 ; fullcalendar 1.6.7
 libraries[fullcalendar][download][url] = https://github.com/fullcalendar/fullcalendar/archive/v1.6.7.zip
 libraries[fullcalendar][download][type]= "file"
 libraries[fullcalendar][download][request_type]= "get"
 libraries[fullcalendar][download][file_type] = "zip"
-libraries[fullcalendar][destination] = "../common/libraries"
+libraries[fullcalendar][destination] = "libraries"
 
 ; fullcalendar 1.5.4 fork (used for the events_resources module)
 libraries[fullcalendar_resources][download][url] = http://ikelin.github.io/fullcalendar/fullcalendar-1.5.4.zip
 libraries[fullcalendar_resources][download][type]= "file"
 libraries[fullcalendar_resources][download][request_type]= "get"
 libraries[fullcalendar_resources][download][file_type] = "zip"
-libraries[fullcalendar_resources][destination] = "../common/libraries"
+libraries[fullcalendar_resources][destination] = "libraries"
 
 ; history.js v1.8b2
 libraries[history][download][type] = "git"
@@ -951,27 +948,27 @@ libraries[iCalcreator][download][url] = https://github.com/iCalcreator/iCalcreat
 libraries[iCalcreator][download][type] = "file"
 libraries[iCalcreator][download][request_type]= "get"
 libraries[iCalcreator][download][file_type] = "zip"
-libraries[iCalcreator][download][destination] = "../common/libraries"
+libraries[iCalcreator][download][destination] = "libraries"
 
 ; imgAreaSelect 0.9.10
 libraries[jquery.imgareaselect][download][url] = http://odyniec.net/projects/imgareaselect/jquery.imgareaselect-0.9.10.zip
 libraries[jquery.imgareaselect][download][type]= "file"
 libraries[jquery.imgareaselect][download][request_type]= "get"
 libraries[jquery.imgareaselect][download][file_type] = "zip"
-libraries[jquery.imgareaselect][destination] = "../common/libraries"
+libraries[jquery.imgareaselect][destination] = "libraries"
 
 ; jplayer 2.9.2
 libraries[jplayer][download][url] = https://github.com/happyworm/jPlayer/archive/2.9.2.zip
 libraries[jplayer][download][type]= "file"
 libraries[jplayer][download][request_type]= "get"
 libraries[jplayer][download][file_type] = "zip"
-libraries[jplayer][destination] = "../common/libraries"
+libraries[jplayer][destination] = "libraries"
 
 ; jquery 1.11.3
 libraries[jquery][download][url] = http://code.jquery.com/jquery-1.11.3.min.js
 libraries[jquery][download][type]= "file"
 libraries[jquery][download][request_type]= "get"
-libraries[jquery][destination] = "../common/libraries"
+libraries[jquery][destination] = "libraries"
 libraries[jquery][directory_name] = "jquery"
 
 ; Leaflet.draw
@@ -985,7 +982,7 @@ libraries[modernizr][download][url] = https://github.com/Modernizr/Modernizr/arc
 libraries[modernizr][download][type]= "file"
 libraries[modernizr][download][request_type]= "get"
 libraries[modernizr][download][file_type] = "zip"
-libraries[modernizr][destination] = "../common/libraries"
+libraries[modernizr][destination] = "libraries"
 
 ; mpdf 5.7.4a
 libraries[mpdf][download][type]= "file"
@@ -1011,3 +1008,9 @@ libraries[plupload][directory_name] = "plupload"
 ; See https://www.drupal.org/node/1903850#comment-11676067.
 libraries[plupload][patch][1903850] = "https://www.drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-29.patch"
 
+; Springy
+libraries[springy][destination] = "libraries"
+libraries[springy][download][type] = "git"
+libraries[springy][download][url] = "https://github.com/dhotson/springy.git"
+libraries[springy][download][revision] = "6158298c9ee183bf95dd34fc49dcb9256d0e46e8"
+libraries[springy][directory_name] = "springy"

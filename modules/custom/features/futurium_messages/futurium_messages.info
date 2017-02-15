@@ -25,6 +25,7 @@ features[features_api][] = api:2
 features[field_base][] = field_comment_ref
 features[field_base][] = field_node_ref
 features[field_base][] = field_user_ref
+features[filter][] = messages_html
 features[field_instance][] = message-comment_created-field_comment_ref
 features[field_instance][] = message-comment_created-field_node_ref
 features[field_instance][] = message-comment_created-field_user_ref

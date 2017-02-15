@@ -133,10 +133,12 @@ function futurium_install_tasks($install_state){
 }
 
 function futurium_modules_installed($modules) {
-  drupal_set_message("Woot!");
-  //if (in_array('futurium_isa', $modules) && module_exists('futurium_core')) {
-    _futurium_core_revert_features(array('futurium_isa'));
-  //}
+  drupal_set_message(implode(', ', $modules));
+  /*
+  if (in_array('futurium_isa', $modules) && module_exists('futurium_core')) {
+    futurium_core_revert_features(array('futurium_isa'));
+  }
+  */
 }
 
 /**

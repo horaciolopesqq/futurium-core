@@ -41,6 +41,10 @@ function futurium_isa_install() {
     // Replace default image for $field_name field base.
     _futurium_isa_replace_default_image($field_name, $filename, $source);
   }
+
+  // Set realname token.
+  variable_set('realname_pattern', '[user:field_firstname] [user:field_lastname]');
+
 }
 
 function futurium_isa_post_features_revert($component) {

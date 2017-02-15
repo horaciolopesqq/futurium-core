@@ -400,11 +400,11 @@ function futurium_groups_default_page_manager_handlers() {
     <div class="actions">
     <div class="invite">Let\'s get started by inviting other people to join your group.</div>
     <div class="add-vision">You can also submit your first Vision of the Future</div>
-    <div class="propose">or propose a fresh new Policy Idea.</div>
+    <div class="propose">or propose a fresh new Idea.</div>
     </div>
 
     </div>',
-      'format' => 'full',
+      'format' => 'full_html',
       'substitute' => 1,
     );
     $pane->cache = array();

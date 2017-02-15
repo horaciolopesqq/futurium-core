@@ -714,8 +714,6 @@ row|Bootstrap Row
       'use_source_translation' => FALSE,
       'value_type' => 'percent',
       'theme' => 'rate_template_fivestar',
-      'css' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.css',
-      'js' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.js',
       'translate' => TRUE,
     ),
     2 => (object) array(
@@ -771,8 +769,6 @@ row|Bootstrap Row
       'use_source_translation' => FALSE,
       'value_type' => 'percent',
       'theme' => 'rate_template_fivestar',
-      'css' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.css',
-      'js' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.js',
       'translate' => TRUE,
     ),
     3 => (object) array(
@@ -828,8 +824,6 @@ row|Bootstrap Row
       'use_source_translation' => FALSE,
       'value_type' => 'percent',
       'theme' => 'rate_template_fivestar',
-      'css' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.css',
-      'js' => 'sites/all/modules/contrib/rate/templates/fivestar/fivestar.js',
       'translate' => TRUE,
     ),
   );

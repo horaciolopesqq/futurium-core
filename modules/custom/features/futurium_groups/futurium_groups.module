@@ -87,79 +87,9 @@ function futurium_groups_init() {
   context_set("futurium_groups", $variables);
 }
 
-/**
- * URL rewrites.
- */
-function futurium_groups_url_outbound_alter(&$path, &$options, $original_path) {
-  $rewrite_enabled = variable_get('futurium_groups_rewrite_group_urls', FALSE);
-  if ($rewrite_enabled) {
-    $context = context_get("futurium_groups");
-    if (isset($context['active_group'])) {
-      if (preg_match('|^taxonomy/term/([0-9]*)?|', $original_path, $matches)) {
-        $node = $context['active_group'];
-        if ($node) {
-          if ($node->type == 'futurium_group') {
-            $group_path = $node->field_group_path[LANGUAGE_NONE]['0']['value'];
-            $tid = $matches[1];
-            $path = str_replace('taxonomy/term/' . $tid, $group_path . '/tags/' . $tid, $original_path);
-          }
-        }
-      }
-    }
-    // Keep pointing to node/[nid]/edit.
-    if (substr($original_path, -4) != 'edit') {
-      if (preg_match('|^node/([0-9]*)?|', $original_path, $matches)) {
-        $node = node_load($matches[1]);
-        if ($node) {
-          if ($node->type == 'futurium_group') {
-            $group_path = $node->field_group_path[LANGUAGE_NONE]['0']['value'];
-            if (!empty($group_path)) {
-              $path = str_replace('node/' . $node->nid, $group_path, $original_path);
-            }
-          }
-        }
-      }
-    }
+function futurium_groups_form_node_form_alter($form, $form_state, $form_id) {
+  $q = drupal_get_query_parameters();
+  if (!empty($q) && isset($q['og_group_ref'])) {
+    $form["og_group_ref"][LANGUAGE_NONE]['attributes']['style'] = 'display:none';
   }
 }
-
-
-function futurium_groups_url_inbound_alter(&$path, $original_path, $path_language) {
-  $rewrite_enabled = variable_get('futurium_groups_rewrite_group_urls', FALSE);
-  if ($rewrite_enabled) {
-    static $rewrites;
-
-    $arg1 = arg(0);
-    if (isset($rewrites[$arg1])) {
-      if ($rewrites[$arg1] != FALSE) {
-        $path = str_replace($arg1, $rewrites[$arg1], $path);
-      }
-    }
-    else {
-      $query = new EntityFieldQuery();
-
-      $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'futurium_group')
-        ->fieldCondition('field_futurium_group_path', 'value', $arg1, '=')
-        ->range(0, 1)
-        ->addMetaData('account', user_load(1));
-
-      $result = $query->execute();
-
-      if (isset($result['node'])) {
-        $group_nids = array_keys($result['node']);
-        $groups = entity_load('node', $group_nids);
-        $group = array_pop($groups);
-      }
-
-      if (isset($group)) {
-        $rewrites[$arg1] = 'node/' . $group->nid;
-        $path = str_replace($arg1, 'node/' . $group->nid, $path);
-      }
-      else {
-        $rewrites[$arg1] = FALSE;
-      }
-    }
-  }
-}
-

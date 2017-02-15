@@ -75,29 +75,3 @@ function _futurium_core_revert_features($modules, $component = NULL) {
     }
   }
 }
-
-/**
- * Implements hook_date_formats().
- */
-function futurium_core_date_formats() {
-  $formats[] = array(
-    'type'    => 'day_fullmonth_year',
-    'format'  => 'j F Y',
-    'locales' => array(),
-  );
-  foreach ($formats as $format) {
-    if (isset($format['type']) && isset($format['format'])) {
-      variable_set('date_format_' . $format['type'], $format['format']);
-    }
-  }
-  return $formats;
-}
-
-/**
- * Implements hook_date_format_types().
- */
-function futurium_core_date_format_types() {
-  return array(
-    'day_fullmonth_year' => t('Short: j F Y'),
-  );
-}
