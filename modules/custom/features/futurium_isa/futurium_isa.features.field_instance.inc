@@ -1550,6 +1550,10 @@ function futurium_isa_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'user_header' => array(
+        'label' => 'above',
+        'type' => 'hidden',
+      ),
     ),
     'entity_type' => 'user',
     'field_name' => 'field_firstname',
@@ -1584,6 +1588,10 @@ function futurium_isa_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 0,
+      ),
+      'user_header' => array(
+        'label' => 'above',
+        'type' => 'hidden',
       ),
     ),
     'entity_type' => 'user',

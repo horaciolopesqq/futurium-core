@@ -39,7 +39,7 @@
 /// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
 @mixin respond-to($breakpoint) {
   $query: map-get($breakpoints, $breakpoint);
-
+  
   @if not $query {
     @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
   }
@@ -69,10 +69,10 @@
 }
 
 @mixin order($val) {
-  -webkit-box-ordinal-group: $val;
-  -moz-box-ordinal-group: $val;
-  -ms-flex-order: $val;
-  -webkit-order: $val;
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
   order: $val;
 }
 
@@ -187,7 +187,7 @@
 /// PROJECT SPECEFIC MIXINS ////
 /// PROJECT SPECEFIC MIXINS ////
 
-/// Base for a button
+/// Base for a button 
 
 
 
@@ -201,31 +201,31 @@
   color: #fff;
   @include transition(background .4s ease);
   @include on-event {
-    background-color: darken($color, 15%);
+    background-color: darken($color, 15%); 
     color: #fff;
     text-decoration: none;
     border: 1px solid darken($color, 20%);
-  }
+  } 
 }
 
 @mixin btn-special($color) {
   @include rem(padding, 15px 15px 15px 15px);
-  /*font-family: $header-font-stack; */
+  /*font-family: $header-font-stack; */  
   @include rem(font-size, 18px);
   background: darken($color, 20%);
   color: #fff;
   text-align: center;
-  /* text-transform: uppercase; */
+  /* text-transform: uppercase; */   
   cursor: pointer;
   border: 1px solid darken($color, 25%);
   font-weight: bold;
   @include transition(background .4s ease);
   @include on-event {
-    background-color: darken($color, 25%);
+    background-color: darken($color, 25%); 
     border: 1px solid darken($color, 30%);
     color: #fff;
     text-decoration: none;
-  }
+  } 
 }
 
 @mixin panel {
@@ -258,7 +258,7 @@
 /* mixin for layout content types (does markup of row1) */
 
 @mixin contenttype($color, $icon) {
-
+    
   a:not(.container-top a) {
     color: $color;
     @include on-event {
@@ -288,7 +288,7 @@
       border: 1px solid darken($idea-color, 10%);
       color: darken($idea-color, 10%);
     }
-  }
+  }  
 
   .sidebar-right .form-item .autocomplete-new.future a {
     @include on-event {
@@ -304,10 +304,10 @@
     }
   }
 
-  .sidebar-right .form-item .autocomplete-new.event a {
+  .sidebar-right .form-item .autocomplete-new.event_d4eu a {
     @include on-event {
-      border: 1px solid darken($eventcolor, 10%);
-      color: darken($eventcolor, 10%);
+      border: 1px solid darken($event-color, 10%);
+      color: darken($event-color, 10%);
     }
   }
 
@@ -321,7 +321,7 @@
 
   /* row1 theming */
   .container-fullwidth.row1 {
-    background: $color;
+    background: $color; 
     border-top: 3px solid darken($color, 15%);
     border-bottom: 1px solid darken($color, 15%);
     .field-name-author {
@@ -346,14 +346,14 @@
     }
     .share-links a, .flag-link-toggle, a.btn-more, .more-link a, .btn {
       @include btn-default($color);
-      background-color: darken($color, 10%);
+      background-color: darken($color, 10%); 
       @include on-event {
         background-color: darken($color, 15%);
       }
     }
     .btn.btn-special {
       @include btn-special($color);
-    }
+    }  
     h1 {
       @include rem(padding, 0 0 0 0);
       @include rem(margin, 0 0 20px 0);
@@ -362,25 +362,25 @@
       @include fa($icon);
       @include rem(padding, 18px);
       @include rem(margin, 0 0.5em 0 0);
-      @include rem(font-size, 36px);
+      @include rem(font-size, 36px); 
       color: $color;
       text-align: center;
       border-radius: 50%;
-      @include rem(width, 70px);
-      @include rem(height, 70px);
-      @include rem(line-height, 35px);
+      @include rem(width, 70px); 
+      @include rem(height, 70px); 
+      @include rem(line-height, 35px); 
       background: #fff;
       @include respond-to(small) {
         @include rem(width, 40px);
-        @include rem(height, 40px);
+        @include rem(height, 40px); 
         @include rem(line-height, 20px);
         @include rem(padding, 10px);
-        @include rem(font-size, 20px);
+        @include rem(font-size, 20px); 
       }
     }
     .group-shortcut-buttons a{
       @include rem(margin, 0 10px 0 0);
-    }
+    } 
   }
 
   .row2{
@@ -407,7 +407,7 @@
         background: $light-grey;
       }
     }
-  }
+  } 
 
   /* pagination */
 
@@ -428,7 +428,7 @@
     color: #fff;
   }
 
-  .pagination>li>a:hover,
+  .pagination>li>a:hover, 
   .pagination>li>a:focus {
     border-color: darken($color, 15%);
   }
@@ -440,7 +440,7 @@
     @include rem(padding, 20px 0 0 0);
     /* temp fix? should header1 be removed from page.tpl.php */
     .alert{
-      @include rem(margin, 20px 0 20px 0);
+      @include rem(margin, 20px 0 20px 0);  
     }
     h1.page-header {
       display: none;
@@ -462,7 +462,7 @@
 
 
 @mixin teaser($color, $icon) {
-  @include rem(padding, 30px 0 30px 0);
+  @include rem(padding, 30px 0 30px 0); 
   a {
     color: $color;
     @include on-event {
@@ -488,12 +488,12 @@
     @include rem(width, 35px);
     @include rem(height, 35px);
     @include rem(margin-right, 10px);
-    @include fa($icon);
+    @include fa($icon);    
     @include rem(padding, 6px 0 0 6px);
     @include rem(font-size, 24px);
   }
 
-  .btn-primary, .flag-action, .unflag-action, .flag-like a, .more-link a,
+  .btn-primary, .flag-action, .unflag-action, .flag-like a, .more-link a, 
   .share-links a, a.btn-more, .form-submit{
     @include btn-default($color);
   }

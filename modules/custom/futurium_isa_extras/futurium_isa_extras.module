@@ -229,6 +229,13 @@ function futurium_isa_extras_process_collapsible_user_block(&$vars) {
     $vars['title'] = '<span class="user-picture">' . $user_pic .'</span>';
     $vars['title'] .= '<span class="user-name">' . $vars['username'] .'</span>';
     $vars['content'] = theme('links', $menu);
+
+    $vars['lang_dropdown'] = NULL;
+    $languages = language_list();
+    if (module_exists('lang_dropdown') && count($languages) > 1) {
+      $block = module_invoke('lang_dropdown', 'block_view', 'language');
+      $vars['lang_dropdown'] = render($block['content']);
+    }
   }
 }
 
@@ -1132,5 +1139,16 @@ function futurium_isa_extras_js_alter(&$js) {
     $path = drupal_get_path('module', 'futurium_isa_extras') . '/js/springyui.js';
     $new_ui['data'] = $path;
     $js['sites/all/libraries/springy/springyui.js'] = $new_ui;
+  }
+}
+
+/**
+ * Implements hook_rate_widget_alter().
+ */
+function futurium_isa_extras_rate_widget_alter(&$widget, $context) {
+  if ($widget->theme == 'rate_template_fivestar') {
+    $path = drupal_get_path('module', 'rate');
+    $widget->css = $path . '/templates/fivestar/fivestar.css';
+    $widget->js  = $path . '/templates/fivestar/fivestar.js';
   }
 }

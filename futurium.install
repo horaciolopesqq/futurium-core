@@ -30,6 +30,12 @@ function futurium_install() {
   );
   module_enable($enable);
 
+  // Set jQuery_update vars.
+  variable_set('jquery_update_compression_type', "min");
+  variable_set('jquery_update_jquery_admin_version', "0");
+  variable_set('jquery_update_jquery_cdn', "none");
+  variable_set('jquery_update_jquery_version', "1.10");
+
   // Rebuild content permissions.
   node_access_rebuild();
 
@@ -130,15 +136,6 @@ function futurium_install_tasks($install_state){
   );
 
   return $tasks;
-}
-
-function futurium_modules_installed($modules) {
-  drupal_set_message(implode(', ', $modules));
-  /*
-  if (in_array('futurium_isa', $modules) && module_exists('futurium_core')) {
-    futurium_core_revert_features(array('futurium_isa'));
-  }
-  */
 }
 
 /**

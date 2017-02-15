@@ -106,13 +106,6 @@
       </button>
     </div>
 
-    <div class="lang-drop pull-right">
-      <?php
-        $block = module_invoke('lang_dropdown', 'block_view', 'language');
-        print render($block['content']);
-      ?>
-    </div>
-
     <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
       <div class="navbar-collapse collapse">
 

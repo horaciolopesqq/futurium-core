@@ -257,7 +257,7 @@
     @include menu($library-color, file-text-o);
   }
   li.events {
-    @include menu($eventcolor, calendar);
+    @include menu($event-color, calendar);
   }
   li.login {
     @include menu(darken($user-color, 20%), user);
@@ -282,13 +282,13 @@
     @include menu(darken($library-color, 20%), file-text-o);
   }
   li.events {
-    @include menu(darken($eventcolor, 20%), calendar);
+    @include menu(darken($event-color, 20%), calendar);
   }
   li.login {
     @include menu(darken($user-color, 20%), user);
   }
   li.stats {
-    @include menu(darken($eventcolor, 20%), pie-chart);
+    @include menu(darken($event-color, 20%), pie-chart);
   }
 }
 

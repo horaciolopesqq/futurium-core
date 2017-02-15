@@ -206,11 +206,11 @@ h4 a {
 }
 
 /************************************************/
- /* settings for (existing) defined content types
+ /* settings for (existing) defined content types 
  ************************************************/
 
 /* content type idea */
-body.page-ideas,
+body.page-ideas, 
 body.node-type-ideas {
   @include contenttype($idea-color, lightbulb-o);
 }
@@ -226,7 +226,7 @@ body.node-type-ideas {
 }
 
 /* future */
-body.page-futures,
+body.page-futures, 
 body.node-type-future {
   @include contenttype($future-color, rocket);
 }
@@ -255,15 +255,15 @@ body.node-type-futurium-group {
 }
 
 /* events */
-body.page-events,
-body.node-type-event {
-  @include contenttype($eventcolor, calendar);
+body.page-events, 
+body.node-type-event-d4eu {
+  @include contenttype($event-color, calendar);
 }
 
-.node-teaser.node-event,
-.view-messages .node-event
+.node-teaser.node-event-d4eu,
+.view-messages .node-event_d4eu
 {
-  @include teaser($eventcolor, calendar);
+  @include teaser($event-color, calendar);
   h3:before {
     @include rem(padding, 8px 0 0 9px);
     @include rem(font-size, 18px);
@@ -271,7 +271,7 @@ body.node-type-event {
 }
 
 /* evidence */
-.html.page-library,
+.html.page-library, 
 .node-type-evidence {
   @include contenttype($library-color, file-text-o);
 }
@@ -289,7 +289,7 @@ body.node-type-event {
 
 .view-messages .node-ideas,
 .view-messages .node-future,
-.view-messages .node-event,
+.view-messages .node-event_d4eu,
 .view-messages .node-evidence {
   @include rem(padding, 0);
 }
@@ -311,7 +311,7 @@ body.node-type-event {
       border-radius: 50%;
       /* border: 5px solid darken($user-color, 10%); */
       border: 5px solid $light-grey;
-      box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
     }
   }
 }
@@ -325,7 +325,7 @@ body.node-type-event {
 /* settings for row1 */
 
 .row1 {
-  .pane-rate-widget,
+  .pane-rate-widget, 
   .group-user-fields {
     @include rem(padding, 20px);
     @include rem(margin, 0 0 20px 0);
@@ -340,14 +340,14 @@ body.node-type-event {
 }
 
 .field-name-field-time-horizon {
-  @include rem(margin-top, 10px);
+  @include rem(margin-top, 10px); 
 }
 
 .node-type-ideas .pane-rate-widget {
   background: darken($idea-color, 10%);
 }
 
-.node-type-future .pane-node-field-time-horizon,
+.node-type-future .pane-node-field-time-horizon, 
 .node-type-future .pane-rate-widget {
   background: darken($future-color, 10%);
 }
@@ -379,7 +379,7 @@ body.node-type-event {
 }
 
 /******************/
-/* BUTTONS & ICONS
+/* BUTTONS & ICONS 
  *****************/
 
 /* social media buttons */
@@ -500,11 +500,11 @@ ul.rate-fivestar-processed{
 }
 
 .futurium-rate-desirability:before {
-   @include fa(smile-o);
+   @include fa(smile-o);  
 }
 
 .futurium-rate-impact {
-  @include fa(stop);
+  @include fa(stop); 
   vertical-align: botttom;
 }
 
@@ -537,9 +537,9 @@ ul.rate-fivestar-processed{
 /* VIEWS-ROW BORDER MANAGEMENT */
 /******************************/
 
-div.panel-pane div.node-teaser {
+div.panel-pane div.node-teaser { 
   /* USE div.panel-pane to override panel.css */
-  @include rem(padding, 30px 0 30px 0);
+  @include rem(padding, 30px 0 30px 0); 
   border-bottom: 5px solid $lightmid-grey;
 }
 
@@ -586,15 +586,15 @@ div.panel-pane li.views-row:last-child
   }
 }
 
-.node-event .date{
+.node-event-d4eu .date{
   @extend .field-name-author;
 }
 
 /*************************/
 /* /USER PAGE (PROFILE) */
 /***********************/
-
-.authors-name, .authors-picture,
+ 
+.authors-name, .authors-picture, 
 .share-links li {
   float: left;
 }
@@ -611,18 +611,18 @@ div.panel-pane li.views-row:last-child
 /* views people        */
 /***********************/
 
-.view-people,
-.view-group-people,
-.view-revisions,
+.view-people, 
+.view-group-people, 
+.view-revisions, 
 .view-events {
   div.views-row {
     @include rem(margin, 0 0 20px 0);
   }
-
-  .views-row,
+  
+  .views-row, 
   .views-row-container {
     @include make-row(0);
-  }
+  }  
 
   .left {
     @extend .col-xs-2;
@@ -697,7 +697,7 @@ div.panel-pane li.views-row:last-child
   }
   .field-name-author{
     border-bottom: none;
-  }
+  } 
 }
 
 .comment {
@@ -705,7 +705,7 @@ div.panel-pane li.views-row:last-child
     float: right;
     clear: both;
   }
-  .field-name-ds-user-picture img,
+  .field-name-ds-user-picture img, 
   .views-field-picture img {
     @include round-userpicture;
   }
@@ -751,7 +751,7 @@ div.panel-pane li.views-row:last-child
 
 /* create background for menu tabs on page-user and page-group */
 
-.logged-in.page-user:not(.page-user-edit),
+.logged-in.page-user:not(.page-user-edit), 
 .node-type-futurium-group {
   .container-fullwidth.row2 {
     background: url(../assets/img/bg-user-menu.gif) left top;
@@ -814,7 +814,7 @@ body .view-messages {
 
 /* Event details block (address, ...) */
 
-.pane-eventdate-location {
+.pane-event-date-location {
   @include panel /* gives the panel markup, bg, border, padding */
 }
 
@@ -951,7 +951,7 @@ ul.form-links {
 
   .chosen-container-single .chosen-single div b {
     background-position: 2px 2px;
-    background-image: none !important;
+    background-image: none !important; 
     background: darken($light-grey, 15%) !important;
     color: #fff;
     top: -7px;
@@ -971,7 +971,7 @@ ul.form-links {
       @include fa(arrow-up);
       margin-left: 12px;
       margin-top: 14px;
-    }
+    } 
   }
 
   /* background color highlighted item */
@@ -1062,7 +1062,7 @@ div.panel-pane .preview .node {
   border: 5px solid $mid-grey;
 }
 
-.autocomplete-suggestion.node-type-future:before,
+.autocomplete-suggestion.node-type-future:before, 
 .view-node-relations .future:before,
 .futures-count:before,
 .stats-most-commented-futures .views-field-title:before,
@@ -1071,7 +1071,7 @@ div.panel-pane .preview .node {
   @include fa(rocket);
 }
 
-.autocomplete-suggestion.node-type-ideas:before,
+.autocomplete-suggestion.node-type-ideas:before, 
 .view-node-relations .ideas:before,
 .ideas-count:before,
 .stats-most-commented-ideas .views-field-title:before,
@@ -1080,12 +1080,12 @@ div.panel-pane .preview .node {
   @include fa(lightbulb-o);
 }
 
-.autocomplete-suggestion.node-type-event:before,
-.view-node-relations .event:before {
+.autocomplete-suggestion.node-type-event_d4eu:before, 
+.view-node-relations .event_d4eu:before {
   @include fa(calendar);
 }
 
-.autocomplete-suggestion.node-type-evidence:before,
+.autocomplete-suggestion.node-type-evidence:before, 
 .view-node-relations .evidence:before {
   @include fa(file-text-o);
 }
@@ -1242,7 +1242,7 @@ span.comment-count {
 .page-taxonomy {
   .node-teaser {
     @include rem(margin, 30px 0 0 0);
-  }
+  }  
 }
 
 /**********/
@@ -1309,7 +1309,7 @@ span.comment-count {
   background: #fff;
   /* caption under images */
   .field-name-field-caption {
-    color: $mid-grey;
+    color: $mid-grey;  
     @include rem(font-size, 14px);
     @include rem(padding, 5px 10px 5px 10px);
     font-style: italic;
@@ -1327,7 +1327,7 @@ span.comment-count {
 
 /* TEMP STUFF --- TEMP STUFF */
 
-#path a,
+#path a, 
 #path a:visited {
   color: #fff;
   text-decoration: none;

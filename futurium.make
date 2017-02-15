@@ -333,10 +333,10 @@ projects[fullcalendar][version] = "2.0"
 	; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7237
 	projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/2325549-jquery19_ajax.patch
 
-projects[futurium_links][download][revision] = "7.x-1.x"
-projects[futurium_links][download][type] = "git"
-projects[futurium_links][download][url] = "https://HoracioLopes@bitbucket.org/HoracioLopes/futurium-links.git"
-projects[futurium_links][subdir] = "futurium/modules"
+;projects[futurium_links][download][revision] = "7.x-1.x"
+;projects[futurium_links][download][type] = "git"
+;projects[futurium_links][download][url] = "https://HoracioLopes@bitbucket.org/HoracioLopes/futurium-links.git"
+;projects[futurium_links][subdir] = "futurium/modules"
 
 projects[geofield][subdir] = "contrib"
 projects[geofield][version] = "2.3"
@@ -405,6 +405,9 @@ projects[l10n_update][version] = "2.0"
 
 projects[language_cookie][subdir] = "contrib"
 projects[language_cookie][version] = "1.9"
+
+projects[lang_dropdown][subdir] = "contrib"
+projects[lang_dropdown][version] = "2.5"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "2.2"
