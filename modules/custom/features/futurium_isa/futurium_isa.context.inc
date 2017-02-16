@@ -53,7 +53,6 @@ function futurium_isa_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('A site-wide context');
   t('ISA');
-
   $export['site-wide'] = $context;
 
   return $export;

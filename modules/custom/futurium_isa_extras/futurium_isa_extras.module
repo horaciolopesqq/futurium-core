@@ -149,6 +149,13 @@ function futurium_isa_extras_theme($existing, $type, $theme, $path) {
 }
 
 function futurium_isa_extras_preprocess_collapsible_user_block(&$vars) {
+  $vars['lang_dropdown'] = NULL;
+  $languages = language_list();
+  if (module_exists('lang_dropdown') && count($languages) > 1) {
+    $block = module_invoke('lang_dropdown', 'block_view', 'language');
+    $vars['lang_dropdown'] = render($block['content']);
+  }
+
   if (user_is_anonymous()) {
 
     $vars['title'] = t("Login");
@@ -229,13 +236,6 @@ function futurium_isa_extras_process_collapsible_user_block(&$vars) {
     $vars['title'] = '<span class="user-picture">' . $user_pic .'</span>';
     $vars['title'] .= '<span class="user-name">' . $vars['username'] .'</span>';
     $vars['content'] = theme('links', $menu);
-
-    $vars['lang_dropdown'] = NULL;
-    $languages = language_list();
-    if (module_exists('lang_dropdown') && count($languages) > 1) {
-      $block = module_invoke('lang_dropdown', 'block_view', 'language');
-      $vars['lang_dropdown'] = render($block['content']);
-    }
   }
 }
 
@@ -1040,7 +1040,8 @@ function futurium_isa_extras_form_node_form_alter(&$form, &$form_state) {
     }
   }
 
-  if (!isset($_GET['og_group_ref'])) {
+  $q = drupal_get_query_parameters();
+  if (!isset($q['og_group_ref'])) {
     if (isset($form['group_content_access'])) {
       $lang = $form['group_content_access']['#language'];
       $node = $form_state['node'];
@@ -1053,6 +1054,17 @@ function futurium_isa_extras_form_node_form_alter(&$form, &$form_state) {
       }
     }
   }
+  else {
+    $form['og_group_ref']['#attributes']['style'] = 'display:none';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function futurium_isa_extras_form_user_profile_form_alter(&$form, &$form_state) {
+  // Hide the activity index field.
+  $form['field_activity_index']['#access'] = FALSE;
 }
 
 /**

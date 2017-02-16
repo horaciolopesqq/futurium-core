@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function futurium_isa_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -40,7 +40,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|event|node_header'] = $field_group;
+  $field_groups['group_buttons|node|event|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -72,7 +72,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|event|teaser'] = $field_group;
+  $field_groups['group_buttons|node|event|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -104,7 +104,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|ideas|node_header'] = $field_group;
+  $field_groups['group_buttons|node|ideas|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -136,7 +136,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|ideas|teaser'] = $field_group;
+  $field_groups['group_buttons|node|ideas|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -169,7 +169,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|event|node_header'] = $field_group;
+  $field_groups['group_date_vote_comment|node|event|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -202,7 +202,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|event|teaser'] = $field_group;
+  $field_groups['group_date_vote_comment|node|event|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -236,7 +236,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|ideas|node_header'] = $field_group;
+  $field_groups['group_date_vote_comment|node|ideas|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -270,7 +270,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|ideas|teaser'] = $field_group;
+  $field_groups['group_date_vote_comment|node|ideas|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -298,7 +298,7 @@ function futurium_isa_field_group_info() {
       ),
     ),
   );
-  $export['group_page_content|node|page|form'] = $field_group;
+  $field_groups['group_page_content|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -328,7 +328,7 @@ function futurium_isa_field_group_info() {
       ),
     ),
   );
-  $export['group_page_metadata|node|page|form'] = $field_group;
+  $field_groups['group_page_metadata|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -362,7 +362,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_shortcut_buttons|user|user|user_header'] = $field_group;
+  $field_groups['group_shortcut_buttons|user|user|user_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -398,7 +398,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_user_fields|user|user|user_header'] = $field_group;
+  $field_groups['group_user_fields|user|user|user_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -432,7 +432,7 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_wrapper_author_date|comment|comment_node_event|default'] = $field_group;
+  $field_groups['group_wrapper_author_date|comment|comment_node_event|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -466,7 +466,17 @@ function futurium_isa_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_wrapper_author_date|comment|comment_node_ideas|default'] = $field_group;
+  $field_groups['group_wrapper_author_date|comment|comment_node_ideas|default'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Content');
+  t('Fields');
+  t('Metadata');
+  t('Shortcuts');
+  t('group-buttons');
+  t('wrapper-author-date');
+  t('wrapper-date-vote-comment');
+
+  return $field_groups;
 }

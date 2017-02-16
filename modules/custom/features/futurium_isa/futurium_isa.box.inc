@@ -28,7 +28,6 @@ function futurium_isa_default_box() {
 
 <div class="powered">Powered by <a href="/about">Futurium</a></div>
 ',
-
       'format' => 'full_html',
     ),
     'additional_classes' => 'col',

@@ -68,6 +68,8 @@ dependencies[] = menu_block
 dependencies[] = module_filter
 dependencies[] = language_cookie
 dependencies[] = variable
+
+dependencies[] = l10n_update
 dependencies[] = i18n
 dependencies[] = i18n_sync
 dependencies[] = i18n_select

@@ -350,6 +350,9 @@ projects[geophp][subdir] = "contrib"
 projects[hidden_captcha][subdir] = "contrib"
 projects[hidden_captcha][version] = "1.0"
 
+projects[l10n_update][subdir] = "contrib"
+projects[l10n_update][version] = "2.1"
+
 projects[i18n][subdir] = "contrib"
 projects[i18n][version] = "1.13"
 	; Language field display should default to hidden.

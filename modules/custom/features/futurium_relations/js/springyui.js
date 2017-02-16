@@ -29,10 +29,10 @@ jQuery.fn.springy = function(params) {
   var graph = this.graph = params.graph || new Springy.Graph();
   var nodeFont = "16px Helvetica, sans-serif";
   var edgeFont = "16px Helvetica, sans-serif";
-  var stiffness = params.stiffness || 1000.0;
-  var repulsion = params.repulsion || 25.0;
+  var stiffness = params.stiffness || 20.0;
+  var repulsion = params.repulsion || 2000.0;
   var damping = params.damping || 0.5;
-  var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
+  var minEnergyThreshold = params.minEnergyThreshold || 0.1;
   var nodeSelected = params.nodeSelected || null;
   var nodeImages = {};
   var edgeLabelsUpright = true;

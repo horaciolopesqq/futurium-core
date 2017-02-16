@@ -180,7 +180,11 @@ function futurium_isa_theme_form_alter(&$form, &$form_state, $form_id) {
  */
 function futurium_isa_theme_menu_link(array $variables) {
 
-  $class = str_replace(" ", "-", strtolower($variables['element']['#title']));
+  $class = str_replace(" ", "-", strtolower($variables['element']['#original_link']['link_path']));
+
+  if ($class == 'analytics') {
+    $class = 'stats';
+  }
 
   $variables['element']['#attributes']['class'][] = 'menu-item';
   $variables['element']['#attributes']['class'][] = $class;

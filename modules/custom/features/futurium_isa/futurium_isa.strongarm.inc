@@ -13,6 +13,34 @@ function futurium_isa_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_minimum_multiple';
+  $strongarm->value = 1;
+  $export['chosen_minimum_multiple'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_minimum_single';
+  $strongarm->value = 1;
+  $export['chosen_minimum_single'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_minimum_width';
+  $strongarm->value = '250';
+  $export['chosen_minimum_width'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'chosen_search_contains';
+  $strongarm->value = 1;
+  $export['chosen_search_contains'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_event';
   $strongarm->value = '0';
   $export['comment_anonymous_event'] = $strongarm;
@@ -502,6 +530,103 @@ row|Bootstrap Row
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_count';
+  $strongarm->value = 4;
+  $export['language_count'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_negotiation_language';
+  $strongarm->value = array(
+    'locale-url' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_url',
+        'switcher' => 'locale_language_switcher_url',
+        'url_rewrite' => 'locale_language_url_rewrite_url',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+    'language-default' => array(
+      'callbacks' => array(
+        'language' => 'language_from_default',
+      ),
+    ),
+  );
+  $export['language_negotiation_language'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_negotiation_language_content';
+  $strongarm->value = array(
+    'locale-interface' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_interface',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+  );
+  $export['language_negotiation_language_content'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_negotiation_language_url';
+  $strongarm->value = array(
+    'locale-url' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_from_url',
+        'switcher' => 'locale_language_switcher_url',
+        'url_rewrite' => 'locale_language_url_rewrite_url',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+    'language_cookie' => array(
+      'callbacks' => array(
+        'language' => 'language_cookie_language',
+        'switcher' => 'language_cookie_language_switcher',
+        'url_rewrite' => 'language_cookie_language_rewrite',
+      ),
+      'file' => 'profiles/futurium/modules/contrib/language_cookie/language_cookie.module',
+    ),
+    'locale-url-fallback' => array(
+      'callbacks' => array(
+        'language' => 'locale_language_url_fallback',
+      ),
+      'file' => 'includes/locale.inc',
+    ),
+  );
+  $export['language_negotiation_language_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_types';
+  $strongarm->value = array(
+    'language' => TRUE,
+    'language_content' => FALSE,
+    'language_url' => FALSE,
+  );
+  $export['language_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'locale_language_providers_weight_language';
+  $strongarm->value = array(
+    'locale-url' => '-8',
+    'locale-session' => '-6',
+    'language_cookie' => '-5',
+    'locale-user' => '-4',
+    'locale-browser' => '-2',
+    'language-default' => '10',
+  );
+  $export['locale_language_providers_weight_language'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_event';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -617,44 +742,61 @@ row|Bootstrap Row
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'page_manager_user_edit_disabled';
-  $strongarm->value = FALSE;
-  $export['page_manager_user_edit_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_enabled_fields';
+  $strongarm->value = array(
+    'user:user:field_firstname' => 'user:user:field_firstname',
+    'user:user:field_lastname' => 'user:user:field_lastname',
+    'user:user:field_age' => 'user:user:field_age',
+    'user:user:field_biography' => 'user:user:field_biography',
+    'user:user:field_birthday' => 'user:user:field_birthday',
+    'user:user:field_education' => 'user:user:field_education',
+    'user:user:field_gender' => 'user:user:field_gender',
+    'user:user:field_location' => 'user:user:field_location',
+    'user:user:field_profession' => 'user:user:field_profession',
+    'user:user:field_picture' => 'user:user:field_picture',
+  );
+  $export['pcp_enabled_fields'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'page_manager_term_view_disabled';
-  $strongarm->value = FALSE;
-  $export['page_manager_term_view_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_fields_open_option';
+  $strongarm->value = '_self';
+  $export['pcp_fields_open_option'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'user_pages_user_users_disabled';
-  $strongarm->value = FALSE;
-  $export['user_pages_user_users_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_fields_order';
+  $strongarm->value = '1';
+  $export['pcp_fields_order'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'user_pages_user_user_login_disabled';
-  $strongarm->value = FALSE;
-  $export['user_pages_user_user_login_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_hide_block_on_complete';
+  $strongarm->value = 1;
+  $export['pcp_hide_block_on_complete'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'user_pages_user_user_register_disabled';
-  $strongarm->value = FALSE;
-  $export['user_pages_user_user_register_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_login_message';
+  $strongarm->value = 'Your Profile is not complete. Filling out remaining fields will make it 100%. Now you\'ve reached [pcp-user:pcp-user]%.';
+  $export['pcp_login_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'user_pages_user_user_password_disabled';
-  $strongarm->value = FALSE;
-  $export['user_pages_user_user_password_disabled'] = $strongarm;
+  $strongarm->name = 'pcp_login_message_role';
+  $strongarm->value = array(
+    2 => 0,
+    4 => 0,
+    3 => 0,
+    5 => 0,
+    6 => 0,
+  );
+  $export['pcp_login_message_role'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -915,61 +1057,30 @@ row|Bootstrap Row
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_enabled_fields';
-  $strongarm->value = array(
-    'user:user:field_firstname' => 'user:user:field_firstname',
-    'user:user:field_lastname' => 'user:user:field_lastname',
-    'user:user:field_age' => 'user:user:field_age',
-    'user:user:field_biography' => 'user:user:field_biography',
-    'user:user:field_birthday' => 'user:user:field_birthday',
-    'user:user:field_education' => 'user:user:field_education',
-    'user:user:field_gender' => 'user:user:field_gender',
-    'user:user:field_location' => 'user:user:field_location',
-    'user:user:field_profession' => 'user:user:field_profession',
-    'user:user:field_picture' => 'user:user:field_picture',
-  );
-  $export['pcp_enabled_fields'] = $strongarm;
+  $strongarm->name = 'user_pages_user_users_disabled';
+  $strongarm->value = FALSE;
+  $export['user_pages_user_users_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_fields_open_option';
-  $strongarm->value = '_self';
-  $export['pcp_fields_open_option'] = $strongarm;
+  $strongarm->name = 'user_pages_user_user_login_disabled';
+  $strongarm->value = FALSE;
+  $export['user_pages_user_user_login_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_fields_order';
-  $strongarm->value = '1';
-  $export['pcp_fields_order'] = $strongarm;
+  $strongarm->name = 'user_pages_user_user_password_disabled';
+  $strongarm->value = FALSE;
+  $export['user_pages_user_user_password_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_hide_block_on_complete';
-  $strongarm->value = 1;
-  $export['pcp_hide_block_on_complete'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_login_message';
-  $strongarm->value = 'Your Profile is not complete. Filling out remaining fields will make it 100%. Now you\'ve reached [pcp-user:pcp-user]%.';
-  $export['pcp_login_message'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pcp_login_message_role';
-  $strongarm->value = array(
-    2 => 0,
-    4 => 0,
-    3 => 0,
-    5 => 0,
-    6 => 0,
-  );
-  $export['pcp_login_message_role'] = $strongarm;
+  $strongarm->name = 'user_pages_user_user_register_disabled';
+  $strongarm->value = FALSE;
+  $export['user_pages_user_user_register_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -991,131 +1102,6 @@ row|Bootstrap Row
   $strongarm->name = 'user_picture_field_source_field';
   $strongarm->value = 'field_picture';
   $export['user_picture_field_source_field'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum_width';
-  $strongarm->value = '250';
-  $export['chosen_minimum_width'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_search_contains';
-  $strongarm->value = 1;
-  $export['chosen_search_contains'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum_single';
-  $strongarm->value = 1;
-  $export['chosen_minimum_single'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum_multiple';
-  $strongarm->value = 1;
-  $export['chosen_minimum_multiple'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_count';
-  $strongarm->value = 2;
-  $export['language_count'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_negotiation_language';
-  $strongarm->value = array(
-    'locale-url' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_url',
-        'switcher' => 'locale_language_switcher_url',
-        'url_rewrite' => 'locale_language_url_rewrite_url',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-    'language-default' => array(
-      'callbacks' => array(
-        'language' => 'language_from_default',
-      ),
-    ),
-  );
-  $export['language_negotiation_language'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_negotiation_language_content';
-  $strongarm->value = array(
-    'locale-interface' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_interface',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-  );
-  $export['language_negotiation_language_content'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_negotiation_language_url';
-  $strongarm->value = array(
-    'locale-url' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_from_url',
-        'switcher' => 'locale_language_switcher_url',
-        'url_rewrite' => 'locale_language_url_rewrite_url',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-    'language_cookie' => array(
-      'callbacks' => array(
-        'language' => 'language_cookie_language',
-        'switcher' => 'language_cookie_language_switcher',
-        'url_rewrite' => 'language_cookie_language_rewrite',
-      ),
-      'file' => 'profiles/futurium/modules/contrib/language_cookie/language_cookie.module',
-    ),
-    'locale-url-fallback' => array(
-      'callbacks' => array(
-        'language' => 'locale_language_url_fallback',
-      ),
-      'file' => 'includes/locale.inc',
-    ),
-  );
-  $export['language_negotiation_language_url'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_types';
-  $strongarm->value = array(
-    'language' => TRUE,
-    'language_content' => FALSE,
-    'language_url' => FALSE,
-  );
-  $export['language_types'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'locale_language_providers_weight_language';
-  $strongarm->value = array(
-    'locale-url' => '-8',
-    'locale-session' => '-6',
-    'language_cookie' => '-5',
-    'locale-user' => '-4',
-    'locale-browser' => '-2',
-    'language-default' => '10',
-  );
-  $export['locale_language_providers_weight_language'] = $strongarm;
 
   return $export;
 }

@@ -5,95 +5,6 @@
  */
 
 /**
- * Implements hook_node_info().
- */
-function futurium_isa_node_info() {
-  $items = array(
-    'event' => array(
-      'base'        => 'node_content',
-      'description' => 'Create an event here',
-      'has_title'   => 1,
-      'name'        => 'Event',
-      'title_label' => 'Title',
-      'help'        => '',
-    ),
-    'ideas'      => array(
-      'base'        => 'node_content',
-      'description' => 'Ideas and experience.',
-      'has_title'   => 1,
-      'name'        => 'Ideas',
-      'title_label' => 'Title',
-      'help'        => '',
-    ),
-    'video' => array(
-      'base'        => 'node_content',
-      'description' => 'Post a video here',
-      'has_title'   => 1,
-      'name'        => 'Video',
-      'title_label' => 'Title',
-      'help'        => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
-}
-
-/**
- * Implements hook_wysiwyg_default_profiles().
- */
-function futurium_isa_wysiwyg_default_profiles() {
-  $profiles = array();
-
-  // Exported profile: basic_html
-  $profiles['simple_wysiwig'] = (object) array(
-    'format' => 'simple_wysiwig',
-    'editor' => 'ckeditor',
-    'settings' => array(
-      'default' => 1,
-      'user_choose' => 0,
-      'show_toggle' => 1,
-      'add_to_summaries' => 1,
-      'theme' => '',
-      'language' => 'en',
-      'buttons' => array(
-        'default' => array(
-          'Bold' => 1,
-          'Italic' => 1,
-          'Underline' => 1,
-          'BulletedList' => 1,
-          'NumberedList' => 1,
-          'Link' => 1,
-          'Unlink' => 1,
-          'Image' => 1,
-          'Cut' => 1,
-          'Copy' => 1,
-          'Paste' => 1,
-          'PlaceholderAttribute' => 1,
-        ),
-        'drupal' => array(
-          'media' => 1,
-        ),
-      ),
-      'toolbarLocation' => 'top',
-      'resize_enabled' => 1,
-      'default_toolbar_grouping' => 0,
-      'simple_source_formatting' => 0,
-      'acf_mode' => 0,
-      'acf_allowed_content' => '',
-      'css_setting' => 'theme',
-      'css_path' => '',
-      'stylesSet' => '',
-      'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'advanced__active_tab' => 'edit-basic',
-      'forcePasteAsPlainText' => 1,
-    ),
-    'rdf_mapping' => array(),
-  );
-
-  return $profiles;
-}
-
-/**
  * Implements hook_ctools_plugin_api().
  */
 function futurium_isa_ctools_plugin_api($module = NULL, $api = NULL) {
@@ -132,7 +43,6 @@ function futurium_isa_views_api($module = NULL, $api = NULL) {
  */
 function futurium_isa_flag_default_flags() {
   $flags = array();
-
   // Exported flag: "Attending".
   $flags['attending'] = array(
     'entity_type' => 'node',
@@ -312,4 +222,38 @@ function futurium_isa_image_default_styles() {
   );
 
   return $styles;
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function futurium_isa_node_info() {
+  $items = array(
+    'event' => array(
+      'name' => t('Event'),
+      'base' => 'node_content',
+      'description' => t('Create an event here'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'ideas' => array(
+      'name' => t('Ideas'),
+      'base' => 'node_content',
+      'description' => t('Ideas and experience.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'video' => array(
+      'name' => t('Video'),
+      'base' => 'node_content',
+      'description' => t('Post a video here'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  drupal_alter('node_info', $items);
+  return $items;
 }
