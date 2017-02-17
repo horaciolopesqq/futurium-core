@@ -142,7 +142,7 @@ function futurium_install_tasks($install_state){
  * Cleanup install task.
  */
 function futurium_setup_cleanup() {
-  drupal_set_message('Reverted all features.');
   _futurium_core_revert_features(array('futurium_isa'), 'field_instance');
+  drupal_set_message('Reverted all features.');
 }
 

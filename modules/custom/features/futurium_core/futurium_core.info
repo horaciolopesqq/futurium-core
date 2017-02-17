@@ -5,6 +5,6 @@ package = Futurium
 php = 5.5.9
 multisite_version = 2.2
 dependencies[] = features
-dependencies[] = futurium_links
+dependencies[] = futurium_linker
 features[features_api][] = api:2
 features[user_permission][] = access administration fieldset
