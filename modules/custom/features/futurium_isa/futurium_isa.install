@@ -32,19 +32,8 @@ function _futurium_isa_replace_default_image($field_name, $filename, $source) {
 }
 
 function futurium_isa_install() {
-  if ($component == 'field_instance') {
-    // $source should point to the new file. If you don't have "default_images"
-    // folder in your module, create it.
-    $field_name = 'field_picture';
-    $filename = 'user_picture.png';
-    $source = drupal_get_path('module', 'futurium_isa') . '/default_images'. '/' . $filename;
-    // Replace default image for $field_name field base.
-    _futurium_isa_replace_default_image($field_name, $filename, $source);
-  }
-
   // Set realname token.
   variable_set('realname_pattern', '[user:field_firstname] [user:field_lastname]');
-
 }
 
 function futurium_isa_post_features_revert($component) {

@@ -16813,6 +16813,11 @@ div.panel-pane li.views-row:last-child div.node-teaser {
   margin-right: 2rem;
 }
 
+/* line 725, ../custom-sass/base/_base.scss */
+.user-picture {
+  margin-right: 0rem;
+}
+
 /*
 .field-name-comment-body {
   border: 1px solid $lightmid-grey;
