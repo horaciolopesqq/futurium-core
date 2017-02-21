@@ -293,6 +293,9 @@ projects[fullcalendar][version] = "2.0"
 	; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7237
 	projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/2325549-jquery19_ajax.patch
 
+projects[graphapi][subdir] = "contrib"
+projects[graphapi][version] = "1.x-dev"
+
 projects[geocoder][subdir] = "contrib"
 projects[geocoder][version] = "1.3"
 
