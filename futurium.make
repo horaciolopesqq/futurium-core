@@ -367,6 +367,59 @@ projects[mailsystem][version] = "2.34"
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][version] = "3.2-beta2"
 
+projects[media][subdir] = contrib
+projects[media][version] = 2.0-beta1
+
+  ; Issue #2062721: Add a white list of file fields that can be overwritten when the file is added in the wysiwyg
+  ; https://www.drupal.org/node/2062721
+  ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-2607
+  projects[media][patch][] = https://www.drupal.org/files/issues/media-wysiwyg-override-white-list-2062721-86.patch
+
+  ; Issue #2401811: With Media WYSIWYG enabled - "Contextual links" are shown for anonymous users.
+  ; https://www.drupal.org/node/2401811
+  ; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-3650
+  projects[media][patch][] = http://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch
+
+projects[media_crop][subdir] = "contrib"
+projects[media_crop][version] = "1.4"
+
+projects[media_dailymotion][subdir] = "contrib"
+projects[media_dailymotion][version] = "1.1"
+
+  ; Issue #2560403: Provide Short URL for media dailymotion.
+  ; https://www.drupal.org/node/2560403
+  ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7082
+  projects[media_dailymotion][patch][] = https://www.drupal.org/files/issues/media_dailymotion-mini-url-2560403-7-7.x.patch
+  projects[media_dailymotion][patch][] = patches/media_dailymotion-handle_protocol-4103.patch
+
+projects[media_flickr][subdir] = "contrib"
+projects[media_flickr][version] = "1.0-alpha4"
+
+  projects[media_flickr][patch][] = patches/media_flickr-Media_v2_removed_XML_APIs-2089665-1.patch
+  projects[media_flickr][patch][] = patches/media_flickr-fix_photoset_url_issue-2183.patch
+  projects[media_flickr][patch][] = patches/media_flickr-missing_thumbnail-2494.patch
+  projects[media_flickr][patch][] = patches/media_flickr-undefined_index-2183.patch
+
+  ; Support for newer Flickr album urls.
+  ; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-12401
+  ; https://www.drupal.org/node/2602558
+  projects[media_flickr][patch][] = https://www.drupal.org/files/issues/import_albums_error-7.x-1.x-2602558-5.patch
+
+projects[media_node][subdir] = "contrib"
+projects[media_node][version] = "1.0-rc2"
+
+  projects[media_node][patch][] = patches/media_node-incorrect_permission_check-4273.patch
+
+projects[media_vimeo][subdir] = "contrib"
+projects[media_vimeo][version] = "2.1"
+
+projects[media_youtube][subdir] = "contrib"
+projects[media_youtube][version] = "3.0"
+
+projects[media_colorbox][subdir] = "contrib"
+projects[media_colorbox][version] = "1.0-rc4"
+
+
 projects[menu_attributes][subdir] = "contrib"
 projects[menu_attributes][version] = "1.0-rc3"
 
@@ -443,6 +496,18 @@ projects[pathauto_persist][version] = "1.4"
 
 projects[pcp][subdir] = "contrib"
 projects[pcp][version] = "1.7"
+
+; Instead of using a stable version of the plupload module, we stick here to a
+; more recent git revision in order to solve unexpected failures with a
+; plupload JS library patch included in the default Drush make file of the
+; module. In the scope of https://www.drupal.org/node/2088143, this default make
+; file got reduced to an example make file which is not executed any longer by
+; default, so we can download and patch the plupload JS library ourselves (see
+; further on in the libraries section of this make file).
+projects[plupload][subdir] = "contrib"
+projects[plupload][download][branch] = 7.x-1.x
+projects[plupload][download][revision] = bba974c6f3224346a1acae4181a700b55129e6e1
+projects[plupload][download][type] = git
 
 projects[quant][subdir] = "contrib"
 projects[quant][version] = "1.x-dev"
