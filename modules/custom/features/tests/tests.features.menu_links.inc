@@ -17,6 +17,7 @@ function tests_menu_default_menu_links() {
     'router_path' => 'analytics',
     'link_title' => 'Stats',
     'options' => array(
+      'alter' => TRUE,
       'attributes' => array(
         'data-display-title' => 1,
         'data-hide-children' => 0,
