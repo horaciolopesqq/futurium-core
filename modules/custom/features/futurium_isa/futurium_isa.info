@@ -19,7 +19,6 @@ dependencies[] = ds_extras
 dependencies[] = ds_format
 dependencies[] = entityreference
 dependencies[] = field_group
-dependencies[] = fivestar
 dependencies[] = futurium_groups
 dependencies[] = futurium_isa_extras
 dependencies[] = futurium_linker

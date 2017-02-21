@@ -256,6 +256,9 @@ projects[field_group][version] = "1.5"
 	; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-6603
 	projects[field_group][patch][] = https://www.drupal.org/files/issues/field_group_label_translation_patch.patch
 
+projects[file_entity][subdir] = "contrib"
+projects[file_entity][version] = "2.0-beta3"
+
 projects[filefield_sources][subdir] = "contrib"
 projects[filefield_sources][version] = "1.10"
 
