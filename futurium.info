@@ -89,4 +89,10 @@ dependencies[] = flag
 dependencies[] = entityreference_prepopulate
 dependencies[] = username_enumeration_prevention
 dependencies[] = filefield_sources_plupload
+
 dependencies[] = futurium_isa
+dependencies[] = futurium_evidence
+dependencies[] = futurium_futures
+dependencies[] = futurium_relations
+dependencies[] = futurium_messages
+dependencies[] = tests
