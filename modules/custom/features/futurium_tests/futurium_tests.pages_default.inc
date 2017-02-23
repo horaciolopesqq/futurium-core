@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.pages_default.inc
+ * futurium_tests.pages_default.inc
  */
 
 /**
  * Implements hook_default_page_manager_pages().
  */
-function tests_default_page_manager_pages() {
+function futurium_tests_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;

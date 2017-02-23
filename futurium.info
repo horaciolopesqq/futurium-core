@@ -95,4 +95,4 @@ dependencies[] = futurium_evidence
 dependencies[] = futurium_futures
 dependencies[] = futurium_relations
 dependencies[] = futurium_messages
-dependencies[] = tests
+dependencies[] = futurium_tests

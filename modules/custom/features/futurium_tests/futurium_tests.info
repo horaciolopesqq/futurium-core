@@ -1,4 +1,4 @@
-name = Tests
+name = Futurium Tests
 core = 7.x
 package = Futurium
 version = 7.x-1.3

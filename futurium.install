@@ -25,7 +25,7 @@ function futurium_install() {
     'futurium_groups',
     'futurium_messages',
     'futurium_relations',
-    'tests',
+    'futurium_tests',
     'futurium_isa_extras'
   );
   module_enable($enable);
@@ -39,7 +39,7 @@ function futurium_install() {
   // Rebuild content permissions.
   node_access_rebuild();
 
-  drupal_set_message('Enabled Futurium and Adminimal Themes');
+  drupal_set_message('Enabled Futurium and Adminimal Themes.');
 
   $settings = array(
     'toggle_logo' => 0,
@@ -142,7 +142,6 @@ function futurium_install_tasks($install_state){
  * Cleanup install task.
  */
 function futurium_setup_cleanup() {
-  _futurium_core_revert_features(array('futurium_isa'), 'field_instance');
-  drupal_set_message('Reverted all features.');
+  drupal_set_message('Finished installation of Futurium Profile.');
 }
 

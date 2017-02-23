@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.rules_defaults.inc
+ * futurium_tests.rules_defaults.inc
  */
 
 /**
  * Implements hook_default_rules_configuration().
  */
-function tests_default_rules_configuration() {
+function futurium_tests_default_rules_configuration() {
   $items = array();
   $items['rules_user_login'] = entity_import('rules_config', '{ "rules_user_login" : {
       "LABEL" : "User Login",

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.radioactivity_decay_profile.inc
+ * futurium_tests.radioactivity_decay_profile.inc
  */
 
 /**
  * Implements hook_default_radioactivity_decay_profile().
  */
-function tests_default_radioactivity_decay_profile() {
+function futurium_tests_default_radioactivity_decay_profile() {
   $export = array();
 
   $radioactivity_decay_profile = new stdClass();

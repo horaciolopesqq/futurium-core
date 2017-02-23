@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.strongarm.inc
+ * futurium_tests.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function tests_strongarm() {
+function futurium_tests_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

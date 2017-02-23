@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.features.field_instance.inc
+ * futurium_tests.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function tests_field_default_field_instances() {
+function futurium_tests_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-event-field_relation_graph'.

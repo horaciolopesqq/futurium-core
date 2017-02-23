@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.views_default.inc
+ * futurium_tests.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function tests_views_default_views() {
+function futurium_tests_views_default_views() {
   $export = array();
 
   $view = new view();

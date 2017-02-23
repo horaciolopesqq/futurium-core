@@ -201,3 +201,7 @@ body #admin-menu{
 .lang_dropdown_form .chosen-container-single .chosen-single div b {
   border-left: 1px solid #333;
 }
+
+.password-indicator .indicator {
+  background-color: green;
+}

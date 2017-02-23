@@ -7,7 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function tests_ctools_plugin_api($module = NULL, $api = NULL) {
+function futurium_tests_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -22,14 +22,14 @@ function tests_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function tests_views_api($module = NULL, $api = NULL) {
+function futurium_tests_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function tests_node_info() {
+function futurium_tests_node_info() {
   $items = array(
     'slideshow_item' => array(
       'name' => t('Slideshow item'),

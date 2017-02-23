@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tests.features.menu_links.inc
+ * futurium_tests.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function tests_menu_default_menu_links() {
+function futurium_tests_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: main-menu_stats:analytics.
