@@ -1090,10 +1090,18 @@ function futurium_isa_extras_context_load_alter(&$context) {
       // Remove user menu block if user is not logged in.
       unset($context->reactions['block']['blocks']['system-user-menu']);
       // Put the register block in place.
+      $context->reactions['block']['blocks']['user_login'] = array(
+        'module' => 'user',
+        'delta' => 'login',
+        'region' => 'collapsible_right',
+        'weight' => 0,
+      );
+
+      // Put the register block in place.
       $context->reactions['block']['blocks']['register_button'] = array(
         'module' => 'futurium_isa_extras',
         'delta' => 'register_button',
-        'region' => 'collapsible_right',
+        'region' => 'collapsible_left',
         'weight' => 0,
       );
     }

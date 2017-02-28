@@ -26,6 +26,18 @@ function futurium_isa_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
+          'region' => 'collapsible_right',
+          'weight' => '-10',
+        ),
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'collapsible_left',
+          'weight' => '-10',
+        ),
         'views-ideas-footer' => array(
           'module' => 'views',
           'delta' => 'ideas-footer',
