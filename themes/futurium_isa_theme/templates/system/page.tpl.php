@@ -77,9 +77,36 @@
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
 
-  <?php if ($collapsible_user_block): ?>
+  <?php if ($collapsible_left || $collapsible_right): ?>
   <div class="wrapper-pre-header">
-    <?php print $collapsible_user_block; ?>
+    <div class="container collapsed-user-block">
+      <nav role="navigation">
+        <a href="#login-collapse" class="btn btn-login pull-right" data-toggle="collapse">
+          <?php print $collapsible_toggle_title; ?>
+        </a>
+      </nav>
+      <div id="login-collapse" class="collapse row login-collapse" style="clear:both;">
+        <div class="containment">
+
+          <div class="collapsible-left login col-lg-6">
+            <?php if ($collapsible_left): ?>
+              <div class="container-inner">
+                <?php print $collapsible_left ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
+          <div class="collapsible-right register col-lg-6">
+            <?php if ($collapsible_right): ?>
+              <div class="container-inner">
+                <?php print $collapsible_right ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
   <?php endif; ?>
 

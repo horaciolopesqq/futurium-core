@@ -9,7 +9,7 @@
  */
 function futurium_isa_taxonomy_default_vocabularies() {
   return array(
-    'tags' => (object) array(
+    'tags' => array(
       'name' => 'Tags',
       'machine_name' => 'tags',
       'description' => '',

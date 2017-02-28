@@ -4,6 +4,9 @@
  * template.php
  */
 
+/**
+ * Implements template_preprocess_html().
+ */
 function futurium_isa_theme_preprocess_html(&$variables) {
   $item = menu_get_item();
   if (substr($item['path'], 0, 8) == 'node/add') {
@@ -21,7 +24,7 @@ function futurium_isa_theme_preprocess_html(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_region().
+ * Implements template_preprocess_region().
  */
 function futurium_isa_theme_preprocess_region(&$variables) {
   $region = str_replace('_', '-', $variables['elements']['#region']);
@@ -30,6 +33,9 @@ function futurium_isa_theme_preprocess_region(&$variables) {
   $variables['wrapper_classes'] = implode(' ', $wrapper_classes_array);
 }
 
+/**
+ * Implements template_preprocess_page().
+ */
 function futurium_isa_theme_preprocess_page(&$variables) {
 
   $item = menu_get_item();
@@ -63,6 +69,43 @@ function futurium_isa_theme_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="container-fullwidth"';
   }
 
+  // Collapsible block toggle.
+  if (!user_is_logged_in()) {
+    $variables['collapsible_toggle_title'] = 'Login';
+  }
+  else {
+    global $user;
+    $account = user_load($user->uid);
+
+    $image_uri = (!empty($account->picture->uri))
+      ? $account->picture->uri
+      : variable_get('user_picture_default');
+
+    $name = format_username($account);
+
+    $picture = theme(
+      'image_style',
+      array(
+        'style_name' => 'thumbnail',
+        'path' => $image_uri,
+        'alt' => $name,
+        'title' => $name,
+        'attributes' => array(
+          'class' => 'avatar img-circle logged-in-user-pic',
+        ),
+      )
+    );
+
+    $variables['collapsible_toggle_title'] = '<div class="title">';
+    $variables['collapsible_toggle_title'] .= '<span class="user-picture">' . $picture .'</span>';
+    $variables['collapsible_toggle_title'] .= '<span class="user-name">' . $name .'</span>';
+    $variables['collapsible_toggle_title'] .= '</div>';
+
+  }
+
+  $variables['collapsible_left'] = (isset($variables['page']['collapsible_left']) ? render($variables['page']['collapsible_left']) : '');
+  $variables['collapsible_right'] = (isset($variables['page']['collapsible_right']) ? render($variables['page']['collapsible_right']) : '');
+
   $search_form = drupal_get_form('search_form');
   $search_box = drupal_render($search_form);
   $variables['search_box'] = $search_box;
@@ -86,16 +129,6 @@ function futurium_isa_theme_preprocess_page(&$variables) {
 
   $variables['show_title'] = $variables['content_wrapper'];
 
-}
-
-/**
- * Implements hook_preprocess_collapsible_user_block().
- */
-function futurium_isa_theme_preprocess_collapsible_user_block(&$vars) {
-  if (user_is_logged_in()) {
-    $vars['account']['picture']['image_style'] = 'user_picture_small';
-    $vars['account']['picture']['class'] = array('img-circle', 'logged-in-user-pic');
-  }
 }
 
 /**
@@ -157,20 +190,33 @@ function futurium_isa_theme_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'user_login':
+    case 'user_login_block':
      $form['name']['#field_prefix'] = '<div class="field-wrapper name">';
      $form['name']['#field_suffix'] = '</div>';
-     $form['name']['#attributes']['placeholder'] = array(t('@username', array('@username' => $form['name']['#description'])));
+     $form['name']['#attributes']['placeholder'] = array(t('@username', array('@username' => 'Enter your username.')));
      $form['name']['#description'] = "";
 
      $form['pass']['#field_prefix'] = '<div class="field-wrapper pass">';
      $form['pass']['#field_suffix'] = '</div>';
-     $form['pass']['#attributes']['placeholder'] = array(t('@username', array('@username' => $form['pass']['#description'])));
+     $form['pass']['#attributes']['placeholder'] = array(t('@username', array('@username' => 'Enter your password.')));
      $form['pass']['#description'] = "";
 
      $form['actions']['submit']['#prefix'] = '<ul class="form-links"><li>' . l(t('Forgot your password?'), 'user/password') . '</li></ul>';
+     unset($form['links']);
      break;
 
   }
+
+}
+
+/**
+ * Implements template_date_combo().
+ *
+ * Remove date combo box.
+ */
+function futurium_isa_theme_date_combo($variables) {
+  // @todo: remove label (Date).
+  return theme('form_element', $variables);
 }
 
 /**

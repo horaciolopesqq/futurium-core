@@ -11,7 +11,7 @@ function futurium_isa_filter_default_formats() {
   $formats = array();
 
   // Exported format: Basic HTML.
-  $formats['basic_html'] = (object) array(
+  $formats['basic_html'] = array(
     'format' => 'basic_html',
     'name' => 'Basic HTML',
     'cache' => 1,
@@ -48,7 +48,7 @@ function futurium_isa_filter_default_formats() {
   );
 
   // Exported format: Filtered HTML.
-  $formats['filtered_html'] = (object) array(
+  $formats['filtered_html'] = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
     'cache' => 1,
@@ -85,7 +85,7 @@ function futurium_isa_filter_default_formats() {
   );
 
   // Exported format: Full HTML.
-  $formats['full_html'] = (object) array(
+  $formats['full_html'] = array(
     'format' => 'full_html',
     'name' => 'Full HTML',
     'cache' => 0,
@@ -121,7 +121,7 @@ function futurium_isa_filter_default_formats() {
   );
 
   // Exported format: Simple Text.
-  $formats['simple_text'] = (object) array(
+  $formats['simple_text'] = array(
     'format' => 'simple_text',
     'name' => 'Simple Text',
     'cache' => 1,
@@ -150,7 +150,7 @@ function futurium_isa_filter_default_formats() {
   );
 
   // Exported format: Simple Wysiwig.
-  $formats['simple_wysiwig'] = (object) array(
+  $formats['simple_wysiwig'] = array(
     'format' => 'simple_wysiwig',
     'name' => 'Simple Wysiwig',
     'cache' => 1,

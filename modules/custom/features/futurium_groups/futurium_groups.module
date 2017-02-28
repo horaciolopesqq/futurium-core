@@ -7,38 +7,6 @@
 include_once 'futurium_groups.features.inc';
 
 /**
- * Administrative form.
- */
-function futurium_groups_administration() {
-
-  $default = variable_get('futurium_groups_rewrite_group_urls', FALSE);
-
-  $form['futurium_groups_rewrite_group_urls'] = array(
-    '#title' => t("Rewrite group urls"),
-    '#type' => 'checkbox',
-    '#default_value' => $default,
-    '#description' => "Enables rewrite of the group paths.",
-  );
-
-  return system_settings_form($form);
-
-}
-
-
-function futurium_groups_menu() {
-
-  $items['admin/config/futurium_groups'] = array(
-    'title' => 'Futurium groups settings',
-    'description' => 'Futurium groups settings and administration.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('futurium_groups_administration'),
-    'access arguments' => array('administer site configuration'),
-  );
-
-  return $items;
-}
-
-/**
  * Initialize group context.
  */
 function futurium_groups_init() {

@@ -38,7 +38,7 @@ function futurium_tests_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'views_bootstrap_carousel_plugin_rows';
   $handler->display->display_options['row_options']['image'] = 'nothing';
   $handler->display->display_options['row_options']['description'] = '';
-  /* Field: Content: Link */
+  /* Field: Content: External link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';

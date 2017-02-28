@@ -87,7 +87,7 @@ function futurium_isa_views_default_views() {
     'use_widget_handlers' => 1,
     'format_handlers' => array(),
   );
-  /* Field: Nó: Date & time */
+  /* Field: Content: Date & time */
   $handler->display->display_options['fields']['field_date_time']['id'] = 'field_date_time';
   $handler->display->display_options['fields']['field_date_time']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['fields']['field_date_time']['field'] = 'field_date_time';
@@ -101,7 +101,7 @@ function futurium_isa_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Nó: Event Description */
+  /* Field: Content: Event Description */
   $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
@@ -119,7 +119,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'read more';
-  /* Sort criterion: Nó: Date &amp; time -  start date (field_date_time) */
+  /* Sort criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['sorts']['field_date_time_value']['id'] = 'field_date_time_value';
   $handler->display->display_options['sorts']['field_date_time_value']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['sorts']['field_date_time_value']['field'] = 'field_date_time_value';
@@ -137,7 +137,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Nó: Date &amp; time -  start date (field_date_time) */
+  /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
   $handler->display->display_options['filters']['field_date_time_value']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['filters']['field_date_time_value']['field'] = 'field_date_time_value';
@@ -190,7 +190,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['relationships']['flag_count_rel']['field'] = 'flag_count_rel';
   $handler->display->display_options['relationships']['flag_count_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_count_rel']['flag'] = 'attending';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -217,7 +217,7 @@ function futurium_isa_views_default_views() {
     'use_widget_handlers' => 1,
     'format_handlers' => array(),
   );
-  /* Field: Nó: Date & time */
+  /* Field: Content: Date & time */
   $handler->display->display_options['fields']['field_date_time']['id'] = 'field_date_time';
   $handler->display->display_options['fields']['field_date_time']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['fields']['field_date_time']['field'] = 'field_date_time';
@@ -231,7 +231,7 @@ function futurium_isa_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
-  /* Field: Nó: Event Description */
+  /* Field: Content: Event Description */
   $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
@@ -270,7 +270,7 @@ function futurium_isa_views_default_views() {
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Nó: Date &amp; time -  start date (field_date_time) */
+  /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
   $handler->display->display_options['filters']['field_date_time_value']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['filters']['field_date_time_value']['field'] = 'field_date_time_value';
@@ -338,7 +338,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';
@@ -364,7 +364,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['relationships']['flag_count_rel']['field'] = 'flag_count_rel';
   $handler->display->display_options['relationships']['flag_count_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_count_rel']['flag'] = 'attending';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -374,7 +374,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  /* Field: Nó: Date & time */
+  /* Field: Content: Date & time */
   $handler->display->display_options['fields']['field_date_time']['id'] = 'field_date_time';
   $handler->display->display_options['fields']['field_date_time']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['fields']['field_date_time']['field'] = 'field_date_time';
@@ -417,7 +417,7 @@ function futurium_isa_views_default_views() {
     'use_widget_handlers' => 1,
     'format_handlers' => array(),
   );
-  /* Field: Nó: Event Description */
+  /* Field: Content: Event Description */
   $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
@@ -453,7 +453,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Nó: Date &amp; time -  start date (field_date_time) */
+  /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
   $handler->display->display_options['filters']['field_date_time_value']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['filters']['field_date_time_value']['field'] = 'field_date_time_value';
@@ -708,7 +708,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Nó: Date &amp; time -  start date (field_date_time) */
+  /* Filter criterion: Content: Date &amp; time -  start date (field_date_time) */
   $handler->display->display_options['filters']['field_date_time_value']['id'] = 'field_date_time_value';
   $handler->display->display_options['filters']['field_date_time_value']['table'] = 'field_data_field_date_time';
   $handler->display->display_options['filters']['field_date_time_value']['field'] = 'field_date_time_value';
@@ -820,7 +820,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
   $handler->display->display_options['empty']['area_text_custom']['content'] = 'No content has been created yet.';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -865,7 +865,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';
@@ -969,7 +969,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'day_and_month';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'j M';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Nó: Tags */
+  /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -978,7 +978,7 @@ function futurium_isa_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
-  /* Field: Nó: Summary */
+  /* Field: Content: Summary */
   $handler->display->display_options['fields']['field_ideas']['id'] = 'field_ideas';
   $handler->display->display_options['fields']['field_ideas']['table'] = 'field_data_field_ideas';
   $handler->display->display_options['fields']['field_ideas']['field'] = 'field_ideas';
@@ -1130,7 +1130,7 @@ Votes Desc|Most voted',
     'tag' => '',
     'function' => 'count',
   );
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -1184,7 +1184,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';
@@ -1236,7 +1236,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['relationships']['flag_count_rel']['field'] = 'flag_count_rel';
   $handler->display->display_options['relationships']['flag_count_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_count_rel']['flag'] = 'like';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -1289,7 +1289,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';
@@ -1368,7 +1368,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['relationships']['flag_count_rel']['field'] = 'flag_count_rel';
   $handler->display->display_options['relationships']['flag_count_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_count_rel']['flag'] = 'like';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -1409,7 +1409,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';
@@ -1463,7 +1463,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Nó: Event Description */
+  /* Field: Content: Event Description */
   $handler->display->display_options['fields']['field_event_description']['id'] = 'field_event_description';
   $handler->display->display_options['fields']['field_event_description']['table'] = 'field_data_field_event_description';
   $handler->display->display_options['fields']['field_event_description']['field'] = 'field_event_description';
@@ -1529,7 +1529,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Relationship: OG membership: OG membership from Nó */
+  /* Relationship: OG membership: OG membership from Node */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
@@ -1554,7 +1554,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'G i';
   $handler->display->display_options['fields']['created']['second_date_format_custom'] = 'j M';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'custom';
-  /* Field: Utilizador: First name */
+  /* Field: User: First name */
   $handler->display->display_options['fields']['field_firstname']['id'] = 'field_firstname';
   $handler->display->display_options['fields']['field_firstname']['table'] = 'field_data_field_firstname';
   $handler->display->display_options['fields']['field_firstname']['field'] = 'field_firstname';
@@ -1564,7 +1564,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['fields']['field_firstname']['alter']['max_length'] = '20';
   $handler->display->display_options['fields']['field_firstname']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_firstname']['element_label_colon'] = FALSE;
-  /* Field: Utilizador: Last name */
+  /* Field: User: Last name */
   $handler->display->display_options['fields']['field_lastname']['id'] = 'field_lastname';
   $handler->display->display_options['fields']['field_lastname']['table'] = 'field_data_field_lastname';
   $handler->display->display_options['fields']['field_lastname']['field'] = 'field_lastname';
@@ -1650,7 +1650,7 @@ Votes Desc|Most voted',
   $handler->display->display_options['filters']['og_group_ref_target_id']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['filters']['og_group_ref_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['og_group_ref_target_id']['group'] = 2;
-  /* Filter criterion: Nó: Group content visibility (group_content_access) */
+  /* Filter criterion: Content: Group content visibility (group_content_access) */
   $handler->display->display_options['filters']['group_content_access_value']['id'] = 'group_content_access_value';
   $handler->display->display_options['filters']['group_content_access_value']['table'] = 'field_data_group_content_access';
   $handler->display->display_options['filters']['group_content_access_value']['field'] = 'group_content_access_value';

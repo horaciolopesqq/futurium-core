@@ -448,22 +448,22 @@ row|Bootstrap Row
     'extra_fields' => array(
       'form' => array(
         'account' => array(
-          'weight' => '2',
+          'weight' => '4',
         ),
         'timezone' => array(
-          'weight' => '16',
+          'weight' => '7',
         ),
         'picture' => array(
-          'weight' => '15',
+          'weight' => '5',
         ),
         'contact' => array(
-          'weight' => '12',
+          'weight' => '5',
         ),
         'locale' => array(
-          'weight' => '13',
+          'weight' => '6',
         ),
         'wysiwyg' => array(
-          'weight' => '14',
+          'weight' => '8',
         ),
       ),
       'display' => array(

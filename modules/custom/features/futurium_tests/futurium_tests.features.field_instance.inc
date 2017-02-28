@@ -350,7 +350,7 @@ function futurium_tests_field_default_field_instances() {
       'module' => 'radioactivity',
       'settings' => array(),
       'type' => 'radioactivity_basic_widget',
-      'weight' => 17,
+      'weight' => 5,
     ),
   );
 

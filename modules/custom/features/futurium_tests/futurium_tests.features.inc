@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * tests.features.inc
+ * futurium_tests.features.inc
  */
 
 /**

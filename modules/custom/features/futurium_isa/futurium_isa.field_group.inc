@@ -13,6 +13,64 @@ function futurium_isa_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_account|user|user|form';
+  $field_group->group_name = 'group_account';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Account',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_firstname',
+      1 => 'field_lastname',
+      2 => 'account',
+      3 => 'picture',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-account field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_account|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_admin|user|user|form';
+  $field_group->group_name = 'group_admin';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Admin',
+    'weight' => '3',
+    'children' => array(
+      0 => 'og_user_node',
+      1 => 'field_activity_index',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-admin field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_admin|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_buttons|node|event|node_header';
   $field_group->group_name = 'group_buttons';
   $field_group->entity_type = 'node';
@@ -333,6 +391,71 @@ function futurium_isa_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_personal_informatio|user|user|form';
+  $field_group->group_name = 'group_personal_informatio';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Personal Information',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_age',
+      1 => 'field_biography',
+      2 => 'field_birthday',
+      3 => 'field_education',
+      4 => 'field_gender',
+      5 => 'field_location',
+      6 => 'field_picture',
+      7 => 'field_profession',
+      8 => 'field_social_links',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-personal-informatio field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_personal_informatio|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_settings|user|user|form';
+  $field_group->group_name = 'group_settings';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Settings',
+    'weight' => '2',
+    'children' => array(
+      0 => 'timezone',
+      1 => 'contact',
+      2 => 'locale',
+      3 => 'wysiwyg',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-settings field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_settings|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_shortcut_buttons|user|user|user_header';
   $field_group->group_name = 'group_shortcut_buttons';
   $field_group->entity_type = 'user';
@@ -470,9 +593,13 @@ function futurium_isa_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Account');
+  t('Admin');
   t('Content');
   t('Fields');
   t('Metadata');
+  t('Personal Information');
+  t('Settings');
   t('Shortcuts');
   t('group-buttons');
   t('wrapper-author-date');

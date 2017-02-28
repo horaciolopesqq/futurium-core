@@ -126,117 +126,10 @@ function futurium_isa_extras_block_info() {
     'info' => t('Node Share'),
     'cache' => DRUPAL_NO_CACHE,
   );
-  return $blocks;
-}
-
-/**
- * Implements hook_preprocess_page().
- */
-function futurium_isa_extras_preprocess_page(&$vars) {
-  // Add the collapsible block to the page.
-  $block = module_invoke('futurium_isa_extras', 'block_view', 'user_actions_block');
-  $vars['collapsible_user_block'] = theme('collapsible_user_block', array());
-}
-
-function futurium_isa_extras_theme($existing, $type, $theme, $path) {
-  return array(
-    'collapsible_user_block' => array(
-      'variables' => array(),
-      'template' => 'collapsible-user-block',
-      'path' => drupal_get_path('module', 'futurium_isa_extras') . '/templates',
-    ),
+  $blocks['register_button'] = array(
+    'info' => t('Register'),
   );
-}
-
-function futurium_isa_extras_preprocess_collapsible_user_block(&$vars) {
-  $vars['lang_dropdown'] = NULL;
-  $languages = language_list();
-  if (module_exists('lang_dropdown') && count($languages) > 1) {
-    $block = module_invoke('lang_dropdown', 'block_view', 'language');
-    $vars['lang_dropdown'] = render($block['content']);
-  }
-
-  if (user_is_anonymous()) {
-
-    $vars['title'] = t("Login");
-    $vars['content']['register']['title'] = t("Don't have an account?");
-    $vars['content']['login']['title'] = t("Already registered?");
-    $login_form = drupal_get_form("user_login");
-    $vars['content']['login']['content'] = render($login_form);
-
-    $register_link = l(
-      t("Register"),
-      'user/register',
-      array(
-        'attributes' => array(
-          'class' => array(
-            'btn',
-          ),
-        ),
-      )
-    );
-
-    $vars['content']['register']['content'] = $register_link;
-
-  }
-  else {
-    $account = user_load($vars['user']->uid);
-    $username = format_username($account);
-
-    $vars['account']['name'] = $username;
-    $vars['account']['picture']['image_style'] = 'thumbnail';
-    $vars['account']['picture']['class'] = array();
-    $vars['account']['picture']['title'] = t("@username's profile", array('@username' => $username));
-
-    $pic = !empty($account->picture->uri) ? $account->picture->uri : variable_get('user_picture_default');
-
-    $vars['account']['picture']['path'] = $pic;
-
-    $menu = array(
-      'links' => menu_navigation_links('user-menu'),
-      'attributes' => array(
-        'class' => array(
-          'links',
-          'user-menu',
-        ),
-      ),
-    );
-
-    $links = theme('links', $menu);
-    $vars['title'] = $username;
-    $vars['content'] = $links;
-    $vars['username'] = $username;
-  }
-}
-
-function futurium_isa_extras_process_collapsible_user_block(&$vars) {
-  if (user_is_logged_in()) {
-    $user_pic = theme(
-      'image_style', array(
-        'style_name' => $vars['account']['picture']['image_style'],
-        'path' => $vars['account']['picture']['path'],
-        'attributes' => array(
-          'class' => $vars['account']['picture']['class'],
-          'title' => $vars['account']['picture']['title'],
-        ),
-      )
-    );
-
-    $menu = array(
-      'links' => menu_navigation_links('user-menu'),
-      'attributes' => array(
-        'class' => array(
-          'links',
-          'user-menu',
-        ),
-      ),
-    );
-
-    $links = theme('links', $menu);
-    $vars['title'] = '<span class="user-picture">' . $user_pic .'</span>';
-    $vars['title'] .= '<span class="user-name">' . $vars['username'] .'</span>';
-    $vars['content'] = theme('links', $menu);
-  }
+  return $blocks;
 }
 
 /**
@@ -457,6 +350,22 @@ function futurium_isa_extras_block_view($delta = '') {
 
       $block['content']['#markup'] = theme('item_list', $variables);
       $block['content']['#attached']['js'][] = drupal_get_path('module', 'futurium_isa_extras') . '/js/misc.js';
+      break;
+
+    case 'register_button':
+      $block['subject'] = t("Don't have an account?");
+      $block['content'] = l(
+        t("Register here"),
+        'user/register',
+        array(
+          'attributes' => array(
+            'class' => array(
+              'btn',
+              'user-register-link',
+            ),
+          ),
+        )
+      );
       break;
   }
   return $block;
@@ -1162,5 +1071,31 @@ function futurium_isa_extras_rate_widget_alter(&$widget, $context) {
     $path = drupal_get_path('module', 'rate');
     $widget->css = $path . '/templates/fivestar/fivestar.css';
     $widget->js  = $path . '/templates/fivestar/fivestar.js';
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function futurium_isa_extras_field_widget_addressfield_standard_form_alter(&$element, &$form_state, $context) {
+    $element['#type'] = 'container';
+}
+
+/**
+ * Implements hook_context_load_alter().
+ */
+function futurium_isa_extras_context_load_alter(&$context) {
+  if ($context->name == 'site-wide') {
+    if (user_is_anonymous()) {
+      // Remove user menu block if user is not logged in.
+      unset($context->reactions['block']['blocks']['system-user-menu']);
+      // Put the register block in place.
+      $context->reactions['block']['blocks']['register_button'] = array(
+        'module' => 'futurium_isa_extras',
+        'delta' => 'register_button',
+        'region' => 'collapsible_right',
+        'weight' => 0,
+      );
+    }
   }
 }
