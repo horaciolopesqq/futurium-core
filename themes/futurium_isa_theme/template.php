@@ -24,16 +24,6 @@ function futurium_isa_theme_preprocess_html(&$variables) {
 }
 
 /**
- * Implements template_preprocess_region().
- */
-function futurium_isa_theme_preprocess_region(&$variables) {
-  $region = str_replace('_', '-', $variables['elements']['#region']);
-  $wrapper_classes_array[] = $region . '-wrapper';
-
-  $variables['wrapper_classes'] = implode(' ', $wrapper_classes_array);
-}
-
-/**
  * Implements template_preprocess_page().
  */
 function futurium_isa_theme_preprocess_page(&$variables) {
@@ -129,6 +119,16 @@ function futurium_isa_theme_preprocess_page(&$variables) {
 
   $variables['show_title'] = $variables['content_wrapper'];
 
+}
+
+/**
+ * Implements template_preprocess_region().
+ */
+function futurium_isa_theme_preprocess_region(&$variables) {
+  $region = str_replace('_', '-', $variables['elements']['#region']);
+  $wrapper_classes_array[] = $region . '-wrapper';
+
+  $variables['wrapper_classes'] = implode(' ', $wrapper_classes_array);
 }
 
 /**
@@ -463,6 +463,9 @@ function futurium_isa_theme_preprocess_rate_template_fivestar(&$variables) {
 
 }
 
+/**
+ * Implements theme_views_view_grouping().
+ */
 function futurium_isa_theme_views_view_grouping($vars) {
   $view = $vars['view'];
   $title = $vars['title'];
@@ -476,14 +479,23 @@ function futurium_isa_theme_views_view_grouping($vars) {
   return $output;
 }
 
+/**
+ * Implements theme_menu_tree__menu_user_tabs().
+ */
 function futurium_isa_theme_menu_tree__menu_user_tabs($variables) {
   return '<ul class="menu nav nav-pills">' . $variables['tree'] . '</ul>';
 }
 
+/**
+ * Implements theme_menu_tree__menu_group_tabs().
+ */
 function futurium_isa_theme_menu_tree__menu_group_tabs($variables) {
   return '<ul class="menu nav nav-pills">' . $variables['tree'] . '</ul>';
 }
 
+/**
+ * Implements theme_quant_page().
+ */
 function futurium_isa_theme_quant_page($vars) {
 
   $content = '';
@@ -576,6 +588,9 @@ function futurium_isa_theme_quant_time_form($vars) {
   return $output;
 }
 
+/**
+ * Implements theme_textarea().
+ */
 function futurium_isa_theme_textarea($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'cols', 'rows'));

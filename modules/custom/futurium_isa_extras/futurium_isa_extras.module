@@ -1087,9 +1087,8 @@ function futurium_isa_extras_field_widget_addressfield_standard_form_alter(&$ele
 function futurium_isa_extras_context_load_alter(&$context) {
   if ($context->name == 'site-wide') {
     if (user_is_anonymous()) {
-      // Remove user menu block if user is not logged in.
-      unset($context->reactions['block']['blocks']['system-user-menu']);
-      // Put the register block in place.
+
+      // Put the login block in place.
       $context->reactions['block']['blocks']['user_login'] = array(
         'module' => 'user',
         'delta' => 'login',
@@ -1104,6 +1103,10 @@ function futurium_isa_extras_context_load_alter(&$context) {
         'region' => 'collapsible_left',
         'weight' => 0,
       );
+
+      // Remove user menu block if user is not logged in.
+      unset($context->reactions['block']['blocks']['system-user-menu']);
+
     }
   }
 }

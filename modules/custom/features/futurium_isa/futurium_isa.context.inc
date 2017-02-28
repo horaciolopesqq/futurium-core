@@ -35,7 +35,7 @@ function futurium_isa_context_default_contexts() {
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
-          'region' => 'collapsible_left',
+          'region' => 'collapsible_right',
           'weight' => '-10',
         ),
         'views-ideas-footer' => array(
