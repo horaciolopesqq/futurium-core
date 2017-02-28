@@ -220,6 +220,26 @@ function futurium_isa_theme_date_combo($variables) {
 }
 
 /**
+ * Implements date_popup_process_alter().
+ */
+function futurium_isa_theme_date_popup_process_alter(&$element, &$form_state, $context) {
+  if (isset($element['date'])) {
+    // Removes the inner label on date popup fields.
+    unset($element['date']['#description']);
+    unset($element['date']['#title']);
+
+    // Sets the starting year on the year dropdown.
+    $settings = array('defaultDate' => '-18y');
+    $return_id = $element['date']['#id'];
+    $js_settings['datePopup'][$return_id] = array(
+      'settings' => $settings
+    );
+    drupal_add_js($js_settings, 'setting');
+  }
+}
+
+
+/**
  * Implements hook_menu_link().
  *
  * Adds classes to user account menu item.
