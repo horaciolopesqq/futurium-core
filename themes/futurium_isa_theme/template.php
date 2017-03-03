@@ -59,7 +59,9 @@ function futurium_isa_theme_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="container-fullwidth"';
   }
 
-  $variables['collapsible_top'] = (isset($variables['page']['collapsible_top']) ? render($variables['page']['collapsible_top']) : '');
+  $variables['collapsible_top_right'] = (isset($variables['page']['collapsible_top_right']) ? render($variables['page']['collapsible_top_right']) : '');
+  $variables['collapsible_top_center'] = (isset($variables['page']['collapsible_top_center']) ? render($variables['page']['collapsible_top_center']) : '');
+  $variables['collapsible_top_left'] = (isset($variables['page']['collapsible_top_left']) ? render($variables['page']['collapsible_top_left']) : '');
   $variables['collapsible_left'] = (isset($variables['page']['collapsible_left']) ? render($variables['page']['collapsible_left']) : '');
   $variables['collapsible_right'] = (isset($variables['page']['collapsible_right']) ? render($variables['page']['collapsible_right']) : '');
 

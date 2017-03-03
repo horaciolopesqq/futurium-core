@@ -2924,7 +2924,12 @@ function futurium_isa_default_page_manager_handlers() {
   $pane->configuration = array(
     'admin_title' => 'Why Futurium',
     'title' => 'Why should you use Futurium?',
-    'body' => '<ul><li>Because reasons</li><li>Because it\'s trendy</li><li>Because why not</li><li>And it\'s free</li></ul>',
+    'body' => '<ul>
+      <li>Reason 1</li>
+      <li>Reason 2</li>
+      <li>Reason 3</li>
+      <li>Reason 4</li>
+    </ul>',
     'format' => 'full_html',
     'substitute' => TRUE,
   );

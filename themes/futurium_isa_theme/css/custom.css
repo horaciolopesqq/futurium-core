@@ -208,7 +208,12 @@ body #admin-menu{
 
 /*****/
 
-.confirm-parent, .password-parent {
+.menu.nav li a:hover {
+  color: #333 !important;
+}
+
+.confirm-parent,
+.password-parent {
   clear: left;
   margin: 0;
   width: auto;
@@ -227,8 +232,41 @@ body #admin-menu{
   display: none;
 }
 
-.region-collapsible-top .block,
-.region-collapsible-top .collapse-control-wrapper div{
+.region-collapsible-top nav .block,
+.region-collapsible-top nav .collapse-control-wrapper div {
   display: inline-block;
   vertical-align: middle;
+}
+
+/** Maybe **/
+
+.region-collapsible-top .block {
+  margin-top: 5px;
+}
+
+.logo-wrapper,
+.name-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo-wrapper img {
+  max-height: 70px;
+}
+
+.front .panel-pane.pane-custom.pane-1,
+.front .panel-pane.pane-homepage {
+  border: 1px solid #EEE;
+  padding: 15px 10px 0 10px;
+}
+
+.front .panel-pane {
+  box-shadow: 8px 8px 6px -4px #CCC;
+}
+
+.view-carousel h3{
+  text-shadow: 1px 0px 1px #000,
+  -1px 0px 1px #000,
+   0px 1px 1px #000,
+   0px -1px 1px #000;
 }

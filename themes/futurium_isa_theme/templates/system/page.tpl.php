@@ -79,9 +79,13 @@
 
   <?php if ($collapsible_left || $collapsible_right): ?>
   <div class="wrapper-pre-header">
-    <div class="container collapsed-user-block">
+    <div class="container collapsed-user-block region-collapsible-top">
       <nav role="navigation">
-        <?php print $collapsible_top; ?>
+        <div class="row">
+          <div class="col-lg-3"><?php print $collapsible_top_left; ?></div>
+          <div class="col-lg-6"><?php print $collapsible_top_center; ?></div>
+          <div class="col-lg-3"><?php print $collapsible_top_right; ?></div>
+        </div>
       </nav>
       <div id="login-collapse" class="collapse row login-collapse" style="clear:both;">
         <div class="containment">
@@ -113,13 +117,17 @@
 
     <div class="navbar-header">
       <?php if ($logo): ?>
-      <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
+      <div class="logo-wrapper">
+        <a class="logo navbar-btn" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+        </a>
+      </div>
       <?php endif; ?>
 
       <?php if (!empty($site_name)): ?>
-      <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+      <div class="name-wrapper">
+        <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+      </div>
       <?php endif; ?>
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
