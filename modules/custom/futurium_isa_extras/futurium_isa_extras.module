@@ -1175,7 +1175,13 @@ function futurium_isa_extras_context_load_alter(&$context) {
 
       // Remove user menu block if user is not logged in.
       unset($context->reactions['block']['blocks']['system-user-menu']);
-
     }
+
+    // Remove language switcher if there's only one language enabled.
+    $langs = language_list();
+    if (count($langs) < 2) {
+      unset($context->reactions['block']['blocks']['lang_dropdown-language']);
+    }
+
   }
 }
