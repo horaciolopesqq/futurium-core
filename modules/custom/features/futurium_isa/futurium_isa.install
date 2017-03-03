@@ -28,6 +28,12 @@ function _futurium_isa_replace_default_image($field_name, $filename, $source) {
 
     // Update field.
     field_update_field($field);
+
+    // Update user picture.
+    $u = user_load(1);
+    $u->picture = $file;
+    user_save($u);
+
   }
 }
 
