@@ -126,6 +126,9 @@ function futurium_isa_extras_block_info() {
     'info' => t('Node Share'),
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['collapsible_toggle'] = array(
+    'info' => t('Collapsible Toggle'),
+  );
   $blocks['register_button'] = array(
     'info' => t('Register'),
   );
@@ -162,7 +165,59 @@ function futurium_isa_extras_block_view($delta = '') {
   }
 
   switch ($delta) {
+    case 'collapsible_toggle':
+      if (user_is_logged_in()) {
+        global $user;
+        $account = user_load($user->uid);
 
+        $image_uri = (!empty($account->picture->uri))
+          ? $account->picture->uri
+          : variable_get('user_picture_default');
+
+        $name = format_username($account);
+
+        $picture = theme(
+          'image_style',
+          array(
+            'style_name' => 'thumbnail',
+            'path' => $image_uri,
+            'alt' => $name,
+            'title' => $name,
+            'attributes' => array(
+              'class' => 'avatar img-circle logged-in-user-pic',
+            ),
+          )
+        );
+
+        $link_markup = '<div class="collapse-control-wrapper">';
+        $link_markup .= '<div class="user-name">' . $name .'</div>';
+        $link_markup .= '<div class="user-picture">' . $picture .'</div>';
+        $link_markup .= '</div>';
+
+        $block['content'] = l($link_markup, '', array(
+          'html' => TRUE,
+          'fragment' => 'login-collapse',
+          'external' => TRUE,
+          'attributes' => array(
+            'data-toggle' => "collapse",
+          ),
+        ));
+      }
+      else {
+        $block['content'] = l(t('Login'), '', array(
+          'fragment' => 'login-collapse',
+          'external' => TRUE,
+          'attributes' => array(
+            'class' => array(
+              'btn',
+              'btn-login',
+              'pull-right',
+            ),
+            'data-toggle' => "collapse",
+          ),
+        ));
+      }
+      break;
     case 'contextualized_links':
 
       switch ($item['path']) {
@@ -974,6 +1029,20 @@ function futurium_isa_extras_form_node_form_alter(&$form, &$form_state) {
 function futurium_isa_extras_form_user_profile_form_alter(&$form, &$form_state) {
   // Hide the activity index field.
   $form['field_activity_index']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function futurium_isa_extras_form_user_register_form_alter(&$form, &$form_state) {
+  // Remove the fieldset on registration form.
+  foreach ($form['#group_children'] as $field_name => $group) {
+    if ($group == 'group_account') {
+      unset($form['#group_children'][$field_name]);
+    }
+  }
+  unset($form['#groups']['group_account']);
+  unset($form['#fieldgroups']['group_account']);
 }
 
 /**

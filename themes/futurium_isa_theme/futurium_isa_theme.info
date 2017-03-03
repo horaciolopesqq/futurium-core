@@ -8,6 +8,7 @@ base theme = bootstrap
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
+regions[collapsible_top] = 'Collapsible Top'
 regions[collapsible_left] = 'Collapsible Left'
 regions[collapsible_right] = 'Collapsible Right'
 regions[navigation]     = 'Navigation'

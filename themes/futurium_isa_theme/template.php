@@ -59,40 +59,7 @@ function futurium_isa_theme_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="container-fullwidth"';
   }
 
-  // Collapsible block toggle.
-  if (!user_is_logged_in()) {
-    $variables['collapsible_toggle_title'] = 'Login';
-  }
-  else {
-    global $user;
-    $account = user_load($user->uid);
-
-    $image_uri = (!empty($account->picture->uri))
-      ? $account->picture->uri
-      : variable_get('user_picture_default');
-
-    $name = format_username($account);
-
-    $picture = theme(
-      'image_style',
-      array(
-        'style_name' => 'thumbnail',
-        'path' => $image_uri,
-        'alt' => $name,
-        'title' => $name,
-        'attributes' => array(
-          'class' => 'avatar img-circle logged-in-user-pic',
-        ),
-      )
-    );
-
-    $variables['collapsible_toggle_title'] = '<div class="title">';
-    $variables['collapsible_toggle_title'] .= '<span class="user-picture">' . $picture .'</span>';
-    $variables['collapsible_toggle_title'] .= '<span class="user-name">' . $name .'</span>';
-    $variables['collapsible_toggle_title'] .= '</div>';
-
-  }
-
+  $variables['collapsible_top'] = (isset($variables['page']['collapsible_top']) ? render($variables['page']['collapsible_top']) : '');
   $variables['collapsible_left'] = (isset($variables['page']['collapsible_left']) ? render($variables['page']['collapsible_left']) : '');
   $variables['collapsible_right'] = (isset($variables['page']['collapsible_right']) ? render($variables['page']['collapsible_right']) : '');
 

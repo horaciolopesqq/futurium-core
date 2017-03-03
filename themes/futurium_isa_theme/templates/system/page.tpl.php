@@ -81,9 +81,7 @@
   <div class="wrapper-pre-header">
     <div class="container collapsed-user-block">
       <nav role="navigation">
-        <a href="#login-collapse" class="btn btn-login pull-right" data-toggle="collapse">
-          <?php print $collapsible_toggle_title; ?>
-        </a>
+        <?php print $collapsible_top; ?>
       </nav>
       <div id="login-collapse" class="collapse row login-collapse" style="clear:both;">
         <div class="containment">

@@ -205,3 +205,20 @@ body #admin-menu{
 .password-indicator .indicator {
   background-color: green;
 }
+
+/*****/
+
+.wrapper-pre-header .user-name {
+  margin-left: 0rem;
+  margin-right: 1rem;
+}
+
+.region-collapsible-top h2 {
+  display: none;
+}
+
+.region-collapsible-top .block,
+.region-collapsible-top .collapse-control-wrapper div{
+  display: inline-block;
+  vertical-align: middle;
+}

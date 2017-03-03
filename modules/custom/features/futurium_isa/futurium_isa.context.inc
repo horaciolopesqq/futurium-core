@@ -56,6 +56,18 @@ function futurium_isa_context_default_contexts() {
           'region' => 'footer',
           'weight' => '-7',
         ),
+        'lang_dropdown-language' => array(
+          'delta' => 'language',
+          'module' => 'lang_dropdown',
+          'region' => 'collapsible_top',
+          'weight' => -10,
+        ),
+        'futurium_isa_extras-collapsible_toggle' => array(
+          'module' => 'futurium_isa_extras',
+          'delta' => 'collapsible_toggle',
+          'region' => 'collapsible_top',
+          'weight' => -9,
+        ),
       ),
     ),
   );
