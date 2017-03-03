@@ -228,7 +228,7 @@ body #admin-menu{
   margin-right: 1rem;
 }
 
-.region-collapsible-top h2 {
+.region-collapsible-top nav h2 {
   display: none;
 }
 
