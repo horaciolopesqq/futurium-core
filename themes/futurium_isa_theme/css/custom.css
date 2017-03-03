@@ -208,6 +208,16 @@ body #admin-menu{
 
 /*****/
 
+.confirm-parent, .password-parent {
+  clear: left;
+  margin: 0;
+  width: auto;
+}
+
+.form-control {
+  width: 100%;
+}
+
 .wrapper-pre-header .user-name {
   margin-left: 0rem;
   margin-right: 1rem;

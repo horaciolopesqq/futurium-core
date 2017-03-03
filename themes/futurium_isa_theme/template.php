@@ -372,6 +372,10 @@ function futurium_isa_theme_field_group_pre_render_alter(&$element, $group, & $f
  */
 function futurium_isa_theme_js_alter(&$js) {
   unset($js['misc/collapse.js']);
+  $bootstrap_theme_path = drupal_get_path('theme', 'bootstrap');
+  if (isset($js[$bootstrap_theme_path . '/js/misc/_vertical-tabs.js'])) {
+    $js[$bootstrap_theme_path . '/js/misc/_vertical-tabs.js']['data'] = drupal_get_path('theme', 'futurium_isa_theme') . '/js/_vertical-tabs.js';
+  }
 }
 
 /**
