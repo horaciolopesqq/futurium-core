@@ -18,7 +18,6 @@ function futurium_isa_menu_default_menu_custom() {
     'language' => 'und',
     'i18n_mode' => 5,
   );
-
   // Exported menu: menu-group-tabs.
   $menus['menu-group-tabs'] = array(
     'menu_name' => 'menu-group-tabs',
@@ -27,7 +26,6 @@ function futurium_isa_menu_default_menu_custom() {
     'language' => 'und',
     'i18n_mode' => 5,
   );
-
   // Exported menu: menu-user-tabs.
   $menus['menu-user-tabs'] = array(
     'menu_name' => 'menu-user-tabs',

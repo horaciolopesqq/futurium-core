@@ -174,7 +174,7 @@
     </aside>  <!-- /#sidebar-first -->
   <?php endif; ?>
 
-  <section<?php //print $content_column_class; ?>>
+  <section class="main">
     <?php
     if (
       !empty($page['highlighted']) ||

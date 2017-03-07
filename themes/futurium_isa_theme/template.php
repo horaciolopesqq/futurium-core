@@ -228,7 +228,7 @@ function futurium_isa_theme_menu_link(array $variables) {
   if ($variables['element']['#original_link']['menu_name'] == 'main-menu' &&
       $variables['element']['#original_link']['link_path'] == 'analytics') {
     $variables['element']['#localized_options']['html'] = TRUE;
-    $variables['element']['#title'] = '<span class="glyphicons-signal"></span> ' . t("Stats");
+    $variables['element']['#title'] = '<span class="glyphicons-signal"></span>' . t("Stats");
   }
 
   // Remove active class from parent if in sub-menu pages.

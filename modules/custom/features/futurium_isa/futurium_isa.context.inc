@@ -26,15 +26,33 @@ function futurium_isa_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'system-user-menu' => array(
-          'module' => 'system',
-          'delta' => 'user-menu',
-          'region' => 'collapsible_right',
+        'lang_dropdown-language' => array(
+          'module' => 'lang_dropdown',
+          'delta' => 'language',
+          'region' => 'collapsible_top_left',
           'weight' => '-10',
+        ),
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'collapsible_top_center',
+          'weight' => '-10',
+        ),
+        'futurium_isa_extras-collapsible_toggle' => array(
+          'module' => 'futurium_isa_extras',
+          'delta' => 'collapsible_toggle',
+          'region' => 'collapsible_top_right',
+          'weight' => '-43',
         ),
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
+          'region' => 'collapsible_right',
+          'weight' => '-10',
+        ),
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
           'region' => 'collapsible_right',
           'weight' => '-10',
         ),
@@ -55,24 +73,6 @@ function futurium_isa_context_default_contexts() {
           'delta' => 'footer_social_links',
           'region' => 'footer',
           'weight' => '-7',
-        ),
-        'lang_dropdown-language' => array(
-          'delta' => 'language',
-          'module' => 'lang_dropdown',
-          'region' => 'collapsible_top_center',
-          'weight' => '-45',
-        ),
-        'search-form' => array(
-          'delta' => 'form',
-          'module' => 'search',
-          'region' => 'collapsible_top_left',
-          'weight' => '-44',
-        ),
-        'futurium_isa_extras-collapsible_toggle' => array(
-          'module' => 'futurium_isa_extras',
-          'delta' => 'collapsible_toggle',
-          'region' => 'collapsible_top_right',
-          'weight' => '-43',
         ),
       ),
     ),
