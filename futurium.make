@@ -26,33 +26,28 @@ projects[apachesolr][version] = "1.8"
 
 		; Issue #2178283 : Apache Solr doesn't invalidate its caches when inserting a new node type.
 		; https://drupal.org/node/2178283
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-2890
 		projects[apachesolr][patch][] = https://www.drupal.org/files/issues/apachesolr-invalidate-caches-new-node-type-2178283.patch
 
 		; Issue #1649158 : Date Facets (without a time) can show in Multiple Months.
 		; https://drupal.org/node/1649158
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-4335
 		projects[apachesolr][patch][] = https://www.drupal.org/files/apachesolr-multiple-dates-hack-1649158-15.patch
 
 		; Issue #2446419 : Incorrect display of some main menu items and browser tab titles on some pages.
 		; https://www.drupal.org/node/2446419
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-6765
 		projects[apachesolr][patch][] = https://www.drupal.org/files/issues/apachesolr_search-overwritten_menu_items-2446419.patch
 
 		; Issue #2657666 : Notice: Undefined property: stdClass::$status_message
 		; https://www.drupal.org/node/2657666
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-7651
 		projects[apachesolr][patch][] = https://www.drupal.org/files/issues/apachesolr-undefined-property-2657666-4-D7.patch
 
 		;https://www.drupal.org/node/2333447#comment-10826660
 		projects[apachesolr][patch][] = https://www.drupal.org/files/issues/apachesolr-missing-tabs-2333447-10-D7.patch
 
-		; Issue NEXTEUROPA-11356 - setting up default timeout value for drupal_http_request function (500 errors investigation).
+		; Issue - setting up default timeout value for drupal_http_request function (500 errors investigation).
 		projects[apachesolr][patch][] = patches/apachesolr-changing_drupal_http_request_timeout_value.patch
 
 		; Delay removing entities from the index.
 		; https://www.drupal.org/node/2764637
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-11582
 		projects[apachesolr][patch][] = https://www.drupal.org/files/issues/apachesolr-delay-entity-removal-2764637-1.patch
 
 projects[apachesolr_attachments][subdir] = "contrib"
@@ -60,19 +55,14 @@ projects[apachesolr_attachments][version] = "1.4"
 
 		; Issue #2581925 : Empty parent_entity_id in apachesolr_index_entities_file table.
 		; https://www.drupal.org/node/2581925
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-4224
 		projects[apachesolr_attachments][patch][] = https://www.drupal.org/files/issues/apachesolr_attachments-empty_parent_entity_id-2581925-0.patch
 
 		; Issue #1854088 : PDOException: SQLSTATE[40001]: Serialization failure: 1213 Deadlock found.
 		; https://www.drupal.org/node/1854088
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-3744
 		projects[apachesolr_attachments][patch][] = https://www.drupal.org/files/issues/apachesolr_attachments-cleanup_efficiency_and_deadlock_chance_reduction-1854088-16.patch
 
 projects[apachesolr_multilingual][subdir] = "contrib"
 projects[apachesolr_multilingual][version] = "1.3"
-
-projects[apachesolr_multisitesearch][subdir] = "contrib"
-projects[apachesolr_multisitesearch][version] = "1.1"
 
 projects[autosave][subdir] = "contrib"
 projects[autosave][version] = "2.2"
@@ -108,18 +98,15 @@ projects[chr][subdir] = "contrib"
 projects[chr][version] = "1.7"
 
 		; Issue #2512054 : Call to legacy function curl_http_request. Please use chr_curl_http_request instead.
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-5588
 		; https://www.drupal.org/node/2512054
 		projects[chr][patch][] = https://www.drupal.org/files/issues/chr-deprecated_call-2512054-2.patch
 
 		; Issue #2142949 : Receiving error message - Notice: Undefined offset: 1 in chr_curl_http_request().
 		; https://www.drupal.org/node/2142949
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-1944
 		projects[chr][patch][] = https://www.drupal.org/files/issues/chr-undefined-index-1-due-response-without-payload.patch
 
 		; Issue #2355631 : rewrite header host without port number.
 		; https://www.drupal.org/node/2355631
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-6231
 		projects[chr][patch][] = https://www.drupal.org/files/issues/chr-1.6-patch-rewrite-header-host-without-standard-port-number_0.patch
 
 projects[ckeditor_link][subdir] = "contrib"
@@ -150,7 +137,6 @@ projects[context_entity_field][version] = "1.1"
 		; Make condition work for entity references.
 		; Patch implemented in DEV version.
 		; https://www.drupal.org/node/1847038
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-5056
 		projects[context_entity_field][patch][] = https://www.drupal.org/files/add-entity-references.patch
 
 projects[context_og][subdir] = "contrib"
@@ -176,8 +162,6 @@ projects[date][version] = "2.9"
 
 		; Issue #2305049: Wrong timezone handling in migrate process.
 		; https://www.drupal.org/node/2305049
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-3324
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-4710
 		projects[date][patch][] = https://www.drupal.org/files/issues/2305049-12.patch
 
 		; Patch to fix issue with date grouped filters.
@@ -217,7 +201,6 @@ projects[entityreference][subdir] = "contrib"
 
 		; Issue #2401811: Rendered entity is not language aware
 		; https://www.drupal.org/node/1674792
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-6056
 		projects[entityreference][patch][] = https://www.drupal.org/files/issues/entityreference-rendered-entity-is-not-language-aware-1674792-85.patch
 
 		; Allow handlers to modify $items before calling entity_view()
@@ -246,15 +229,14 @@ projects[features][version] = "2.9"
 projects[feature_set][subdir] = "contrib"
 projects[feature_set][version] = "1.3"
 
-		projects[feature_set][patch][] = patches/feature_set-add_categories_management-nexteuropa_4459.patch
-		projects[feature_set][patch][] = patches/feature_set-check_disable_enable-nexteuropa_4459.patch
-		projects[feature_set][patch][] = patches/feature_set-misc-nexteuropa_4459.patch
+		projects[feature_set][patch][] = patches/feature_set-add_categories_management.patch
+		projects[feature_set][patch][] = patches/feature_set-check_disable_enable.patch
+		projects[feature_set][patch][] = patches/feature_set-misc.patch
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.5"
 
 		; https://www.drupal.org/node/2604284
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-6603
 		projects[field_group][patch][] = https://www.drupal.org/files/issues/field_group_label_translation_patch.patch
 
 projects[file_entity][subdir] = "contrib"
@@ -267,7 +249,6 @@ projects[filefield_sources_plupload][subdir] = "contrib"
 projects[filefield_sources_plupload][version] = "1.1"
 
 		; Fix Field description persistance
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7572
 		; https://www.drupal.org/node/2705523
 		projects[filefield_sources_plupload][patch][] = https://www.drupal.org/files/issues/filefield_sources_plupload-metadata_persistance-2705523.patch
 
@@ -279,19 +260,14 @@ projects[fullcalendar][version] = "2.0"
 
 		; Issue #2185449: Using AJAX results in errors when scrolling through months
 		; https://www.drupal.org/node/2185449
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-4393
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-6674
 			projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/ajax_date_format-2185449-17.patch
 
 		; Issue #1803770: Uncaught TypeError: Cannot read property 'views_dom_id:***' of undefined.
 		; https://www.drupal.org/node/1803770
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-4112
 		projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/uncaught_typeerror-1803770-10.patch
 
 		; Issue #2325549: AJAX doesn't work in jQuery 1.9+
 		; https://www.drupal.org/node/2325549
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7373
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7237
 		projects[fullcalendar][patch][] = https://www.drupal.org/files/issues/2325549-jquery19_ajax.patch
 
 projects[graphapi][subdir] = "contrib"
@@ -318,7 +294,6 @@ projects[i18n][version] = "1.13"
 
 		; Language field display should default to hidden.
 		; https://www.drupal.org/node/1350638
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-3996
 		; Also requires a patch for Drupal core issue https://www.drupal.org/node/1256368,
 		; you can find it in drupal-core.make.
 		projects[i18n][patch][] = https://www.drupal.org/files/i18n-hide_language_by_default-1350638-5.patch
@@ -342,7 +317,6 @@ projects[jquery_update][subdir] = "contrib"
 projects[jquery_update][version] = "2.7"
 
 		; Issue #2621436: Allow permissions to granted roles.
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7825
 		projects[jquery_update][patch][] = https://www.drupal.org/files/issues/jquery_update_permissions-2621436-2_0.patch
 
 projects[l10n_update][subdir] = "contrib"
@@ -351,7 +325,6 @@ projects[l10n_update][version] = "2.0"
 		; Allow to override the http client code, to support proxying secure
 		; http connections with the chr module.
 		; https://www.drupal.org/node/750000
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-11765
 		projects[l10n_update][patch][] = https://www.drupal.org/files/issues/l10n_update-allow-alternate-http-client-750000-15.patch
 
 projects[language_cookie][subdir] = "contrib"
@@ -380,12 +353,10 @@ projects[media][version] = 2.0-beta1
 
 	  ; Issue #2062721: Add a white list of file fields that can be overwritten when the file is added in the wysiwyg
 	  ; https://www.drupal.org/node/2062721
-	  ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-2607
 	  projects[media][patch][] = https://www.drupal.org/files/issues/media-wysiwyg-override-white-list-2062721-86.patch
 
 	  ; Issue #2401811: With Media WYSIWYG enabled - "Contextual links" are shown for anonymous users.
 	  ; https://www.drupal.org/node/2401811
-	  ; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-3650
 	  projects[media][patch][] = http://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch
 
 projects[media_crop][subdir] = "contrib"
@@ -396,7 +367,6 @@ projects[media_dailymotion][version] = "1.1"
 
 	  ; Issue #2560403: Provide Short URL for media dailymotion.
 	  ; https://www.drupal.org/node/2560403
-	  ; https://webgate.ec.europa.eu/CITnet/jira/browse/MULTISITE-7082
 	  projects[media_dailymotion][patch][] = https://www.drupal.org/files/issues/media_dailymotion-mini-url-2560403-7-7.x.patch
 	  projects[media_dailymotion][patch][] = patches/media_dailymotion-handle_protocol-4103.patch
 
@@ -409,7 +379,6 @@ projects[media_flickr][version] = "1.0-alpha4"
 	  projects[media_flickr][patch][] = patches/media_flickr-undefined_index-2183.patch
 
 	  ; Support for newer Flickr album urls.
-	  ; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-12401
 	  ; https://www.drupal.org/node/2602558
 	  projects[media_flickr][patch][] = https://www.drupal.org/files/issues/import_albums_error-7.x-1.x-2602558-5.patch
 
@@ -470,7 +439,7 @@ projects[og][version] = "2.9"
 		projects[og][patch][] = https://www.drupal.org/files/issues/og_vbo_and_og_2561507-6.patch
 		projects[og][patch][] = patches/og-og_field_access-bypass_field_access-5159.patch
 
-		; NEXTEUROPA-11789 Issue in Bean reference to OG
+		; Issue in Bean reference to OG
 		; https://www.drupal.org/node/1880226
 		projects[og][patch][] = https://www.drupal.org/files/issues/og-use_numeric_id_for_membership_etid-1880226-5.patch
 
@@ -485,6 +454,11 @@ projects[panels][subdir] = "contrib"
 projects[panels][version] = "3.8"
 
 		projects[panels][patch][] = https://www.drupal.org/files/issues/2652744-panels-mini-5.patch
+
+projects[panels_bootstrap_layout_builder][download][revision] = "049fffa"
+projects[panels_bootstrap_layout_builder][download][type] = "git"
+projects[panels_bootstrap_layout_builder][download][url] = "https://git.drupal.org/project/panels_bootstrap_layout_builder.git"
+projects[panels_bootstrap_layout_builder][subdir] = "contrib"
 
 projects[panels_bootstrap_layouts][subdir] = "contrib"
 projects[panels_bootstrap_layouts][version] = "3.x-dev"
@@ -566,7 +540,6 @@ projects[simplenews_statistics][version] = "1.0-alpha1"
 
 		; Syntax error in simplenews_statistics test file
 		; https://www.drupal.org/node/2607422
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-6813
 		projects[simplenews_statistics][patch][] = https://www.drupal.org/files/issues/simplenews_statistics-syntax_error-2607422-3.patch
 
 		; https://www.drupal.org/node/2673290
@@ -725,9 +698,7 @@ projects[xmlsitemap][version] = "2.3"
 
 		; Using rel="alternate" rather than multiple sitemaps by language context
 		; https://www.drupal.org/node/1670086
-		; https://webgate.ec.europa.eu/CITnet/jira/browse/NEXTEUROPA-11505
 		projects[xmlsitemap][patch][] = https://www.drupal.org/files/issues/xmlsitemap-using_rel_alternate-1670086-50.patch
-		projects[xmlsitemap][patch][] = patches/xmlsitemap-using_rel_alternate-nexteuropa_multilingual_url_suffix.patch
 
 ; =========
 ; Libraries
@@ -753,7 +724,7 @@ libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEd
 libraries[ckeditor][download][sha1] = "ed246ac87cad3c4cfa1f723fcfbe4a6e3a5c6992"
 libraries[ckeditor][directory_name] = "ckeditor"
 
-; ckeditor_lite library. Buttons are added in nexteuropa_core_install().
+; ckeditor_lite library.
 libraries[ckeditor_lite][download][type]= "file"
 libraries[ckeditor_lite][download][request_type]= "get"
 libraries[ckeditor_lite][download][file_type] = "zip"

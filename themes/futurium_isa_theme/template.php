@@ -183,14 +183,16 @@ function futurium_isa_theme_form_alter(&$form, &$form_state, $form_id) {
  *
  * Remove date combo box.
  */
+/*
 function futurium_isa_theme_date_combo($variables) {
   // @todo: remove label (Date).
   return theme('form_element', $variables);
 }
-
+*/
 /**
  * Implements date_popup_process_alter().
  */
+/*
 function futurium_isa_theme_date_popup_process_alter(&$element, &$form_state, $context) {
   if (isset($element['date'])) {
     // Removes the inner label on date popup fields.
@@ -206,7 +208,7 @@ function futurium_isa_theme_date_popup_process_alter(&$element, &$form_state, $c
     drupal_add_js($js_settings, 'setting');
   }
 }
-
+*/
 
 /**
  * Implements hook_menu_link().
