@@ -922,9 +922,7 @@ function futurium_groups_field_default_field_instances() {
   $field_instances['node-futurium_group-group_access'] = array(
     'bundle' => 'futurium_group',
     'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
+      0 => array(),
     ),
     'deleted' => 0,
     'description' => '',
@@ -958,7 +956,7 @@ function futurium_groups_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'group_access',
     'label' => 'Group visibility',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -974,6 +972,7 @@ function futurium_groups_field_default_field_instances() {
       ),
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
