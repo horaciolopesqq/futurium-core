@@ -18,7 +18,7 @@ Scenario: Authenticated users can't see the administration pages
 Scenario: Administrators can see the stats page and admin pages
   Given I am logged in as a user with the "administrator" role
   Given I am on the homepage
-  Then I should see the text "Stats" in the "main_menu" region
+  Then I should see the text "Stats" in the "menu" region
   And I visit "analytics"
   Then I should see the heading "Site analytics" in the "content" region
   And I visit "admin"
@@ -35,10 +35,10 @@ Scenario: Anonymous user can see the user login page
 Scenario: All main pages are accessible for anonymous, except the stats page
   Given I am not logged in
   Given I am on the homepage
-  Then I should see the text "Futures" in the "main_menu" region
-  And I should see the text "Ideas" in the "main_menu" region
-  And I should see the text "Library" in the "main_menu" region
-  And I should see the text "Events" in the "main_menu" region
-  But I should not see the text "Stats" in the "main_menu" region
+  Then I should see the text "Futures" in the "menu" region
+  And I should see the text "Ideas" in the "menu" region
+  And I should see the text "Library" in the "menu" region
+  And I should see the text "Events" in the "menu" region
+  But I should not see the text "Stats" in the "menu" region
 
 
