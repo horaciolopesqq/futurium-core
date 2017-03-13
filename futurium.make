@@ -838,6 +838,14 @@ libraries[plupload][directory_name] = "plupload"
 ; See https://www.drupal.org/node/1903850#comment-11676067.
 libraries[plupload][patch][1903850] = "https://www.drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-29.patch"
 
+; Bootstrap
+libraries[bootstrap][download][url] = https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip
+libraries[bootstrap][download][type]= "file"
+libraries[bootstrap][download][request_type]= "get"
+libraries[bootstrap][download][file_type] = "zip"
+libraries[bootstrap][destination] = "libraries"
+libraries[bootstrap][directory_name] = "bootstrap"
+
 ; Springy
 libraries[springy][destination] = "libraries"
 libraries[springy][download][type] = "git"
