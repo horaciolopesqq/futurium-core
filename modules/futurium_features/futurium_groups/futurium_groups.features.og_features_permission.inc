@@ -10,135 +10,71 @@
 function futurium_groups_og_features_default_permissions() {
   $permissions = array();
 
-  // Exported og permission: 'node:futurium_group:create event content'
-  $permissions['node:futurium_group:create event content'] = array(
+  // Exported og permission: 'node:futurium_group:add user'
+  $permissions['node:futurium_group:add user'] = array(
     'roles' => array(
-      'member' => 'member',
+      'administrator member' => 'administrator member',
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:create evidence content'
-  $permissions['node:futurium_group:create evidence content'] = array(
+  // Exported og permission: 'node:futurium_group:administer group'
+  $permissions['node:futurium_group:administer group'] = array(
     'roles' => array(
-      'member' => 'member',
+      'administrator member' => 'administrator member',
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:create future content'
-  $permissions['node:futurium_group:create future content'] = array(
+  // Exported og permission: 'node:futurium_group:approve and deny subscription'
+  $permissions['node:futurium_group:approve and deny subscription'] = array(
     'roles' => array(
-      'member' => 'member',
+      'administrator member' => 'administrator member',
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:create ideas content'
-  $permissions['node:futurium_group:create ideas content'] = array(
+  // Exported og permission: 'node:futurium_group:manage members'
+  $permissions['node:futurium_group:manage members'] = array(
     'roles' => array(
-      'member' => 'member',
+      'administrator member' => 'administrator member',
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:delete any event content'
-  $permissions['node:futurium_group:delete any event content'] = array(
+  // Exported og permission: 'node:futurium_group:manage permissions'
+  $permissions['node:futurium_group:manage permissions'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'node:futurium_group:manage roles'
+  $permissions['node:futurium_group:manage roles'] = array(
+    'roles' => array(
+      'administrator member' => 'administrator member',
+    ),
+  );
+
+  // Exported og permission: 'node:futurium_group:subscribe'
+  $permissions['node:futurium_group:subscribe'] = array(
+    'roles' => array(
+      'non-member' => 'non-member',
+    ),
+  );
+
+  // Exported og permission: 'node:futurium_group:subscribe without approval'
+  $permissions['node:futurium_group:subscribe without approval'] = array(
     'roles' => array(),
   );
 
-  // Exported og permission: 'node:futurium_group:delete any evidence content'
-  $permissions['node:futurium_group:delete any evidence content'] = array(
-    'roles' => array(),
-  );
-
-  // Exported og permission: 'node:futurium_group:delete any future content'
-  $permissions['node:futurium_group:delete any future content'] = array(
-    'roles' => array(),
-  );
-
-  // Exported og permission: 'node:futurium_group:delete any ideas content'
-  $permissions['node:futurium_group:delete any ideas content'] = array(
-    'roles' => array(),
-  );
-
-  // Exported og permission: 'node:futurium_group:delete own event content'
-  $permissions['node:futurium_group:delete own event content'] = array(
+  // Exported og permission: 'node:futurium_group:unsubscribe'
+  $permissions['node:futurium_group:unsubscribe'] = array(
     'roles' => array(
       'member' => 'member',
     ),
   );
 
-  // Exported og permission: 'node:futurium_group:delete own evidence content'
-  $permissions['node:futurium_group:delete own evidence content'] = array(
+  // Exported og permission: 'node:futurium_group:update group'
+  $permissions['node:futurium_group:update group'] = array(
     'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:delete own future content'
-  $permissions['node:futurium_group:delete own future content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:delete own ideas content'
-  $permissions['node:futurium_group:delete own ideas content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update any event content'
-  $permissions['node:futurium_group:update any event content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update any evidence content'
-  $permissions['node:futurium_group:update any evidence content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update any future content'
-  $permissions['node:futurium_group:update any future content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update any ideas content'
-  $permissions['node:futurium_group:update any ideas content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update own event content'
-  $permissions['node:futurium_group:update own event content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update own evidence content'
-  $permissions['node:futurium_group:update own evidence content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update own future content'
-  $permissions['node:futurium_group:update own future content'] = array(
-    'roles' => array(
-      'member' => 'member',
-    ),
-  );
-
-  // Exported og permission: 'node:futurium_group:update own ideas content'
-  $permissions['node:futurium_group:update own ideas content'] = array(
-    'roles' => array(
-      'member' => 'member',
+      'administrator member' => 'administrator member',
     ),
   );
 

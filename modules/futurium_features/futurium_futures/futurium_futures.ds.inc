@@ -18,7 +18,7 @@ function futurium_futures_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'node_header';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '1',
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -31,26 +31,26 @@ function futurium_futures_ds_field_settings_info() {
       ),
     ),
     'author' => array(
-      'weight' => '2',
+      'weight' => '1',
       'label' => 'hidden',
       'format' => 'author',
+    ),
+    'post_date' => array(
+      'weight' => '9',
+      'label' => 'hidden',
+      'format' => 'ds_post_date_long',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'classes' => 'date',
+        ),
+      ),
     ),
     'field_future_description' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_minimal',
           'classes' => 'intro',
-        ),
-      ),
-    ),
-    'post_date' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'ds_post_date_day_fullmonth_year',
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'date',
         ),
       ),
     ),
@@ -95,16 +95,11 @@ function futurium_futures_ds_field_settings_info() {
       'weight' => '1',
       'label' => 'hidden',
       'format' => 'author_linked',
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-        ),
-      ),
     ),
     'post_date' => array(
-      'weight' => '3',
+      'weight' => '0',
       'label' => 'hidden',
-      'format' => 'ds_post_date_day_fullmonth_year',
+      'format' => 'ds_post_date_long',
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_minimal',
@@ -142,29 +137,33 @@ function futurium_futures_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'post_date',
-        1 => 'like',
-        2 => 'title',
-        3 => 'author',
-        4 => 'comment_count',
-        5 => 'group_date_vote_comment',
-        6 => 'field_future_description',
-        7 => 'group_buttons',
-        8 => 'flag_like',
+        0 => 'title',
+        1 => 'author',
+        2 => 'group_date_vote_comment',
+        3 => 'field_future_description',
+        4 => 'group_buttons',
+        5 => 'flag_like',
+        6 => 'post_date',
+        7 => 'like',
+        8 => 'comment_count',
       ),
     ),
     'fields' => array(
-      'post_date' => 'ds_content',
-      'like' => 'ds_content',
       'title' => 'ds_content',
       'author' => 'ds_content',
-      'comment_count' => 'ds_content',
       'group_date_vote_comment' => 'ds_content',
       'field_future_description' => 'ds_content',
       'group_buttons' => 'ds_content',
       'flag_like' => 'ds_content',
+      'post_date' => 'ds_content',
+      'like' => 'ds_content',
+      'comment_count' => 'ds_content',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
       'ds_content' => 'div',
     ),
@@ -187,28 +186,32 @@ function futurium_futures_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'title',
-        1 => 'author',
-        2 => 'group_date_vote_comment',
-        3 => 'field_future_description',
-        4 => 'post_date',
-        5 => 'group_buttons',
-        6 => 'like',
-        7 => 'comment_count',
+        1 => 'post_date',
+        2 => 'like',
+        3 => 'author',
+        4 => 'group_date_vote_comment',
+        5 => 'comment_count',
+        6 => 'field_future_description',
+        7 => 'group_buttons',
         8 => 'node_link',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
+      'post_date' => 'ds_content',
+      'like' => 'ds_content',
       'author' => 'ds_content',
       'group_date_vote_comment' => 'ds_content',
-      'field_future_description' => 'ds_content',
-      'post_date' => 'ds_content',
-      'group_buttons' => 'ds_content',
-      'like' => 'ds_content',
       'comment_count' => 'ds_content',
+      'field_future_description' => 'ds_content',
+      'group_buttons' => 'ds_content',
       'node_link' => 'ds_content',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
       'ds_content' => 'div',
     ),

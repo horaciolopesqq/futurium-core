@@ -38,7 +38,7 @@ function futurium_evidence_ds_field_settings_info() {
     'post_date' => array(
       'weight' => '2',
       'label' => 'hidden',
-      'format' => 'ds_post_date_day_fullmonth_year',
+      'format' => 'ds_post_date_long',
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_minimal',
@@ -94,9 +94,9 @@ function futurium_evidence_ds_field_settings_info() {
       ),
     ),
     'post_date' => array(
-      'weight' => '0',
+      'weight' => '3',
       'label' => 'hidden',
-      'format' => 'ds_post_date_day_fullmonth_year',
+      'format' => 'ds_post_date_long',
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_minimal',
@@ -136,19 +136,23 @@ function futurium_evidence_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'title',
         1 => 'author',
-        2 => 'group_date_vote_comment',
-        3 => 'post_date',
+        2 => 'post_date',
+        3 => 'group_date_vote_comment',
         4 => 'group_buttons',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
       'author' => 'ds_content',
-      'group_date_vote_comment' => 'ds_content',
       'post_date' => 'ds_content',
+      'group_date_vote_comment' => 'ds_content',
       'group_buttons' => 'ds_content',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
       'ds_content' => 'div',
     ),
@@ -170,25 +174,29 @@ function futurium_evidence_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'post_date',
-        1 => 'title',
-        2 => 'author',
-        3 => 'group_date_vote_comment',
-        4 => 'field_evidence_body',
+        0 => 'title',
+        1 => 'author',
+        2 => 'group_date_vote_comment',
+        3 => 'field_evidence_body',
+        4 => 'post_date',
         5 => 'group_buttons',
         6 => 'node_link',
       ),
     ),
     'fields' => array(
-      'post_date' => 'ds_content',
       'title' => 'ds_content',
       'author' => 'ds_content',
       'group_date_vote_comment' => 'ds_content',
       'field_evidence_body' => 'ds_content',
+      'post_date' => 'ds_content',
       'group_buttons' => 'ds_content',
       'node_link' => 'ds_content',
     ),
-    'classes' => array(),
+    'classes' => array(
+      'layout_class' => array(
+        '' => '',
+      ),
+    ),
     'wrappers' => array(
       'ds_content' => 'div',
     ),

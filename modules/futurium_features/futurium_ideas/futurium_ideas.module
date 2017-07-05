@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Futurium Ideas feature.
+ */
+
+include_once 'futurium_ideas.features.inc';

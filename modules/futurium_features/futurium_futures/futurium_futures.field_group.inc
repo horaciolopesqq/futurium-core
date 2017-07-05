@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function futurium_futures_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -21,7 +21,7 @@ function futurium_futures_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'group-buttons',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
       0 => 'flag_like',
     ),
@@ -40,7 +40,7 @@ function futurium_futures_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|future|node_header'] = $field_group;
+  $field_groups['group_buttons|node|future|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -72,7 +72,7 @@ function futurium_futures_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_buttons|node|future|teaser'] = $field_group;
+  $field_groups['group_buttons|node|future|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -85,7 +85,7 @@ function futurium_futures_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'wrapper-date-vote-comment',
-    'weight' => '3',
+    'weight' => '2',
     'children' => array(
       0 => 'like',
       1 => 'comment_count',
@@ -106,7 +106,7 @@ function futurium_futures_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|future|node_header'] = $field_group;
+  $field_groups['group_date_vote_comment|node|future|node_header'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -140,7 +140,12 @@ function futurium_futures_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_date_vote_comment|node|future|teaser'] = $field_group;
+  $field_groups['group_date_vote_comment|node|future|teaser'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('group-buttons');
+  t('wrapper-date-vote-comment');
+
+  return $field_groups;
 }

@@ -1,7 +1,7 @@
 name = Futurium Tests
 core = 7.x
 package = Futurium
-version = 7.x-1.4
+version = 7.x-1.5
 dependencies[] = chart
 dependencies[] = features
 dependencies[] = field_group

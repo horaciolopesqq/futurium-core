@@ -9,16 +9,17 @@
  */
 function futurium_isa_theme_preprocess_html(&$variables) {
   $item = menu_get_item();
-  if (substr($item['path'], 0, 8) == 'node/add') {
-    $content_type = str_replace('node/add/', "", $item['path']);
-    $class = 'node-type-' . str_replace("_", "-", $content_type);
-    $variables['classes_array'][] = $class;
+  if (substr($item['path'], 0, 8) == 'node/add' && isset($item['map'][2])) {
+    $class = 'node-type-' . drupal_html_class($item['map'][2]);
   }
 
-  if ($item['path'] == 'node/%/graph') {
-    $nid = arg(1);
-    $obj = node_load($nid);
-    $class = 'node-type-' . str_replace("_", "-", $obj->type);
+  if ($item['path'] == 'node/%/graph' && isset($item['original_map'][1])) {
+    if ($obj = node_load($item['original_map'][1])) {
+      $class = 'node-type-' . drupal_html_class($obj->type);
+    }
+  }
+
+  if (isset($class)) {
     $variables['classes_array'][] = $class;
   }
 }

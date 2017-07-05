@@ -21,7 +21,7 @@ function futurium_evidence_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'group-buttons',
-    'weight' => '4',
+    'weight' => '3',
     'children' => array(),
     'format_type' => 'div',
     'format_settings' => array(

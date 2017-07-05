@@ -101,7 +101,7 @@ function futurium_futures_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'day_and_month';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'j M';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Field: Tags */
+  /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';

@@ -11,12 +11,12 @@ function futurium_futures_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_challenge'.
-  $field_bases['field_future_description'] = array(
+  $field_bases['field_challenge'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_future_description',
+    'field_name' => 'field_challenge',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -31,13 +31,13 @@ function futurium_futures_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_challenge'.
-  $field_bases['field_challenge'] = array(
+  // Exported field_base: 'field_future_description'.
+  $field_bases['field_future_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_challenge',
+    'field_name' => 'field_future_description',
     'indexes' => array(
       'format' => array(
         0 => 'format',

@@ -92,7 +92,7 @@ function futurium_tests_field_default_field_instances() {
       'module' => 'relation_dummy_field',
       'settings' => array(),
       'type' => 'relation_default',
-      'weight' => 99,
+      'weight' => 4,
     ),
   );
 

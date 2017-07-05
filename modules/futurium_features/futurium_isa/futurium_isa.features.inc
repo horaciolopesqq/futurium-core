@@ -223,29 +223,3 @@ function futurium_isa_image_default_styles() {
 
   return $styles;
 }
-
-/**
- * Implements hook_node_info().
- */
-function futurium_isa_node_info() {
-  $items = array(
-    'event' => array(
-      'name' => t('Event'),
-      'base' => 'node_content',
-      'description' => t('Create an event here'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'ideas' => array(
-      'name' => t('Ideas'),
-      'base' => 'node_content',
-      'description' => t('Ideas and experience.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
-}

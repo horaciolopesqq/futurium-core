@@ -414,7 +414,7 @@ projects[menu_token][version] = "1.0-beta5"
 		projects[menu_token][patch][] = patches/menu_token-link_uuid_menu_items_can_not_be_edited-2005556-2.patch
 
 projects[message][subdir] = "contrib"
-projects[message][version] = "1.10"
+projects[message][version] = "1.12"
 
 projects[message_subscribe][subdir] = "contrib"
 projects[message_subscribe][version] = "1.0-rc2"
@@ -478,7 +478,9 @@ projects[pathauto_persist][subdir] = "contrib"
 projects[pathauto_persist][version] = "1.4"
 
 projects[pcp][subdir] = "contrib"
-projects[pcp][version] = "1.7"
+projects[pcp][download][branch] = 7.x-1.x
+projects[pcp][download][revision] = fc7b8ba
+projects[pcp][download][type] = git
 
 ; Instead of using a stable version of the plupload module, we stick here to a
 ; more recent git revision in order to solve unexpected failures with a

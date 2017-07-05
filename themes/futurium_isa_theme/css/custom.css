@@ -270,3 +270,26 @@ body #admin-menu{
    0px 1px 1px #000,
    0px -1px 1px #000;
 }
+
+.form-search button.btn.btn-default,
+.search-form button.btn.btn-default {
+  padding: 7px 10px;
+}
+
+@media (max-width: 768px) {
+  .container > .navbar-header {
+    width: 100% !important;
+  }
+}
+
+.navbar li.groups a:before {
+  min-width: 0 !important;
+}
+
+.navbar li a.active-trail{
+  border-bottom: none;
+  margin-top: -3px;
+  margin-top: -0.3rem;
+  border: 3px solid;
+  border-bottom: none;
+}
