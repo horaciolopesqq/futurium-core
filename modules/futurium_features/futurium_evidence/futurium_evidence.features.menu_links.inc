@@ -11,14 +11,11 @@ function futurium_evidence_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: main-menu_library:library.
-  $menu_links['main-menu_library:library'] = array(
+  $menu_links['main-menu:library'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'library',
     'router_path' => 'library',
     'link_title' => 'Library',
-    'options' => array(
-      'identifier' => 'main-menu_library:library',
-    ),
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
@@ -29,6 +26,7 @@ function futurium_evidence_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 0,
   );
+
   // Exported menu link: menu-user-tabs_evidence:menutoken/56a0afaba577b.
   $menu_links['menu-user-tabs_evidence:menutoken/56a0afaba577b'] = array(
     'menu_name' => 'menu-user-tabs',
