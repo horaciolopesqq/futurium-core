@@ -10,6 +10,8 @@
 function futurium_relations_relation_default_relation_types() {
   $export = array();
 /*
+  @todo: Needed?
+
   $relation_type = new stdClass();
   $relation_type->disabled = FALSE;
   $relation_type->api_version = 1;

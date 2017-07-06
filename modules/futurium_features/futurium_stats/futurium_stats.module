@@ -6,7 +6,9 @@
 
 include_once 'futurium_stats.features.inc';
 
-
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function futurium_stats_form_quant_time_form_alter(&$form, $form_state) {
   $form['option']['#access'] = FALSE;
   $form['custom_from']['#access'] = FALSE;
@@ -92,4 +94,28 @@ function futurium_stats_theme_quant_page($vars) {
   }
 
   return '<div id="quant-page">' . $content . '</div>';
+}
+
+/**
+ * Theme wrapper for quant_time_form()
+ */
+function futurium_stats_quant_time_form($vars) {
+  $form = $vars['form'];
+  $output = '';
+
+  $output .= '<fieldset>';
+
+  $output .= '<div class="description">';
+  $output .= drupal_render($form['message']);
+  $output .= '</div>';
+
+  $output .= '<div class="quant-option-row">';
+  $output .= drupal_render($form['period']);
+  $output .= '</div>';
+
+  $output .= drupal_render_children($form);
+
+  $output .= '</fieldset>';
+
+  return $output;
 }
