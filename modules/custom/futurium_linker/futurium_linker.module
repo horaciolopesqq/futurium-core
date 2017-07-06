@@ -49,30 +49,40 @@ function futurium_linker_block_info() {
 function futurium_linker_block_view($delta = '') {
   $block = array();
   switch ($delta) {
+
     case 'relation_link_add':
-      $block['subject'] = t("Add related content");
-      if (user_access('use futurium_linker')) {
-        $form = drupal_get_form('futurium_linker_form');
-        $block['content']['#markup'] = drupal_render($form);
-      }
-      else {
-        $destination = array('destination' => $_GET['q']);
-        if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
-          // Users can register themselves.
-          $link = t(
-            '<a href="@login">Log in</a> or <a href="@register">register</a> to create relations',
-            array(
-              '@login' => url('user/login', array('query' => $destination)),
-              '@register' => url('user/register', array('query' => $destination)),
-            )
-          );
+      $form = drupal_get_form('futurium_linker_form');
+      /**
+       * Hide the block if there are no relations available.
+       * Search field won't be set if there are no possible relations.
+       * @See futurium_linker_form().
+       */
+      if (isset($form['search'])) {
+
+        // Check the user has permissions to use the linker.
+        if (user_access('use futurium_linker')) {
+          $block['subject'] = t("Add related content");
+          $block['content']['#markup'] = drupal_render($form);
         }
-        else {
-          // Only admins can add new users, no public registration.
-          $link = t('<a href="@login">Log in</a> to create relations', array('@login' => url('user/login', array('query' => $destination))));
+        // Anonymous users shouldn't create relations.
+        else if (user_is_anonymous()) {
+          $destination = array('destination' => $_GET['q']);
+          if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
+            // Users can register themselves.
+            $link = t('<a href="@login">Log in</a> or <a href="@register">register</a> to create relations',
+              array(
+                '@login' => url('user/login', array('query' => $destination)),
+                '@register' => url('user/register', array('query' => $destination)),
+              )
+            );
+          }
+          else {
+            // Only admins can add new users, no public registration.
+            $link = t('<a href="@login">Log in</a> to create relations', array('@login' => url('user/login', array('query' => $destination))));
+          }
+          $block['subject'] = t("Add related content");
+          $block['content']['#markup'] = $link;
         }
-        $block['subject'] = t("Add related content");
-        $block['content']['#markup'] = $link;
       }
       break;
   }
@@ -84,31 +94,27 @@ function futurium_linker_block_view($delta = '') {
  * Callback for autocomplete box.
  */
 function _futurium_linker_node_autocomplete($origin_nid, $bundles, $string) {
-
   $matches = array();
   if ($string && !empty($bundles)) {
 
     $origin_node = node_load($origin_nid);
-
     $bundles = explode('+', $bundles);
 
+    // Initialize the query for the autocomplete field.
+    // We can select the fields that will be used and filter the origin node
+    // from the potential candidates.
     $query = db_select('node', 'n');
     $query
-      ->fields('n', array('title', 'nid'));
+      ->fields('n', array('title', 'nid'))
+      ->condition('n.nid', $origin_nid, '<>');
 
     drupal_alter('futurium_linker_query', $query);
 
     $query
       ->condition('n.title', '%' . db_like($string) . '%', 'LIKE')
-      ->condition('n.type', $bundles, 'IN');
-
-    $query
-      ->distinct();
-
-    $query
-      ->groupBy('n.nid');
-
-    $query
+      ->condition('n.type', $bundles, 'IN')
+      ->distinct()
+      ->groupBy('n.nid')
       ->range(0, 15);
 
     $result = $query->execute();
@@ -120,7 +126,8 @@ function _futurium_linker_node_autocomplete($origin_nid, $bundles, $string) {
 
       $possible_relations = _futurium_linker_get_possible_relations($origin_nid, $n->nid);
 
-      drupal_alter('futurium_linker_possible_relations', $possible_relations);
+      // Allows altering the possible relations from a hook.
+      drupal_alter('futurium_linker_possible_relations', $origin_node, $possible_relations);
 
       foreach ($possible_relations as $key => $value) {
         $relation = relation_type_load($value);
@@ -153,7 +160,13 @@ function _futurium_linker_node_autocomplete($origin_nid, $bundles, $string) {
   drupal_json_output($matches);
 }
 
+/**
+ * Implements hook_link_query_alter().
+ */
 function futurium_linker_futurium_linker_query_alter(&$query) {
+  // If og module is enabled, add the condition to the query to make sure that
+  // private group content isn't shown to a user that doesn't belong to the
+  // group.
   if (module_exists('og')) {
     $query->leftJoin('og_membership', 'og_membership_node', '(og_membership_node.etid = n.nid)');
     $query->leftJoin('field_data_group_access', 'group_access', '(group_access.entity_id = n.nid)');
@@ -187,6 +200,8 @@ function futurium_linker_futurium_linker_query_alter(&$query) {
 
 /**
  * Ajax callback.
+ *
+ * Shows a preview of the selected result.
  */
 function _futurium_linker_results($form, &$form_state) {
   $target_nid = _futurium_linker_parse_result($form_state['input']['search']);
@@ -318,72 +333,73 @@ function futurium_linker_form($form, &$form_state) {
       $search_bundles[] = $bundles;
     }
 
-    $search_bundles = array_filter($search_bundles);
+    if (!empty($search_bundles)) {
 
-    $search_bundles = implode('+', $search_bundles);
+      $search_bundles = array_filter($search_bundles);
+      $search_bundles = implode('+', $search_bundles);
 
-    $form['#prefix'] = '<div id="linker">';
-    $form['#suffix'] = '</div>';
+      $form['#prefix'] = '<div id="linker">';
+      $form['#suffix'] = '</div>';
 
-    $form['origin'] = array(
-      '#type' => 'hidden',
-      '#value' => $node->nid,
-    );
+      $form['origin'] = array(
+        '#type' => 'hidden',
+        '#value' => $node->nid,
+      );
 
-    $form['relation_type'] = array(
-      '#type' => 'hidden',
-    );
+      $form['relation_type'] = array(
+        '#type' => 'hidden',
+      );
 
-    $form['search'] = array(
-      '#type' => 'textfield',
-      '#autocomplete_path' => 'node/futurium_linker/autocomplete/' . $node->nid . '/' . $search_bundles,
-      '#attributes' => array(
-        'placeholder' => t('Search for content to link'),
-      ),
-      '#ajax' => array(
-        'event' => 'autocompleteHidden',
-        'callback' => "_futurium_linker_results",
-        'wrapper' => 'linker',
-      ),
-      '#maxlength' => 255,
-    );
-
-    $form['feedback'] = array(
-      '#markup' => '<div class="feedback"></div>',
-    );
-
-    $form['preview'] = array(
-      '#markup' => '<div class="preview"></div>',
-    );
-
-    $form['#attached'] = array(
-      'js' => array(
-        drupal_get_path('module', 'futurium_linker') . '/futurium_linker.js' => array(
-          'type' => 'file',
-          'scope' => 'footer',
-          'weight' => 100,
+      $form['search'] = array(
+        '#type' => 'textfield',
+        '#autocomplete_path' => 'node/futurium_linker/autocomplete/' . $node->nid . '/' . $search_bundles,
+        '#attributes' => array(
+          'placeholder' => t('Search for content to link'),
         ),
-      ),
-      'css' => array(
-        drupal_get_path('module', 'futurium_linker') . '/futurium_linker.css',
-      ),
-    );
-
-    $form['link'] = array(
-      '#value' => "Link",
-      '#type' => 'button',
-      '#attributes' => array(
-        'class' => array(
-          'btn-add-relation',
+        '#ajax' => array(
+          'event' => 'autocompleteHidden',
+          'callback' => "_futurium_linker_results",
+          'wrapper' => 'linker',
         ),
-      ),
-      '#ajax' => array(
-        'callback' => '_futurium_linker_link',
-      ),
-      '#prefix' => '<span class="button-wrap" style="display:none">',
-      '#suffix' => '</span>',
-    );
+        '#maxlength' => 255,
+      );
 
+      $form['feedback'] = array(
+        '#markup' => '<div class="feedback"></div>',
+      );
+
+      $form['preview'] = array(
+        '#markup' => '<div class="preview"></div>',
+      );
+
+      $form['#attached'] = array(
+        'js' => array(
+          drupal_get_path('module', 'futurium_linker') . '/futurium_linker.js' => array(
+            'type' => 'file',
+            'scope' => 'footer',
+            'weight' => 100,
+          ),
+        ),
+        'css' => array(
+          drupal_get_path('module', 'futurium_linker') . '/futurium_linker.css',
+        ),
+      );
+
+      $form['link'] = array(
+        '#value' => "Link",
+        '#type' => 'button',
+        '#attributes' => array(
+          'class' => array(
+            'btn-add-relation',
+          ),
+        ),
+        '#ajax' => array(
+          'callback' => '_futurium_linker_link',
+        ),
+        '#prefix' => '<span class="button-wrap" style="display:none">',
+        '#suffix' => '</span>',
+      );
+    }
   }
   return $form;
 
@@ -487,6 +503,7 @@ function _futurium_linker_create_links($nid) {
       $reverse = !_futurium_linker_is_relation_reversed($nid, $relation_type);
       $label = relation_get_type_label($relation, $reverse);
 
+      // Invoke some hooks to allow customisation of the results.
       drupal_alter('relation_content_type_autocomplete', $content_type_name);
       drupal_alter('relation_label_autocomplete', $label);
 
