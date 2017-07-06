@@ -13,12 +13,6 @@ function futurium_isa_theme_preprocess_html(&$variables) {
     $class = 'node-type-' . drupal_html_class($item['map'][2]);
   }
 
-  if ($item['path'] == 'node/%/graph' && isset($item['original_map'][1])) {
-    if ($obj = node_load($item['original_map'][1])) {
-      $class = 'node-type-' . drupal_html_class($obj->type);
-    }
-  }
-
   if (isset($class)) {
     $variables['classes_array'][] = $class;
   }
@@ -435,101 +429,6 @@ function futurium_isa_theme_menu_tree__menu_user_tabs($variables) {
  */
 function futurium_isa_theme_menu_tree__menu_group_tabs($variables) {
   return '<ul class="menu nav nav-pills">' . $variables['tree'] . '</ul>';
-}
-
-/**
- * Implements theme_quant_page().
- */
-function futurium_isa_theme_quant_page($vars) {
-
-  $content = '';
-
-  $content .= $vars['form'];
-
-  //$content .= '<h1>Content stats</h1>';
-
-  if ($vars['charts']) {
-    foreach ($vars['charts'] as $chart) {
-      $content .= $chart;
-    }
-  }
-
-  $views['users'] = array(
-    'title' => t('Users'),
-    'view' => 'statistics_users',
-    'class' => 'stats-user',
-    'displays' => array(
-      'most_active_users',
-    ),
-  );
-
-  $views['futures'] = array(
-    'title' => t('Futures'),
-    'view' => 'statistics',
-    'class' => 'stats-futures ',
-    'displays' => array(
-      'most_commented_futures',
-      'most_voted_futures',
-    ),
-  );
-
-  $views['ideas'] = array(
-    'title' => t('Ideas'),
-    'view' => 'statistics',
-    'class' => 'stats-ideas',
-    'displays' => array(
-      'most_commented_ideas',
-      'most_voted_ideas',
-    ),
-  );
-
-  foreach($views as $group => $data) {
-    $view_name = $data['view'];
-    $content .= '<div class="' . $data['class'] . '"><h1 class="element-invisible">' . $data['title'] . '</h1>';
-    foreach ($data['displays'] as $k => $display) {
-      $view = views_get_view($view_name);
-      $view->set_display($display);
-      if (!empty($_GET['period'])) {
-        $filters = $view->display_handler->get_option('filters');
-        if (isset($filters['timestamp']['value'])) {
-          $p = '-' . str_replace('_', ' ', $_GET['period']);
-          $filters['timestamp']['value']['value'] = $p;
-          $view->display_handler->set_option('filters', $filters);
-          $view->pre_execute();
-        }
-      }
-      $content .= '<div class="stats-block"><h2>' . $view->get_title() . '</h2>';
-      $content .= $view->preview($display);
-      $content .= '</div>';
-    }
-    $content .= '</div>';
-  }
-
-  return '<div id="quant-page">' . $content . '</div>';
-}
-
-/**
- * Theme wrapper for quant_time_form()
- */
-function futurium_isa_theme_quant_time_form($vars) {
-  $form = $vars['form'];
-  $output = '';
-
-  $output .= '<fieldset>';
-
-  $output .= '<div class="description">';
-  $output .= drupal_render($form['message']);
-  $output .= '</div>';
-
-  $output .= '<div class="quant-option-row">';
-  $output .= drupal_render($form['period']);
-  $output .= '</div>';
-
-  $output .= drupal_render_children($form);
-
-  $output .= '</fieldset>';
-
-  return $output;
 }
 
 /**
