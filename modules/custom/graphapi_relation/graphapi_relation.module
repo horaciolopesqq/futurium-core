@@ -5,6 +5,9 @@
  * Provides integration with the relation module by a custom field formatter.
  */
 
+/**
+ * Implements hook_menu().
+ */
 function graphapi_relation_menu() {
   return array(
     'admin/config/system/graphapi/relation' => array(
@@ -88,7 +91,13 @@ function graphapi_relation_field_formatter_settings_form($field, $instance, $vie
   }
 }
 
-function graphapi_relation_settings_form( $settings, $hide_state= NULL) {
+/**
+ * [graphapi_relation_settings_form description]
+ * @param  [type] $settings   [description]
+ * @param  [type] $hide_state [description]
+ * @return [type]             [description]
+ */
+function graphapi_relation_settings_form($settings, $hide_state= NULL) {
   $form['links'] = array(
     '#title' => t('Relation settings'),
     '#type' => 'fieldset',
@@ -334,7 +343,7 @@ function graphapi_relation_field_formatter_view($entity_type, $entity, $field, $
   $max_level = isset($settings['levels']) ? $settings['levels'] : 1;
   $visited = array();
 
-  loadsublevel($graph, $config, $entity, $entity_type, $entity_id, $source_id, $settings, $items, $level, $max_level, $visited);
+  _graphapi_loadsublevel($graph, $config, $entity, $entity_type, $entity_id, $source_id, $settings, $items, $level, $max_level, $visited);
 
   $config['engine'] = NULL;
   $element[0]['relation']['graph']['#markup'] = theme('graphapi_dispatch', array('graph' => $graph, 'config' => $config));
@@ -342,9 +351,10 @@ function graphapi_relation_field_formatter_view($entity_type, $entity, $field, $
   return $element;
 }
 
-
-
-function loadsublevel(&$graph, &$config, $entity, $entity_type, $entity_id, $source_id, $settings, $items, $level, $max_level, &$visited) {
+/**
+ * Helper function to recursively iterate through the graph.
+ */
+function _graphapi_loadsublevel(&$graph, &$config, $entity, $entity_type, $entity_id, $source_id, $settings, $items, $level, $max_level, &$visited) {
   $level++;
   $relation_types = relation_get_types();
   if (!empty($items)) {
@@ -392,7 +402,7 @@ function loadsublevel(&$graph, &$config, $entity, $entity_type, $entity_id, $sou
                 $subitems = $field_items['#items'];
                 if (!empty($subitems)) {
                   $source_id2 = $endpoint['entity_type'] . "-" . $endpoint['entity_id'];
-                  loadsublevel($graph, $config, $related_entity, $endpoint['entity_type'], $endpoint['entity_id'], $source_id2, $settings, $subitems, $level, $max_level, $visited);
+                  _graphapi_loadsublevel($graph, $config, $related_entity, $endpoint['entity_type'], $endpoint['entity_id'], $source_id2, $settings, $subitems, $level, $max_level, $visited);
                 }
               }
             }
@@ -405,12 +415,14 @@ function loadsublevel(&$graph, &$config, $entity, $entity_type, $entity_id, $sou
             $reverse = _futurium_linker_is_relation_reversed($entity_id, $relation_type->relation_type);
             $rel_label = relation_get_type_label($relation_type, $reverse);
 
-            if (!in_array($source_id.'-'.$endpoint_id, $visited, TRUE) && !in_array($endpoint_id.'-'.$source_id, $visited, TRUE)) {
+            if (!in_array($source_id.'-'.$endpoint_id, $visited, TRUE) && !in_array($endpoint_id . '-' . $source_id, $visited, TRUE)) {
               $link_data['title'] = $rel_label;
-              $link_data['color'] = $settings['links'][$relation_type->relation_type]['color'];
-              $link_data['classes'][] = 'edge-' . $relation_type->relation_type;
-              graphapi_set_link_data($graph, $source_id, $endpoint_id, $link_data);
-              $visited[] = $source_id.'-'.$endpoint_id;
+              if (isset($settings['links'][$relation_type->relation_type])) {
+                $link_data['color'] = $settings['links'][$relation_type->relation_type]['color'];
+                $link_data['classes'][] = 'edge-' . $relation_type->relation_type;
+                graphapi_set_link_data($graph, $source_id, $endpoint_id, $link_data);
+              }
+              $visited[] = $source_id . '-' . $endpoint_id;
             }
 
           }
