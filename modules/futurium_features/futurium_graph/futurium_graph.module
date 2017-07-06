@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Code for the Futurium Graph feature.
+ */
+
+include_once 'futurium_graph.features.inc';
+
+/**
+ * Implements hook_js_alter().
+ *
+ * Remove the springyui.js file.
+ */
+function futurium_graph_libraries_info_alter(&$libraries) {
+  if (isset($libraries['springy'])) {
+    if ($idx = array_search('springyui.js', $libraries['springy']['files']['js'])) {
+      unset($libraries['springy']['files']['js'][$idx]);
+    }
+  }
+}
+
+/**
+ * Implements hook_js_alter().
+ *
+ * Include a modified version of the springyui.js.
+ */
+function futurium_graph_preprocess_page(&$vars) {
+  $item = menu_get_item();
+  if ($item['path'] == 'node/%/graph') {
+    $path = drupal_get_path('module', 'futurium_graph') . '/js/springyui.js';
+    drupal_add_js($path);
+  }
+}

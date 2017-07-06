@@ -153,9 +153,10 @@ function _futurium_linker_node_autocomplete($origin_nid, $bundles, $string) {
         $matches[$array_key] = $label;
       }
     }
-  }
 
-  $matches += _futurium_linker_create_links($origin_nid);
+    // @todo: check what's the problem here.
+    //$matches += _futurium_linker_create_links($origin_nid);
+  }
 
   drupal_json_output($matches);
 }
