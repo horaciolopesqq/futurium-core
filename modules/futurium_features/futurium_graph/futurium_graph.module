@@ -7,6 +7,23 @@
 include_once 'futurium_graph.features.inc';
 
 /**
+ * Implements template_preprocess_html().
+ */
+function futurium_graph_preprocess_html(&$variables) {
+  $item = menu_get_item();
+
+  if ($item['path'] == 'node/%/graph' && isset($item['original_map'][1])) {
+    if ($obj = node_load($item['original_map'][1])) {
+      $class = 'node-type-' . drupal_html_class($obj->type);
+    }
+  }
+
+  if (isset($class)) {
+    $variables['classes_array'][] = $class;
+  }
+}
+
+/**
  * Implements hook_js_alter().
  *
  * Remove the springyui.js file.
