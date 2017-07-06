@@ -1,0 +1,95 @@
+<?php
+/**
+ * @file
+ * Code for the Futurium Tests feature.
+ */
+
+include_once 'futurium_stats.features.inc';
+
+
+function futurium_stats_form_quant_time_form_alter(&$form, $form_state) {
+  $form['option']['#access'] = FALSE;
+  $form['custom_from']['#access'] = FALSE;
+  $form['custom_to']['#access'] = FALSE;
+  $opts = $form['period']['#options'];
+
+  $opts['1_week'] = 'week';
+  $opts['1_month'] = 'month';
+  $opts['1_year'] = 'year';
+
+  $form['period']['#title'] = t("See stats for the last");
+  $form['period']['#options'] = array(
+    '1_day' => 'day',
+    '3_days' => '3 days',
+  ) + $opts;
+}
+
+/**
+ * Implements theme_quant_page().
+ */
+function futurium_stats_theme_quant_page($vars) {
+
+  $content = '';
+  $content .= $vars['form'];
+
+  if ($vars['charts']) {
+    foreach ($vars['charts'] as $chart) {
+      $content .= $chart;
+    }
+  }
+
+  $views['users'] = array(
+    'title' => t('Users'),
+    'view' => 'statistics_users',
+    'class' => 'stats-user',
+    'displays' => array(
+      'most_active_users',
+    ),
+  );
+
+  $views['futures'] = array(
+    'title' => t('Futures'),
+    'view' => 'statistics',
+    'class' => 'stats-futures ',
+    'displays' => array(
+      'most_commented_futures',
+      'most_voted_futures',
+    ),
+  );
+
+  $views['ideas'] = array(
+    'title' => t('Ideas'),
+    'view' => 'statistics',
+    'class' => 'stats-ideas',
+    'displays' => array(
+      'most_commented_ideas',
+      'most_voted_ideas',
+    ),
+  );
+
+  foreach($views as $group => $data) {
+    $view_name = $data['view'];
+    $content .= '<div class="' . $data['class'] . '"><h1 class="element-invisible">' . $data['title'] . '</h1>';
+    foreach ($data['displays'] as $k => $display) {
+      $view = views_get_view($view_name);
+      if (!empty($view)) {
+        $view->set_display($display);
+        if (!empty($_GET['period'])) {
+          $filters = $view->display_handler->get_option('filters');
+          if (isset($filters['timestamp']['value'])) {
+            $p = '-' . str_replace('_', ' ', $_GET['period']);
+            $filters['timestamp']['value']['value'] = $p;
+            $view->display_handler->set_option('filters', $filters);
+            $view->pre_execute();
+          }
+        }
+        $content .= '<div class="stats-block"><h2>' . $view->get_title() . '</h2>';
+        $content .= $view->preview($display);
+        $content .= '</div>';
+      }
+    }
+    $content .= '</div>';
+  }
+
+  return '<div id="quant-page">' . $content . '</div>';
+}
